@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>THE TUFTER®</title>
-  <meta name="description" content="THE TUFTER® — Contemporary tufted objects.">
+  <meta
+    name="description"
+    content="THE TUFTER® — Contemporary tufted objects."
+  >
 
   <style>
     * {
@@ -30,18 +33,22 @@
       text-decoration: none;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 72px;
-      padding: 0 32px;
+      height: 70px;
+      padding: 0 28px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       z-index: 100;
       mix-blend-mode: difference;
       color: white;
@@ -50,15 +57,17 @@
     .logo {
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 25px;
+
       font-size: 10px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
@@ -86,11 +95,15 @@
       text-underline-offset: 4px;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 100vh;
-      padding: 110px 32px 30px;
+      padding: 100px 28px 28px;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -98,32 +111,56 @@
 
     .hero-center {
       flex: 1;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
     }
 
     .hero-title {
-      font-size: clamp(58px, 10vw, 150px);
-      line-height: 0.82;
-      letter-spacing: -0.075em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      font-size: clamp(60px, 9.5vw, 145px);
+      line-height: 0.86;
+
+      letter-spacing: -0.045em;
       font-weight: 800;
+    }
+
+    .hero-title span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-title .registered {
+      font-size: 0.42em;
+      vertical-align: top;
+      position: relative;
+      top: -0.35em;
+      margin-left: 0.04em;
     }
 
     .hero-bottom {
       display: flex;
       justify-content: space-between;
       align-items: end;
+
       font-size: 9px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    /* GENERAL */
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
 
     section {
-      padding: 120px 32px;
+      padding: 120px 28px;
     }
 
     .section-label {
@@ -133,7 +170,10 @@
       margin-bottom: 55px;
     }
 
-    /* DROPS */
+
+    /* =========================
+       DROPS
+    ========================= */
 
     .drops {
       background: #111;
@@ -141,37 +181,42 @@
     }
 
     .drop {
-      border-top: 1px solid rgba(243, 241, 235, 0.3);
+      border-top: 1px solid rgba(243, 241, 235, 0.28);
       padding: 28px 0 75px;
     }
 
     .drop:last-child {
-      border-bottom: 1px solid rgba(243, 241, 235, 0.3);
+      border-bottom: 1px solid rgba(243, 241, 235, 0.28);
     }
 
     .drop-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       font-size: 9px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 30px;
+
+      margin-bottom: 28px;
     }
 
     .drop-name {
-      font-size: clamp(42px, 6.5vw, 92px);
-      line-height: 0.88;
-      letter-spacing: -0.065em;
+      font-size: clamp(40px, 6vw, 88px);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
       font-weight: 700;
+
       max-width: 900px;
     }
 
     .drop-footer {
-      margin-top: 35px;
+      margin-top: 34px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       font-size: 9px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -182,7 +227,10 @@
       padding-bottom: 4px;
     }
 
-    /* SHOP */
+
+    /* =========================
+       SHOP
+    ========================= */
 
     .shop {
       background: #f3f1eb;
@@ -191,19 +239,26 @@
     .shop-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+
       border-top: 1px solid #111;
       border-left: 1px solid #111;
     }
 
     .shop-item {
       min-height: 220px;
+
       padding: 20px;
+
       border-right: 1px solid #111;
       border-bottom: 1px solid #111;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: background 0.35s ease, color 0.35s ease;
+
+      transition:
+        background 0.35s ease,
+        color 0.35s ease;
     }
 
     .shop-item:hover {
@@ -217,8 +272,8 @@
     }
 
     .shop-name {
-      font-size: clamp(23px, 2.6vw, 38px);
-      letter-spacing: -0.05em;
+      font-size: clamp(22px, 2.5vw, 37px);
+      letter-spacing: -0.045em;
       font-weight: 700;
     }
 
@@ -228,32 +283,40 @@
       text-transform: uppercase;
     }
 
-    /* CURRENT DROP */
+
+    /* =========================
+       CURRENT DROP
+    ========================= */
 
     .current {
       background: #dedbd2;
     }
 
     .current-title {
-      font-size: clamp(52px, 8vw, 115px);
-      line-height: 0.85;
-      letter-spacing: -0.07em;
+      font-size: clamp(50px, 7.5vw, 110px);
+      line-height: 0.86;
+      letter-spacing: -0.065em;
       font-weight: 800;
+
       margin-bottom: 60px;
     }
 
     .motifs {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
+
       border-top: 1px solid #111;
       border-left: 1px solid #111;
     }
 
     .motif {
       min-height: 150px;
+
       padding: 15px;
+
       border-right: 1px solid #111;
       border-bottom: 1px solid #111;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -271,36 +334,48 @@
 
     .current-link {
       margin-top: 35px;
+
       display: inline-block;
+
       border-bottom: 1px solid #111;
       padding-bottom: 5px;
+
       font-size: 9px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    /* ABOUT */
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-title {
       max-width: 900px;
+
       font-size: clamp(34px, 5vw, 70px);
       line-height: 0.95;
       letter-spacing: -0.06em;
       font-weight: 700;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: #111;
       color: #f3f1eb;
-      padding: 65px 32px 25px;
+
+      padding: 65px 28px 25px;
     }
 
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+
       margin-bottom: 100px;
     }
 
@@ -314,6 +389,7 @@
     .footer-links {
       display: flex;
       gap: 55px;
+
       font-size: 9px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -327,25 +403,31 @@
 
     .footer-bottom {
       padding-top: 18px;
+
       border-top: 1px solid rgba(243, 241, 235, 0.3);
+
       display: flex;
       justify-content: space-between;
+
       font-size: 8px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    /* MOBILE */
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 700px) {
 
       header {
         height: 60px;
-        padding: 0 18px;
+        padding: 0 17px;
       }
 
       nav {
-        gap: 12px;
+        gap: 11px;
         font-size: 8px;
       }
 
@@ -354,15 +436,16 @@
       }
 
       section {
-        padding: 90px 18px;
+        padding: 90px 17px;
       }
 
       .hero {
-        padding: 90px 18px 22px;
+        padding: 85px 17px 22px;
       }
 
       .hero-title {
-        font-size: 17vw;
+        font-size: 16vw;
+        line-height: 0.88;
       }
 
       .hero-bottom {
@@ -374,7 +457,7 @@
       }
 
       .drop-name {
-        font-size: 12vw;
+        font-size: 11.5vw;
       }
 
       .drop-footer {
@@ -401,6 +484,7 @@
       .footer-top {
         flex-direction: column;
         gap: 60px;
+
         margin-bottom: 70px;
       }
 
@@ -416,461 +500,846 @@
   </style>
 </head>
 
+
 <body>
 
-<header>
-  <a href="#" class="logo">THE TUFTER®</a>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  <nav>
-    <a href="#drops" data-i18n="drops">DROPS</a>
-    <a href="#shop" data-i18n="shop">SHOP</a>
-    <a href="#about" class="about-link" data-i18n="about">ABOUT</a>
+  <header>
 
-    <div class="languages">
-      <span data-lang="en" class="active">EN</span>
-      <span data-lang="tr">TR</span>
-      <span data-lang="el">EL</span>
-    </div>
+    <a href="#" class="logo">
+      THE TUFTER<span class="registered">®</span>
+    </a>
 
-    <a href="#" data-i18n="cart">CART</a>
-  </nav>
-</header>
+    <nav>
 
+      <a href="#drops" data-i18n="drops">
+        DROPS
+      </a>
 
-<main>
+      <a href="#shop" data-i18n="shop">
+        SHOP
+      </a>
 
-  <!-- HERO -->
+      <a href="#about" class="about-link" data-i18n="about">
+        ABOUT
+      </a>
 
-  <section class="hero">
-
-    <div class="hero-center">
-      <h1 class="hero-title">
-        THE<br>
-        TUFTER®
-      </h1>
-    </div>
-
-    <div class="hero-bottom">
-      <span data-i18n="heroSubtitle">
-        CONTEMPORARY TUFTED OBJECTS
-      </span>
-
-      <span data-i18n="scroll">
-        SCROLL TO EXPLORE ↓
-      </span>
-    </div>
-
-  </section>
-
-
-  <!-- DROPS -->
-
-  <section class="drops" id="drops">
-
-    <div class="section-label" data-i18n="dropsLabel">
-      THE DROPS / 001—003
-    </div>
-
-
-    <article class="drop">
-
-      <div class="drop-meta">
-        <span>001</span>
-        <span data-i18n="anatoliaCount">07 TUFTS</span>
+      <div class="languages">
+        <span data-lang="en" class="active">EN</span>
+        <span data-lang="tr">TR</span>
+        <span data-lang="el">EL</span>
       </div>
 
-      <h2 class="drop-name">
+      <a href="#" data-i18n="cart">
+        CART
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-center">
+
+        <h1 class="hero-title">
+
+          <span>THE</span>
+
+          <span>
+            TUFTER<span class="registered">®</span>
+          </span>
+
+        </h1>
+
+      </div>
+
+
+      <div class="hero-bottom">
+
+        <span data-i18n="heroSubtitle">
+          CONTEMPORARY TUFTED OBJECTS
+        </span>
+
+        <span data-i18n="scroll">
+          SCROLL TO EXPLORE ↓
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DROPS
+    ========================= -->
+
+    <section class="drops" id="drops">
+
+      <div class="section-label" data-i18n="dropsLabel">
+        THE DROPS / 001—003
+      </div>
+
+
+      <!-- DROP 001 -->
+
+      <article class="drop">
+
+        <div class="drop-meta">
+
+          <span>001</span>
+
+          <span data-i18n="anatoliaCount">
+            07 TUFTS
+          </span>
+
+        </div>
+
+
+        <h2 class="drop-name">
+          ANATOLIA
+        </h2>
+
+
+        <div class="drop-footer">
+
+          <span data-i18n="anatoliaDesc">
+            SYMBOLS OF THE LAND
+          </span>
+
+          <a href="#" class="explore" data-i18n="explore">
+            EXPLORE →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- DROP 002 -->
+
+      <article class="drop">
+
+        <div class="drop-meta">
+
+          <span>002</span>
+
+          <span data-i18n="khaganatesCount">
+            05 WALL HANGINGS
+          </span>
+
+        </div>
+
+
+        <h2 class="drop-name">
+          KHAGANATES
+        </h2>
+
+
+        <div class="drop-footer">
+
+          <span data-i18n="khaganatesDesc">
+            BANNERS OF LEGACY
+          </span>
+
+          <a href="#" class="explore" data-i18n="explore">
+            EXPLORE →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- DROP 003 -->
+
+      <article class="drop">
+
+        <div class="drop-meta">
+
+          <span>003</span>
+
+          <span data-i18n="otukenCount">
+            05 TUFTS
+          </span>
+
+        </div>
+
+
+        <h2 class="drop-name">
+
+          OTUKEN<br>
+          IS CALLIN' US
+
+        </h2>
+
+
+        <div class="drop-footer">
+
+          <span data-i18n="otukenDesc">
+            THE CALL OF THE ORIGIN
+          </span>
+
+          <a href="#" class="explore" data-i18n="explore">
+            EXPLORE →
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- =========================
+         SHOP
+    ========================= -->
+
+    <section class="shop" id="shop">
+
+      <div class="section-label" data-i18n="shopLabel">
+        SHOP
+      </div>
+
+
+      <div class="shop-grid">
+
+
+        <a href="#" class="shop-item">
+
+          <span class="shop-number">
+            01
+          </span>
+
+          <span class="shop-name" data-i18n="tufts">
+            TUFTS
+          </span>
+
+          <span class="coming" data-i18n="available">
+            AVAILABLE
+          </span>
+
+        </a>
+
+
+        <a href="#" class="shop-item">
+
+          <span class="shop-number">
+            02
+          </span>
+
+          <span class="shop-name" data-i18n="tees">
+            TEES
+          </span>
+
+          <span class="coming" data-i18n="comingSoon">
+            COMING SOON
+          </span>
+
+        </a>
+
+
+        <a href="#" class="shop-item">
+
+          <span class="shop-number">
+            03
+          </span>
+
+          <span class="shop-name" data-i18n="stickers">
+            STICKERS
+          </span>
+
+          <span class="coming" data-i18n="comingSoon">
+            COMING SOON
+          </span>
+
+        </a>
+
+
+        <a href="#" class="shop-item">
+
+          <span class="shop-number">
+            04
+          </span>
+
+          <span class="shop-name" data-i18n="handmade">
+            HANDMADE
+          </span>
+
+          <span class="coming" data-i18n="comingSoon">
+            COMING SOON
+          </span>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CURRENT DROP
+    ========================= -->
+
+    <section class="current">
+
+      <div class="section-label" data-i18n="currentDrop">
+        CURRENT DROP / 001
+      </div>
+
+
+      <h2 class="current-title">
         ANATOLIA
       </h2>
 
-      <div class="drop-footer">
-        <span data-i18n="anatoliaDesc">
-          SYMBOLS OF THE LAND
-        </span>
 
-        <a href="#" class="explore" data-i18n="explore">
-          EXPLORE →
-        </a>
+      <div class="motifs">
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            01
+          </span>
+
+          <span class="motif-name">
+            ELİBELİNDE
+          </span>
+
+        </div>
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            02
+          </span>
+
+          <span class="motif-name">
+            KOÇBOYNUZU
+          </span>
+
+        </div>
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            03
+          </span>
+
+          <span class="motif-name">
+            SUYOLU
+          </span>
+
+        </div>
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            04
+          </span>
+
+          <span class="motif-name">
+            BEREKET
+          </span>
+
+        </div>
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            05
+          </span>
+
+          <span class="motif-name">
+            PITIRAK
+          </span>
+
+        </div>
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            06
+          </span>
+
+          <span class="motif-name">
+            SAÇBAĞI
+          </span>
+
+        </div>
+
+
+        <div class="motif">
+
+          <span class="motif-number">
+            07
+          </span>
+
+          <span class="motif-name">
+            AKREP
+          </span>
+
+        </div>
+
+
       </div>
 
-    </article>
+
+      <a href="#" class="current-link" data-i18n="exploreAnatolia">
+        EXPLORE ANATOLIA →
+      </a>
+
+    </section>
 
 
-    <article class="drop">
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
-      <div class="drop-meta">
-        <span>002</span>
-        <span data-i18n="khaganatesCount">05 WALL HANGINGS</span>
+    <section id="about">
+
+      <div class="section-label" data-i18n="aboutLabel">
+        ABOUT THE TUFTER
       </div>
 
-      <h2 class="drop-name">
-        KHAGANATES
+
+      <h2 class="about-title" data-i18n="aboutText">
+        CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
       </h2>
 
-      <div class="drop-footer">
-        <span data-i18n="khaganatesDesc">
-          BANNERS OF LEGACY
-        </span>
+    </section>
 
-        <a href="#" class="explore" data-i18n="explore">
-          EXPLORE →
-        </a>
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-top">
+
+
+      <div class="footer-logo">
+
+        THE<br>
+        TUFTER<span class="registered">®</span>
+
       </div>
 
-    </article>
+
+      <div class="footer-links">
+
+        <div>
+
+          <a href="#drops" data-i18n="drops">
+            DROPS
+          </a>
+
+          <a href="#shop" data-i18n="shop">
+            SHOP
+          </a>
+
+          <a href="#about" data-i18n="about">
+            ABOUT
+          </a>
+
+        </div>
 
 
-    <article class="drop">
+        <div>
 
-      <div class="drop-meta">
-        <span>003</span>
-        <span data-i18n="otukenCount">05 TUFTS</span>
-      </div>
+          <a href="#" data-i18n="archive">
+            ARCHIVE
+          </a>
 
-      <h2 class="drop-name">
-        OTUKEN<br>
-        IS CALLIN' US
-      </h2>
+          <a href="#" data-i18n="contact">
+            CONTACT
+          </a>
 
-      <div class="drop-footer">
-        <span data-i18n="otukenDesc">
-          THE CALL OF THE ORIGIN
-        </span>
+          <a href="#" data-i18n="instagram">
+            INSTAGRAM
+          </a>
 
-        <a href="#" class="explore" data-i18n="explore">
-          EXPLORE →
-        </a>
-      </div>
+        </div>
 
-    </article>
-
-  </section>
-
-
-  <!-- SHOP -->
-
-  <section class="shop" id="shop">
-
-    <div class="section-label" data-i18n="shopLabel">
-      SHOP
-    </div>
-
-    <div class="shop-grid">
-
-      <a href="#" class="shop-item">
-        <span class="shop-number">01</span>
-        <span class="shop-name" data-i18n="tufts">TUFTS</span>
-        <span class="coming" data-i18n="available">AVAILABLE</span>
-      </a>
-
-      <a href="#" class="shop-item">
-        <span class="shop-number">02</span>
-        <span class="shop-name" data-i18n="tees">TEES</span>
-        <span class="coming" data-i18n="comingSoon">COMING SOON</span>
-      </a>
-
-      <a href="#" class="shop-item">
-        <span class="shop-number">03</span>
-        <span class="shop-name" data-i18n="stickers">STICKERS</span>
-        <span class="coming" data-i18n="comingSoon">COMING SOON</span>
-      </a>
-
-      <a href="#" class="shop-item">
-        <span class="shop-number">04</span>
-        <span class="shop-name" data-i18n="handmade">HANDMADE</span>
-        <span class="coming" data-i18n="comingSoon">COMING SOON</span>
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- CURRENT DROP -->
-
-  <section class="current">
-
-    <div class="section-label" data-i18n="currentDrop">
-      CURRENT DROP / 001
-    </div>
-
-    <h2 class="current-title">
-      ANATOLIA
-    </h2>
-
-    <div class="motifs">
-
-      <div class="motif">
-        <span class="motif-number">01</span>
-        <span class="motif-name">ELİBELİNDE</span>
-      </div>
-
-      <div class="motif">
-        <span class="motif-number">02</span>
-        <span class="motif-name">KOÇBOYNUZU</span>
-      </div>
-
-      <div class="motif">
-        <span class="motif-number">03</span>
-        <span class="motif-name">SUYOLU</span>
-      </div>
-
-      <div class="motif">
-        <span class="motif-number">04</span>
-        <span class="motif-name">BEREKET</span>
-      </div>
-
-      <div class="motif">
-        <span class="motif-number">05</span>
-        <span class="motif-name">PITIRAK</span>
-      </div>
-
-      <div class="motif">
-        <span class="motif-number">06</span>
-        <span class="motif-name">SAÇBAĞI</span>
-      </div>
-
-      <div class="motif">
-        <span class="motif-number">07</span>
-        <span class="motif-name">AKREP</span>
       </div>
 
     </div>
 
-    <a href="#" class="current-link" data-i18n="exploreAnatolia">
-      EXPLORE ANATOLIA →
-    </a>
 
-  </section>
+    <div class="footer-bottom">
 
+      <span>
+        © 2026 THE TUFTER®
+      </span>
 
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <div class="section-label" data-i18n="aboutLabel">
-      ABOUT THE TUFTER
-    </div>
-
-    <h2 class="about-title" data-i18n="aboutText">
-      CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
-    </h2>
-
-  </section>
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-top">
-
-    <div class="footer-logo">
-      THE<br>
-      TUFTER®
-    </div>
-
-    <div class="footer-links">
-
-      <div>
-        <a href="#drops" data-i18n="drops">DROPS</a>
-        <a href="#shop" data-i18n="shop">SHOP</a>
-        <a href="#about" data-i18n="about">ABOUT</a>
-      </div>
-
-      <div>
-        <a href="#" data-i18n="archive">ARCHIVE</a>
-        <a href="#" data-i18n="contact">CONTACT</a>
-        <a href="#" data-i18n="instagram">INSTAGRAM</a>
-      </div>
+      <span>
+        EN / TR / EL
+      </span>
 
     </div>
 
-  </div>
-
-  <div class="footer-bottom">
-    <span>© 2026 THE TUFTER®</span>
-    <span>EN / TR / EL</span>
-  </div>
-
-</footer>
+  </footer>
 
 
-<script>
+  <!-- =========================
+       LANGUAGE SYSTEM
+  ========================= -->
 
-  const translations = {
+  <script>
 
-    en: {
-      drops: "DROPS",
-      shop: "SHOP",
-      about: "ABOUT",
-      cart: "CART",
+    const translations = {
 
-      heroSubtitle: "CONTEMPORARY TUFTED OBJECTS",
-      scroll: "SCROLL TO EXPLORE ↓",
+      en: {
 
-      dropsLabel: "THE DROPS / 001—003",
+        drops: "DROPS",
+        shop: "SHOP",
+        about: "ABOUT",
+        cart: "CART",
 
-      anatoliaCount: "07 TUFTS",
-      anatoliaDesc: "SYMBOLS OF THE LAND",
+        heroSubtitle:
+          "CONTEMPORARY TUFTED OBJECTS",
 
-      khaganatesCount: "05 WALL HANGINGS",
-      khaganatesDesc: "BANNERS OF LEGACY",
+        scroll:
+          "SCROLL TO EXPLORE ↓",
 
-      otukenCount: "05 TUFTS",
-      otukenDesc: "THE CALL OF THE ORIGIN",
+        dropsLabel:
+          "THE DROPS / 001—003",
 
-      explore: "EXPLORE →",
+        anatoliaCount:
+          "07 TUFTS",
 
-      shopLabel: "SHOP",
-      tufts: "TUFTS",
-      tees: "TEES",
-      stickers: "STICKERS",
-      handmade: "HANDMADE",
+        anatoliaDesc:
+          "SYMBOLS OF THE LAND",
 
-      available: "AVAILABLE",
-      comingSoon: "COMING SOON",
+        khaganatesCount:
+          "05 WALL HANGINGS",
 
-      currentDrop: "CURRENT DROP / 001",
-      exploreAnatolia: "EXPLORE ANATOLIA →",
+        khaganatesDesc:
+          "BANNERS OF LEGACY",
 
-      aboutLabel: "ABOUT THE TUFTER",
-      aboutText: "CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.",
+        otukenCount:
+          "05 TUFTS",
 
-      archive: "ARCHIVE",
-      contact: "CONTACT",
-      instagram: "INSTAGRAM"
-    },
+        otukenDesc:
+          "THE CALL OF THE ORIGIN",
 
-    tr: {
-      drops: "DROPLAR",
-      shop: "MAĞAZA",
-      about: "HAKKIMIZDA",
-      cart: "SEPET",
+        explore:
+          "EXPLORE →",
 
-      heroSubtitle: "ÇAĞDAŞ TUFT OBJELERİ",
-      scroll: "KEŞFETMEK İÇİN KAYDIR ↓",
+        shopLabel:
+          "SHOP",
 
-      dropsLabel: "DROPLAR / 001—003",
+        tufts:
+          "TUFTS",
 
-      anatoliaCount: "07 TUFT",
-      anatoliaDesc: "TOPRAĞIN SEMBOLLERİ",
+        tees:
+          "TEES",
 
-      khaganatesCount: "05 DUVAR TEKSTİLİ",
-      khaganatesDesc: "MİRASIN SANCAKLARI",
+        stickers:
+          "STICKERS",
 
-      otukenCount: "05 TUFT",
-      otukenDesc: "KÖKENİN ÇAĞRISI",
+        handmade:
+          "HANDMADE",
 
-      explore: "KEŞFET →",
+        available:
+          "AVAILABLE",
 
-      shopLabel: "MAĞAZA",
-      tufts: "TUFTLAR",
-      tees: "TİŞÖRTLER",
-      stickers: "STICKERLAR",
-      handmade: "EL YAPIMI",
+        comingSoon:
+          "COMING SOON",
 
-      available: "SATIŞTA",
-      comingSoon: "ÇOK YAKINDA",
+        currentDrop:
+          "CURRENT DROP / 001",
 
-      currentDrop: "GÜNCEL DROP / 001",
-      exploreAnatolia: "ANATOLIA'YI KEŞFET →",
+        exploreAnatolia:
+          "EXPLORE ANATOLIA →",
 
-      aboutLabel: "THE TUFTER HAKKINDA",
-      aboutText: "KÜLTÜR, TASARIM VE ZANAATTAN BESLENEN ÇAĞDAŞ TUFT OBJELERİ.",
+        aboutLabel:
+          "ABOUT THE TUFTER",
 
-      archive: "ARŞİV",
-      contact: "İLETİŞİM",
-      instagram: "INSTAGRAM"
-    },
+        aboutText:
+          "CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.",
 
-    el: {
-      drops: "DROPS",
-      shop: "SHOP",
-      about: "ΣΧΕΤΙΚΑ",
-      cart: "ΚΑΛΑΘΙ",
+        archive:
+          "ARCHIVE",
 
-      heroSubtitle: "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ",
-      scroll: "ΚΑΝΤΕ ΚΥΛΙΣΗ ΓΙΑ ΕΞΕΡΕΥΝΗΣΗ ↓",
+        contact:
+          "CONTACT",
 
-      dropsLabel: "DROPS / 001—003",
+        instagram:
+          "INSTAGRAM"
 
-      anatoliaCount: "07 TUFTS",
-      anatoliaDesc: "ΣΥΜΒΟΛΑ ΤΗΣ ΓΗΣ",
-
-      khaganatesCount: "05 ΕΠΙΤΟΙΧΙΑ ΥΦΑΣΜΑΤΑ",
-      khaganatesDesc: "ΠΑΝΟ ΕΝΟΣ ΚΛΗΡΟΝΟΜΟΥ",
-
-      otukenCount: "05 TUFTS",
-      otukenDesc: "Η ΚΛΗΣΗ ΤΗΣ ΚΑΤΑΓΩΓΗΣ",
-
-      explore: "ΕΞΕΡΕΥΝΗΣΗ →",
-
-      shopLabel: "SHOP",
-      tufts: "TUFTS",
-      tees: "ΜΠΛΟΥΖΕΣ",
-      stickers: "ΑΥΤΟΚΟΛΛΗΤΑ",
-      handmade: "ΧΕΙΡΟΠΟΙΗΤΑ",
-
-      available: "ΔΙΑΘΕΣΙΜΟ",
-      comingSoon: "ΣΥΝΤΟΜΑ",
-
-      currentDrop: "ΤΡΕΧΟΝ DROP / 001",
-      exploreAnatolia: "ΕΞΕΡΕΥΝΗΣΗ ANATOLIA →",
-
-      aboutLabel: "ΣΧΕΤΙΚΑ ΜΕ ΤΟ THE TUFTER",
-      aboutText: "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ ΜΕ ΡΙΖΕΣ ΣΤΟΝ ΠΟΛΙΤΙΣΜΟ, ΤΟ DESIGN ΚΑΙ ΤΗΝ ΤΕΧΝΟΤΡΟΠΙΑ.",
-
-      archive: "ΑΡΧΕΙΟ",
-      contact: "ΕΠΙΚΟΙΝΩΝΙΑ",
-      instagram: "INSTAGRAM"
-    }
-
-  };
+      },
 
 
-  function setLanguage(lang) {
+      tr: {
 
-    document.documentElement.lang = lang;
+        drops:
+          "DROPLAR",
 
-    document.querySelectorAll("[data-i18n]").forEach(element => {
+        shop:
+          "MAĞAZA",
 
-      const key = element.getAttribute("data-i18n");
+        about:
+          "HAKKIMIZDA",
 
-      if (translations[lang][key]) {
-        element.textContent = translations[lang][key];
+        cart:
+          "SEPET",
+
+        heroSubtitle:
+          "ÇAĞDAŞ TUFT OBJELERİ",
+
+        scroll:
+          "KEŞFETMEK İÇİN KAYDIR ↓",
+
+        dropsLabel:
+          "DROPLAR / 001—003",
+
+        anatoliaCount:
+          "07 TUFT",
+
+        anatoliaDesc:
+          "TOPRAĞIN SEMBOLLERİ",
+
+        khaganatesCount:
+          "05 DUVAR TEKSTİLİ",
+
+        khaganatesDesc:
+          "MİRASIN SANCAKLARI",
+
+        otukenCount:
+          "05 TUFT",
+
+        otukenDesc:
+          "KÖKENİN ÇAĞRISI",
+
+        explore:
+          "KEŞFET →",
+
+        shopLabel:
+          "MAĞAZA",
+
+        tufts:
+          "TUFTLAR",
+
+        tees:
+          "TİŞÖRTLER",
+
+        stickers:
+          "STICKERLAR",
+
+        handmade:
+          "EL YAPIMI",
+
+        available:
+          "SATIŞTA",
+
+        comingSoon:
+          "ÇOK YAKINDA",
+
+        currentDrop:
+          "GÜNCEL DROP / 001",
+
+        exploreAnatolia:
+          "ANATOLIA'YI KEŞFET →",
+
+        aboutLabel:
+          "THE TUFTER HAKKINDA",
+
+        aboutText:
+          "KÜLTÜR, TASARIM VE ZANAATTAN BESLENEN ÇAĞDAŞ TUFT OBJELERİ.",
+
+        archive:
+          "ARŞİV",
+
+        contact:
+          "İLETİŞİM",
+
+        instagram:
+          "INSTAGRAM"
+
+      },
+
+
+      el: {
+
+        drops:
+          "DROPS",
+
+        shop:
+          "SHOP",
+
+        about:
+          "ΣΧΕΤΙΚΑ",
+
+        cart:
+          "ΚΑΛΑΘΙ",
+
+        heroSubtitle:
+          "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ",
+
+        scroll:
+          "ΚΑΝΤΕ ΚΥΛΙΣΗ ΓΙΑ ΕΞΕΡΕΥΝΗΣΗ ↓",
+
+        dropsLabel:
+          "DROPS / 001—003",
+
+        anatoliaCount:
+          "07 TUFTS",
+
+        anatoliaDesc:
+          "ΣΥΜΒΟΛΑ ΤΗΣ ΓΗΣ",
+
+        khaganatesCount:
+          "05 ΕΠΙΤΟΙΧΙΑ ΥΦΑΣΜΑΤΑ",
+
+        khaganatesDesc:
+          "ΠΑΝΟ ΕΝΟΣ ΚΛΗΡΟΝΟΜΟΥ",
+
+        otukenCount:
+          "05 TUFTS",
+
+        otukenDesc:
+          "Η ΚΛΗΣΗ ΤΗΣ ΚΑΤΑΓΩΓΗΣ",
+
+        explore:
+          "ΕΞΕΡΕΥΝΗΣΗ →",
+
+        shopLabel:
+          "SHOP",
+
+        tufts:
+          "TUFTS",
+
+        tees:
+          "ΜΠΛΟΥΖΕΣ",
+
+        stickers:
+          "ΑΥΤΟΚΟΛΛΗΤΑ",
+
+        handmade:
+          "ΧΕΙΡΟΠΟΙΗΤΑ",
+
+        available:
+          "ΔΙΑΘΕΣΙΜΟ",
+
+        comingSoon:
+          "ΣΥΝΤΟΜΑ",
+
+        currentDrop:
+          "ΤΡΕΧΟΝ DROP / 001",
+
+        exploreAnatolia:
+          "ΕΞΕΡΕΥΝΗΣΗ ANATOLIA →",
+
+        aboutLabel:
+          "ΣΧΕΤΙΚΑ ΜΕ ΤΟ THE TUFTER",
+
+        aboutText:
+          "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ ΜΕ ΡΙΖΕΣ ΣΤΟΝ ΠΟΛΙΤΙΣΜΟ, ΤΟ DESIGN ΚΑΙ ΤΗΝ ΤΕΧΝΟΤΡΟΠΙΑ.",
+
+        archive:
+          "ΑΡΧΕΙΟ",
+
+        contact:
+          "ΕΠΙΚΟΙΝΩΝΙΑ",
+
+        instagram:
+          "INSTAGRAM"
+
       }
 
-    });
+    };
 
-    document.querySelectorAll("[data-lang]").forEach(element => {
-      element.classList.toggle(
-        "active",
-        element.getAttribute("data-lang") === lang
+
+    function setLanguage(lang) {
+
+      document.documentElement.lang = lang;
+
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+          const key =
+            element.getAttribute("data-i18n");
+
+          if (
+            translations[lang] &&
+            translations[lang][key]
+          ) {
+
+            element.textContent =
+              translations[lang][key];
+
+          }
+
+        });
+
+
+      document
+        .querySelectorAll("[data-lang]")
+        .forEach(element => {
+
+          element.classList.toggle(
+            "active",
+            element.getAttribute("data-lang") === lang
+          );
+
+        });
+
+
+      localStorage.setItem(
+        "tufter-language",
+        lang
       );
-    });
 
-    localStorage.setItem("tufter-language", lang);
-  }
+    }
 
 
-  document.querySelectorAll("[data-lang]").forEach(element => {
+    document
+      .querySelectorAll("[data-lang]")
+      .forEach(element => {
 
-    element.addEventListener("click", () => {
-      setLanguage(element.getAttribute("data-lang"));
-    });
+        element.addEventListener(
+          "click",
+          () => {
 
-  });
+            setLanguage(
+              element.getAttribute("data-lang")
+            );
+
+          }
+        );
+
+      });
 
 
-  const savedLanguage =
-    localStorage.getItem("tufter-language") || "en";
+    const savedLanguage =
+      localStorage.getItem("tufter-language") || "en";
 
-  setLanguage(savedLanguage);
 
-</script>
+    setLanguage(savedLanguage);
+
+  </script>
 
 </body>
 </html>
