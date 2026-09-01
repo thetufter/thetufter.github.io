@@ -389,6 +389,30 @@
 
       pointer-events: none;
 
+      -webkit-mask-image:
+        linear-gradient(
+          to right,
+          transparent 0%,
+          #000 14%,
+          #000 86%,
+          transparent 100%
+        );
+
+      mask-image:
+        linear-gradient(
+          to right,
+          transparent 0%,
+          #000 14%,
+          #000 86%,
+          transparent 100%
+        );
+
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+
       filter:
         drop-shadow(
           0 28px 50px rgba(0, 0, 0, 0.42)
@@ -529,7 +553,7 @@
     .drop-card-bottom {
       display: flex;
 
-      justify-content: space-between;
+      justify-content: flex-end;
 
       align-items: flex-end;
 
@@ -639,18 +663,21 @@
     }
 
     .shop-item:hover {
+
       background: #111;
 
       color: #f3f1eb;
     }
 
     .shop-number {
+
       font-size: 9px;
 
       letter-spacing: 0.1em;
     }
 
     .shop-name {
+
       font-size:
         clamp(22px, 2.5vw, 37px);
 
@@ -660,6 +687,7 @@
     }
 
     .coming {
+
       font-size: 8px;
 
       letter-spacing: 0.1em;
@@ -673,10 +701,12 @@
     ========================================================= */
 
     .current {
+
       background: #dedbd2;
     }
 
     .current-title {
+
       font-size:
         clamp(50px, 7.5vw, 110px);
 
@@ -690,6 +720,7 @@
     }
 
     .current-subline {
+
       display: flex;
 
       justify-content: space-between;
@@ -706,6 +737,7 @@
     }
 
     .motifs {
+
       display: grid;
 
       grid-template-columns:
@@ -717,6 +749,7 @@
     }
 
     .motif {
+
       min-height: 180px;
 
       padding: 15px;
@@ -737,16 +770,19 @@
     }
 
     .motif:hover {
+
       background: #111;
 
       color: #f3f1eb;
     }
 
     .motif-number {
+
       font-size: 8px;
     }
 
     .motif-name {
+
       font-size: 13px;
 
       letter-spacing: -0.02em;
@@ -755,6 +791,7 @@
     }
 
     .current-link {
+
       margin-top: 35px;
 
       display: inline-block;
@@ -776,6 +813,7 @@
     ========================================================= */
 
     .about-title {
+
       max-width: 1000px;
 
       font-size:
@@ -794,6 +832,7 @@
     ========================================================= */
 
     footer {
+
       background: #111;
 
       color: #f3f1eb;
@@ -802,6 +841,7 @@
     }
 
     .footer-top {
+
       display: flex;
 
       justify-content: space-between;
@@ -812,6 +852,7 @@
     }
 
     .footer-logo {
+
       font-size:
         clamp(38px, 6vw, 80px);
 
@@ -824,6 +865,7 @@
 
     .footer-logo
     .registered {
+
       font-size: 0.3em;
 
       position: relative;
@@ -834,6 +876,7 @@
     }
 
     .footer-links {
+
       display: flex;
 
       gap: 55px;
@@ -846,6 +889,7 @@
     }
 
     .footer-links div {
+
       display: flex;
 
       flex-direction: column;
@@ -854,15 +898,18 @@
     }
 
     .footer-links a {
+
       transition:
         opacity 0.25s ease;
     }
 
     .footer-links a:hover {
+
       opacity: 0.5;
     }
 
     .footer-bottom {
+
       padding-top: 18px;
 
       border-top:
@@ -892,10 +939,12 @@
     @media (max-width: 900px) {
 
       .drops-grid {
+
         min-height: 58vh;
       }
 
       .drop-card {
+
         min-height: 58vh;
 
         padding:
@@ -903,10 +952,12 @@
       }
 
       .drop-card:hover {
+
         flex: 1.5 1 0;
       }
 
       .drop-card-name {
+
         font-size:
           clamp(
             29px,
@@ -916,11 +967,13 @@
       }
 
       .shop-grid {
+
         grid-template-columns:
           repeat(2, 1fr);
       }
 
       .motifs {
+
         grid-template-columns:
           repeat(2, 1fr);
       }
@@ -934,6 +987,7 @@
     @media (max-width: 700px) {
 
       header {
+
         height: 60px;
 
         padding:
@@ -941,68 +995,74 @@
       }
 
       nav {
+
         gap: 11px;
 
         font-size: 8px;
       }
 
       nav .about-link {
+
         display: none;
       }
 
       section {
+
         padding:
           90px 17px;
       }
 
       .hero {
+
         padding:
           85px 17px 22px;
       }
 
       .hero-title {
+
         font-size: 16vw;
 
         line-height: 0.88;
       }
 
       .hero-bottom {
+
         font-size: 7px;
       }
 
 
-      /* MOBILE DROPS */
+      /* -------------------------------------------------------
+         MOBILE DROPS
+      ------------------------------------------------------- */
 
       .drops {
+
         padding:
           78px 0 78px;
       }
 
       .drops-label-row {
+
         padding:
           0 17px;
 
-        margin-bottom:
-          28px;
+        margin-bottom: 28px;
       }
 
       .drops-grid {
-        min-height:
-          68vh;
+
+        min-height: 68vh;
 
         width: 100%;
 
-        overflow-x:
-          auto;
+        overflow-x: auto;
 
-        overflow-y:
-          hidden;
+        overflow-y: hidden;
 
         scroll-snap-type:
           x mandatory;
 
-        scrollbar-width:
-          none;
+        scrollbar-width: none;
 
         border-top:
           1px solid rgba(
@@ -1022,16 +1082,16 @@
       }
 
       .drops-grid::-webkit-scrollbar {
-        display:
-          none;
+
+        display: none;
       }
 
       .drop-card {
+
         flex:
           0 0 82vw;
 
-        width:
-          82vw;
+        width: 82vw;
 
         min-height:
           68vh;
@@ -1052,126 +1112,125 @@
       }
 
       .drop-card:hover {
+
         flex:
           0 0 82vw;
       }
 
       .drops-grid:hover
       .drop-card:not(:hover) {
-        opacity:
-          1;
+
+        opacity: 1;
       }
 
       .drop-card-name {
-        font-size:
-          13vw;
+
+        font-size: 13vw;
       }
 
       .drop-card-description {
-        opacity:
-          0.55;
 
-        transform:
-          none;
+        opacity: 0.55;
 
-        max-width:
-          220px;
+        transform: none;
+
+        max-width: 220px;
       }
 
       .drop-enter {
-        opacity:
-          1;
 
-        transform:
-          none;
+        opacity: 1;
+
+        transform: none;
       }
 
       .drop-card-premium
       .drop-card-name {
-        font-size:
-          12.2vw;
+
+        font-size: 12.2vw;
       }
 
 
       /* MOBILE KOÇBOYNUZU */
 
       .drop-card-image {
-        width:
-          76%;
 
-        top:
-          52%;
+        width: 76%;
+
+        top: 52%;
       }
 
 
-      /* SHOP */
+      /* -------------------------------------------------------
+         SHOP
+      ------------------------------------------------------- */
 
       .shop-grid {
+
         grid-template-columns:
           repeat(2, 1fr);
       }
 
       .shop-item {
-        min-height:
-          160px;
 
-        padding:
-          15px;
+        min-height: 160px;
+
+        padding: 15px;
       }
 
 
-      /* CURRENT DROP */
+      /* -------------------------------------------------------
+         CURRENT DROP
+      ------------------------------------------------------- */
 
       .motifs {
+
         grid-template-columns:
           repeat(2, 1fr);
       }
 
       .motif {
-        min-height:
-          125px;
+
+        min-height: 125px;
       }
 
       .motif-name {
-        font-size:
-          12px;
+
+        font-size: 12px;
       }
 
       .current-subline {
-        flex-direction:
-          column;
 
-        gap:
-          8px;
+        flex-direction: column;
+
+        gap: 8px;
       }
 
 
-      /* FOOTER */
+      /* -------------------------------------------------------
+         FOOTER
+      ------------------------------------------------------- */
 
       .footer-top {
-        flex-direction:
-          column;
 
-        gap:
-          60px;
+        flex-direction: column;
 
-        margin-bottom:
-          70px;
+        gap: 60px;
+
+        margin-bottom: 70px;
       }
 
       .footer-links {
-        gap:
-          35px;
+
+        gap: 35px;
       }
 
       .footer-bottom {
-        flex-direction:
-          column;
 
-        gap:
-          10px;
+        flex-direction: column;
+
+        gap: 10px;
       }
-
     }
 
 
@@ -1182,49 +1241,48 @@
     @media (max-width: 430px) {
 
       nav {
-        gap:
-          8px;
+
+        gap: 8px;
       }
 
       .languages {
-        gap:
-          5px;
+
+        gap: 5px;
       }
 
       .hero-title {
-        font-size:
-          17vw;
+
+        font-size: 17vw;
       }
 
       .drop-card {
-        flex-basis:
-          88vw;
 
-        width:
-          88vw;
+        flex-basis: 88vw;
+
+        width: 88vw;
       }
 
       .drop-card:hover {
-        flex-basis:
-          88vw;
+
+        flex-basis: 88vw;
       }
 
       .drop-card-name {
-        font-size:
-          14vw;
+
+        font-size: 14vw;
       }
 
       .drop-card-premium
       .drop-card-name {
-        font-size:
-          13vw;
+
+        font-size: 13vw;
       }
 
       .motifs {
+
         grid-template-columns:
           1fr 1fr;
       }
-
     }
 
   </style>
@@ -1329,11 +1387,8 @@
             THE
           </span>
 
-
           <span class="brand-word">
-
             TUFTER<span class="registered">®</span>
-
           </span>
 
         </h1>
@@ -1346,7 +1401,6 @@
         <span data-i18n="heroSubtitle">
           CONTEMPORARY TUFTED OBJECTS
         </span>
-
 
         <span data-i18n="scroll">
           SCROLL TO EXPLORE ↓
@@ -1368,7 +1422,6 @@
 
 
       <div class="drops-label-row">
-
 
         <div
           class="section-label"
@@ -1537,7 +1590,6 @@
               class="drop-card-count"
               data-i18n="otukenCount"
             >
-
               05 OBJECTS
 
               <span class="premium-tag">
@@ -1620,14 +1672,12 @@
             01
           </span>
 
-
           <span
             class="shop-name"
             data-i18n="tufts"
           >
             TUFTS
           </span>
-
 
           <span
             class="coming"
@@ -1648,14 +1698,12 @@
             02
           </span>
 
-
           <span
             class="shop-name"
             data-i18n="tees"
           >
             TEES
           </span>
-
 
           <span
             class="coming"
@@ -1676,14 +1724,12 @@
             03
           </span>
 
-
           <span
             class="shop-name"
             data-i18n="stickers"
           >
             STICKERS
           </span>
-
 
           <span
             class="coming"
@@ -1704,14 +1750,12 @@
             04
           </span>
 
-
           <span
             class="shop-name"
             data-i18n="handmade"
           >
             HANDMADE
           </span>
-
 
           <span
             class="coming"
@@ -1728,7 +1772,7 @@
 
 
     <!-- =======================================================
-         CURRENT DROP — ANATOLIA
+         DROP 001 — ANATOLIA
     ======================================================= -->
 
     <section
@@ -1755,7 +1799,6 @@
         <span data-i18n="currentDropIntro">
           FIVE SYMBOLS / ONE DROP
         </span>
-
 
         <span>
           001—005
@@ -1885,6 +1928,7 @@
       <div class="footer-logo">
 
         THE
+
         <br>
 
         TUFTER<span class="registered">®</span>
@@ -1904,14 +1948,12 @@
             DROPS
           </a>
 
-
           <a
             href="#shop"
             data-i18n="shop"
           >
             SHOP
           </a>
-
 
           <a
             href="#about"
@@ -1932,14 +1974,12 @@
             ARCHIVE
           </a>
 
-
           <a
             href="#"
             data-i18n="contact"
           >
             CONTACT
           </a>
-
 
           <a
             href="#"
@@ -1960,7 +2000,6 @@
       <span>
         © 2026 THE TUFTER®
       </span>
-
 
       <span>
         EN / TR / EL
@@ -2349,10 +2388,10 @@
     const savedLanguage =
       localStorage.getItem("tufter-language") || "en";
 
-
     setLanguage(savedLanguage);
 
   </script>
+
 
 </body>
 
