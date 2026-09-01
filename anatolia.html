@@ -17,6 +17,10 @@
 
   <style>
 
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     *{
       margin:0;
       padding:0;
@@ -115,6 +119,7 @@
       appearance:none;
       border:0;
       outline:0;
+
       background:none;
       color:inherit;
 
@@ -215,7 +220,8 @@
 
       gap:1px;
 
-      background:rgba(243,241,235,.25);
+      background:
+        rgba(243,241,235,.25);
 
       border-top:
         1px solid
@@ -363,11 +369,11 @@
       object-fit:cover;
 
       /*
-        ONLY THE CROPPING POSITION IS MOVED DOWN.
-        IMAGE SCALE / SIZE REMAINS UNCHANGED.
+        KADRAJ AŞAĞI ALINDI
+        Görselin oranı / boyutu değişmiyor.
       */
 
-      object-position:center 58%;
+      object-position:center 22%;
 
       opacity:.72;
 
@@ -481,6 +487,7 @@
       line-height:1;
 
       letter-spacing:.12em;
+
       text-transform:uppercase;
 
       opacity:.45;
@@ -727,6 +734,7 @@
             21px
           );
       }
+
     }
 
 
@@ -805,7 +813,7 @@
       }
 
 
-      /* MOBILE NUMBER */
+      /* NUMBER */
 
       .product-no{
         top:18px;
@@ -819,10 +827,10 @@
 
       .product-koç{
         /*
-          Same visual adjustment on mobile.
+          Aynı şekilde aşağı alınmış kadraj.
         */
 
-        object-position:center 58%;
+        object-position:center 22%;
 
         opacity:.8;
 
@@ -997,8 +1005,6 @@
         ABOUT
       </a>
 
-
-      <!-- LANGUAGE SWITCHER -->
 
       <div class="languages">
 
@@ -1448,7 +1454,6 @@
 
     <div class="footer-top">
 
-
       <div class="footer-logo">
         THE<br>
         TUFTER<span class="registered">®</span>
@@ -1537,6 +1542,10 @@
 
     const translations = {
 
+      /* =======================================================
+         ENGLISH
+      ======================================================= */
+
       en: {
 
         drops:
@@ -1599,6 +1608,10 @@
       },
 
 
+      /* =======================================================
+         TÜRKÇE
+      ======================================================= */
+
       tr: {
 
         drops:
@@ -1660,6 +1673,10 @@
 
       },
 
+
+      /* =======================================================
+         ΕΛΛΗΝΙΚΑ
+      ======================================================= */
 
       el: {
 
@@ -1726,7 +1743,7 @@
 
 
     /* =========================================================
-       LANGUAGE
+       SET LANGUAGE
     ========================================================= */
 
     function setLanguage(lang){
@@ -1734,6 +1751,7 @@
       if(!translations[lang]){
         lang = "en";
       }
+
 
       document.documentElement.lang = lang;
 
@@ -1779,7 +1797,7 @@
 
 
     /* =========================================================
-       LANGUAGE BUTTONS
+       LANGUAGE BUTTON EVENTS
     ========================================================= */
 
     document
