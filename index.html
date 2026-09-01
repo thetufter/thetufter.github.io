@@ -389,6 +389,12 @@
 
       pointer-events: none;
 
+      /*
+        Görselin kenarlarını siyaha yumuşatıyoruz.
+        Böylece PNG kutu gibi görünmek yerine
+        karanlıktan çıkıyormuş hissi veriyor.
+      */
+
       -webkit-mask-image:
         linear-gradient(
           to right,
@@ -408,9 +414,11 @@
         );
 
       -webkit-mask-repeat: no-repeat;
+
       mask-repeat: no-repeat;
 
       -webkit-mask-size: 100% 100%;
+
       mask-size: 100% 100%;
 
       filter:
@@ -1446,7 +1454,7 @@
         =================================================== -->
 
         <a
-          href="#current"
+          href="anatolia.html"
           class="drop-card drop-card-anatolia"
         >
 
@@ -1772,7 +1780,7 @@
 
 
     <!-- =======================================================
-         DROP 001 — ANATOLIA
+         CURRENT DROP
     ======================================================= -->
 
     <section
@@ -1878,7 +1886,7 @@
 
 
       <a
-        href="#"
+        href="anatolia.html"
         class="current-link"
         data-i18n="exploreAnatolia"
       >
