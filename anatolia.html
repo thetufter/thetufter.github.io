@@ -17,10 +17,6 @@
 
   <style>
 
-    /* =========================================================
-       RESET
-    ========================================================= */
-
     *{
       margin:0;
       padding:0;
@@ -89,7 +85,6 @@
     nav{
       display:flex;
       align-items:center;
-
       gap:24px;
 
       font-size:10px;
@@ -113,18 +108,14 @@
     .languages{
       display:flex;
       align-items:center;
-
       gap:7px;
     }
 
     .languages button{
       appearance:none;
-
       border:0;
       outline:0;
-
       background:none;
-
       color:inherit;
 
       padding:0;
@@ -140,9 +131,7 @@
 
       opacity:.35;
 
-      transition:
-        opacity .25s ease,
-        transform .25s ease;
+      transition:opacity .25s ease;
     }
 
     .languages button:hover{
@@ -201,7 +190,6 @@
       gap:20px;
 
       font-size:9px;
-
       letter-spacing:.1em;
 
       text-transform:uppercase;
@@ -209,7 +197,7 @@
 
 
     /* =========================================================
-       PRODUCTS SECTION
+       PRODUCTS
     ========================================================= */
 
     .products{
@@ -227,8 +215,7 @@
 
       gap:1px;
 
-      background:
-        rgba(243,241,235,.25);
+      background:rgba(243,241,235,.25);
 
       border-top:
         1px solid
@@ -299,7 +286,7 @@
 
 
     /* =========================================================
-       DEFAULT ART AREA
+       DEFAULT ART
     ========================================================= */
 
     .product-art{
@@ -324,6 +311,8 @@
 
       aspect-ratio:1;
 
+      display:block;
+
       border:
         1px solid
         rgba(243,241,235,.12);
@@ -346,7 +335,7 @@
 
 
     /* =========================================================
-       KOÇBOYNUZU IMAGE
+       KOÇBOYNUZU
     ========================================================= */
 
     .product-koç-art{
@@ -373,7 +362,12 @@
 
       object-fit:cover;
 
-      object-position:center;
+      /*
+        ONLY THE CROPPING POSITION IS MOVED DOWN.
+        IMAGE SCALE / SIZE REMAINS UNCHANGED.
+      */
+
+      object-position:center 58%;
 
       opacity:.72;
 
@@ -421,9 +415,7 @@
 
 
     /* =========================================================
-       SINGLE OVERLAY SYSTEM
-    =========================================================
-       Title + meaning + meta are now one composition.
+       SINGLE OVERLAY
     ========================================================= */
 
     .product-overlay{
@@ -469,13 +461,11 @@
     .product:focus-visible .product-overlay,
     .product.is-open .product-overlay{
       opacity:1;
-
       transform:translateY(0);
     }
 
     .product-overlay-inner{
       width:100%;
-
       max-width:720px;
     }
 
@@ -488,11 +478,9 @@
       margin-bottom:11px;
 
       font-size:8px;
-
       line-height:1;
 
       letter-spacing:.12em;
-
       text-transform:uppercase;
 
       opacity:.45;
@@ -748,8 +736,6 @@
 
     @media(max-width:700px){
 
-      /* HEADER */
-
       header{
         height:60px;
 
@@ -808,10 +794,7 @@
       }
 
 
-      /*
-        MOBILE CARD
-        4:5 oran.
-      */
+      /* MOBILE CARD */
 
       .product{
         min-height:0;
@@ -822,7 +805,7 @@
       }
 
 
-      /* NUMBER */
+      /* MOBILE NUMBER */
 
       .product-no{
         top:18px;
@@ -832,27 +815,28 @@
       }
 
 
-      /* IMAGE */
+      /* MOBILE KOÇBOYNUZU */
 
       .product-koç{
+        /*
+          Same visual adjustment on mobile.
+        */
+
+        object-position:center 58%;
+
         opacity:.8;
 
         transform:scale(1.01);
       }
 
 
-      /* OVERLAY */
+      /* MOBILE OVERLAY */
 
       .product-overlay{
         align-items:flex-end;
 
         padding:
           22px 18px;
-
-        /*
-          Mobile'da başlangıçta görünmez.
-          Dokununca .is-open ile açılır.
-        */
 
         background:
           linear-gradient(
@@ -868,6 +852,10 @@
 
             rgba(17,17,17,0) 100%
           );
+
+        opacity:0;
+
+        transform:translateY(15px);
       }
 
       .product-overlay-inner{
@@ -1018,7 +1006,6 @@
           type="button"
           data-lang="en"
           class="active"
-          aria-label="English"
         >
           EN
         </button>
@@ -1026,7 +1013,6 @@
         <button
           type="button"
           data-lang="tr"
-          aria-label="Türkçe"
         >
           TR
         </button>
@@ -1034,7 +1020,6 @@
         <button
           type="button"
           data-lang="el"
-          aria-label="Ελληνικά"
         >
           EL
         </button>
@@ -1052,6 +1037,7 @@
     </nav>
 
   </header>
+
 
 
   <!-- =========================================================
@@ -1551,11 +1537,6 @@
 
     const translations = {
 
-
-      /* =======================================================
-         ENGLISH
-      ======================================================= */
-
       en: {
 
         drops:
@@ -1618,10 +1599,6 @@
       },
 
 
-      /* =======================================================
-         TÜRKÇE
-      ======================================================= */
-
       tr: {
 
         drops:
@@ -1683,10 +1660,6 @@
 
       },
 
-
-      /* =======================================================
-         ΕΛΛΗΝΙΚΑ
-      ======================================================= */
 
       el: {
 
@@ -1753,7 +1726,7 @@
 
 
     /* =========================================================
-       SET LANGUAGE
+       LANGUAGE
     ========================================================= */
 
     function setLanguage(lang){
@@ -1762,15 +1735,8 @@
         lang = "en";
       }
 
-
       document.documentElement.lang = lang;
 
-
-      /*
-        Replace translated elements.
-        innerHTML is intentional because some meta strings
-        contain <br>.
-      */
 
       document
         .querySelectorAll("[data-i18n]")
@@ -1792,10 +1758,6 @@
         });
 
 
-      /*
-        Active language button
-      */
-
       document
         .querySelectorAll("[data-lang]")
         .forEach(element => {
@@ -1808,10 +1770,6 @@
         });
 
 
-      /*
-        Save language
-      */
-
       localStorage.setItem(
         "tufter-language",
         lang
@@ -1821,7 +1779,7 @@
 
 
     /* =========================================================
-       LANGUAGE BUTTON EVENTS
+       LANGUAGE BUTTONS
     ========================================================= */
 
     document
@@ -1845,7 +1803,7 @@
 
 
     /* =========================================================
-       MOBILE PRODUCT OPEN / CLOSE
+       MOBILE CARD INTERACTION
     ========================================================= */
 
     const products =
@@ -1858,14 +1816,9 @@
         "click",
         event => {
 
-          /*
-            On touch devices the first tap opens the
-            composition instead of navigating to "#".
-          */
-
           if(
             window.matchMedia(
-              "(max-width: 700px)"
+              "(max-width:700px)"
             ).matches
           ){
 
@@ -1893,7 +1846,7 @@
 
 
     /* =========================================================
-       CLICK OUTSIDE — CLOSE MOBILE CARD
+       CLOSE MOBILE CARD WHEN CLICKING OUTSIDE
     ========================================================= */
 
     document.addEventListener(
@@ -1902,7 +1855,7 @@
 
         if(
           !window.matchMedia(
-            "(max-width: 700px)"
+            "(max-width:700px)"
           ).matches
         ){
           return;
@@ -1929,7 +1882,6 @@
 
     const savedLanguage =
       localStorage.getItem("tufter-language") || "en";
-
 
     setLanguage(savedLanguage);
 
