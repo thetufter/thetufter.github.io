@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -15,6 +16,11 @@
   >
 
   <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     *{
       margin:0;
       padding:0;
@@ -41,6 +47,7 @@
       font:inherit;
     }
 
+
     /* =========================================================
        HEADER
     ========================================================= */
@@ -49,8 +56,10 @@
       position:fixed;
       top:0;
       left:0;
+
       width:100%;
       height:68px;
+
       padding:0 28px;
 
       display:flex;
@@ -59,8 +68,9 @@
 
       z-index:100;
 
-      mix-blend-mode:difference;
       color:#fff;
+
+      mix-blend-mode:difference;
     }
 
     .logo{
@@ -79,7 +89,8 @@
     nav{
       display:flex;
       align-items:center;
-      gap:25px;
+
+      gap:24px;
 
       font-size:10px;
       letter-spacing:.09em;
@@ -94,6 +105,7 @@
       opacity:.5;
     }
 
+
     /* =========================================================
        LANGUAGE SWITCHER
     ========================================================= */
@@ -101,13 +113,18 @@
     .languages{
       display:flex;
       align-items:center;
-      gap:8px;
+
+      gap:7px;
     }
 
     .languages button{
       appearance:none;
+
       border:0;
+      outline:0;
+
       background:none;
+
       color:inherit;
 
       padding:0;
@@ -117,12 +134,15 @@
 
       font-size:10px;
       line-height:1;
+
       letter-spacing:.09em;
       text-transform:uppercase;
 
       opacity:.35;
 
-      transition:opacity .25s ease;
+      transition:
+        opacity .25s ease,
+        transform .25s ease;
     }
 
     .languages button:hover{
@@ -132,6 +152,7 @@
     .languages button.active{
       opacity:1;
     }
+
 
     /* =========================================================
        HERO
@@ -162,9 +183,11 @@
 
     .hero h1{
       font-size:clamp(72px,13vw,190px);
+
       line-height:.82;
 
       letter-spacing:-.075em;
+
       font-weight:800;
     }
 
@@ -172,16 +195,21 @@
       margin-top:35px;
 
       display:flex;
+      align-items:center;
       justify-content:space-between;
+
       gap:20px;
 
       font-size:9px;
+
       letter-spacing:.1em;
+
       text-transform:uppercase;
     }
 
+
     /* =========================================================
-       PRODUCTS
+       PRODUCTS SECTION
     ========================================================= */
 
     .products{
@@ -193,96 +221,140 @@
 
     .product-grid{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+
+      grid-template-columns:
+        repeat(2,minmax(0,1fr));
 
       gap:1px;
 
-      background:rgba(243,241,235,.25);
+      background:
+        rgba(243,241,235,.25);
 
-      border-top:1px solid rgba(243,241,235,.25);
-      border-left:1px solid rgba(243,241,235,.25);
+      border-top:
+        1px solid
+        rgba(243,241,235,.25);
+
+      border-left:
+        1px solid
+        rgba(243,241,235,.25);
     }
+
+
+    /* =========================================================
+       PRODUCT CARD
+    ========================================================= */
 
     .product{
       position:relative;
 
-      min-height:620px;
+      width:100%;
+
+      aspect-ratio:3 / 2;
 
       padding:22px;
 
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      display:block;
 
       background:#111;
 
       overflow:hidden;
 
-      border-right:1px solid rgba(243,241,235,.25);
-      border-bottom:1px solid rgba(243,241,235,.25);
+      border-right:
+        1px solid
+        rgba(243,241,235,.25);
 
-      transition:background .45s ease;
+      border-bottom:
+        1px solid
+        rgba(243,241,235,.25);
+
+      transition:
+        background .45s ease;
     }
 
     .product:hover{
       background:#171717;
     }
 
+
     /* =========================================================
        PRODUCT NUMBER
     ========================================================= */
 
     .product-no{
-      position:relative;
-      z-index:10;
+      position:absolute;
+
+      top:22px;
+      left:22px;
+
+      z-index:30;
 
       font-size:9px;
+
       letter-spacing:.11em;
 
       opacity:.55;
+
+      pointer-events:none;
     }
 
+
     /* =========================================================
-       ART
+       DEFAULT ART AREA
     ========================================================= */
 
     .product-art{
-      flex:1;
+      position:absolute;
+
+      inset:0;
+
+      z-index:1;
 
       display:flex;
+
       align-items:center;
       justify-content:center;
 
-      padding:40px 20px 30px;
+      padding:40px;
     }
 
     .product-art::before{
       content:"";
 
-      width:min(62%,300px);
+      width:min(48%,320px);
+
       aspect-ratio:1;
 
-      display:block;
+      border:
+        1px solid
+        rgba(243,241,235,.12);
 
-      border:1px solid rgba(243,241,235,.12);
       border-radius:50%;
 
       box-shadow:
-        0 0 90px rgba(255,255,255,.03);
+        0 0 90px
+        rgba(255,255,255,.03);
+
+      transition:
+        transform .7s ease,
+        opacity .5s ease;
     }
 
+    .product:hover .product-art::before{
+      transform:scale(1.05);
+      opacity:.7;
+    }
+
+
     /* =========================================================
-       KOÇBOYNUZU
+       KOÇBOYNUZU IMAGE
     ========================================================= */
 
     .product-koç-art{
       position:absolute;
+
       inset:0;
 
       z-index:1;
-
-      width:100%;
-      height:100%;
 
       overflow:hidden;
 
@@ -291,154 +363,206 @@
 
     .product-koç{
       position:absolute;
+
       inset:0;
 
       width:100%;
       height:100%;
 
+      display:block;
+
       object-fit:cover;
+
       object-position:center;
 
-      opacity:.64;
+      opacity:.72;
 
       transform:scale(1.025);
 
       filter:
-        brightness(.58)
-        contrast(1.10);
+        brightness(.56)
+        contrast(1.10)
+        saturate(.9);
 
       transition:
-        opacity .55s ease,
-        transform .7s ease,
-        filter .55s ease;
+        opacity .6s ease,
+        transform .75s ease,
+        filter .6s ease;
     }
 
     .product:hover .product-koç{
-      opacity:.96;
+      opacity:1;
 
       transform:scale(1);
 
       filter:
-        brightness(.91)
-        contrast(1.06);
+        brightness(.88)
+        contrast(1.06)
+        saturate(.92);
     }
 
-    .product-koç-art::after{
+    .product-koç-art::before{
       content:"";
 
       position:absolute;
+
       inset:0;
+
+      z-index:2;
 
       background:
         radial-gradient(
           circle at center,
-          rgba(17,17,17,0) 25%,
-          rgba(17,17,17,.16) 58%,
-          rgba(17,17,17,.88) 100%
+          rgba(17,17,17,0) 20%,
+          rgba(17,17,17,.08) 48%,
+          rgba(17,17,17,.62) 100%
         );
     }
 
-    /* =========================================================
-       PRODUCT INFO
-    ========================================================= */
-
-    .product-info{
-      position:relative;
-      z-index:10;
-
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-
-      gap:20px;
-    }
-
-    .product-name{
-      font-size:clamp(30px,4.8vw,68px);
-
-      line-height:.86;
-
-      letter-spacing:-.06em;
-
-      font-weight:700;
-    }
-
-    .product-meta{
-      text-align:right;
-
-      font-size:8px;
-      line-height:1.6;
-
-      letter-spacing:.1em;
-      text-transform:uppercase;
-
-      opacity:.55;
-    }
 
     /* =========================================================
-       MEANING — DESKTOP
+       SINGLE OVERLAY SYSTEM
+    =========================================================
+       Title + meaning + meta are now one composition.
     ========================================================= */
 
-    .product-meaning{
+    .product-overlay{
       position:absolute;
+
       inset:0;
 
-      z-index:5;
+      z-index:20;
 
       display:flex;
+
       align-items:flex-end;
 
-      padding:22px;
+      padding:30px;
 
       background:
         linear-gradient(
           to top,
-          rgba(17,17,17,.96) 0%,
-          rgba(17,17,17,.74) 34%,
-          rgba(17,17,17,0) 72%
+
+          rgba(17,17,17,.98) 0%,
+
+          rgba(17,17,17,.91) 17%,
+
+          rgba(17,17,17,.72) 34%,
+
+          rgba(17,17,17,.28) 58%,
+
+          rgba(17,17,17,0) 82%
         );
 
       opacity:0;
 
-      transform:translateY(12px);
+      transform:translateY(16px);
 
       pointer-events:none;
 
       transition:
         opacity .45s ease,
-        transform .45s ease;
+        transform .55s ease;
     }
 
-    .product-meaning-inner{
-      max-width:440px;
+    .product:hover .product-overlay,
+    .product:focus-visible .product-overlay,
+    .product.is-open .product-overlay{
+      opacity:1;
+
+      transform:translateY(0);
     }
+
+    .product-overlay-inner{
+      width:100%;
+
+      max-width:720px;
+    }
+
+
+    /* =========================================================
+       MEANING LABEL
+    ========================================================= */
 
     .product-meaning-label{
+      margin-bottom:11px;
+
       font-size:8px;
-
-      letter-spacing:.12em;
-      text-transform:uppercase;
-
-      opacity:.45;
-
-      margin-bottom:9px;
-    }
-
-    .product-meaning-text{
-      font-size:clamp(16px,2vw,25px);
 
       line-height:1;
 
-      letter-spacing:-.035em;
+      letter-spacing:.12em;
+
+      text-transform:uppercase;
+
+      opacity:.45;
+    }
+
+
+    /* =========================================================
+       PRODUCT NAME
+    ========================================================= */
+
+    .product-name{
+      margin:0 0 16px;
+
+      font-size:
+        clamp(
+          38px,
+          5vw,
+          76px
+        );
+
+      line-height:.82;
+
+      letter-spacing:-.065em;
+
+      font-weight:700;
+
+      max-width:100%;
+    }
+
+
+    /* =========================================================
+       MEANING TEXT
+    ========================================================= */
+
+    .product-meaning-text{
+      max-width:620px;
+
+      font-size:
+        clamp(
+          16px,
+          1.7vw,
+          24px
+        );
+
+      line-height:1.04;
+
+      letter-spacing:-.025em;
 
       font-weight:500;
     }
 
-    .product:hover .product-meaning,
-    .product:focus-visible .product-meaning{
-      opacity:1;
-      transform:translateY(0);
+
+    /* =========================================================
+       PRODUCT META
+    ========================================================= */
+
+    .product-meta{
+      margin-top:22px;
+
+      font-size:8px;
+
+      line-height:1.6;
+
+      letter-spacing:.1em;
+
+      text-transform:uppercase;
+
+      opacity:.55;
     }
+
 
     /* =========================================================
        ABOUT
@@ -451,18 +575,20 @@
     }
 
     .section-label{
+      margin-bottom:36px;
+
       font-size:9px;
 
       letter-spacing:.13em;
-      text-transform:uppercase;
 
-      margin-bottom:36px;
+      text-transform:uppercase;
     }
 
     .about-grid{
       display:grid;
 
-      grid-template-columns:1fr 2fr;
+      grid-template-columns:
+        1fr 2fr;
 
       gap:40px;
     }
@@ -470,7 +596,12 @@
     .about-copy{
       max-width:900px;
 
-      font-size:clamp(34px,5.4vw,82px);
+      font-size:
+        clamp(
+          34px,
+          5.4vw,
+          82px
+        );
 
       line-height:.92;
 
@@ -479,12 +610,14 @@
       font-weight:700;
     }
 
+
     /* =========================================================
        FOOTER
     ========================================================= */
 
     footer{
       background:#111;
+
       color:#f3f1eb;
 
       padding:65px 28px 25px;
@@ -494,13 +627,19 @@
       display:flex;
 
       justify-content:space-between;
+
       align-items:flex-start;
 
       margin-bottom:100px;
     }
 
     .footer-logo{
-      font-size:clamp(38px,6vw,80px);
+      font-size:
+        clamp(
+          38px,
+          6vw,
+          80px
+        );
 
       line-height:.82;
 
@@ -523,6 +662,7 @@
 
     .footer-links div{
       display:flex;
+
       flex-direction:column;
 
       gap:11px;
@@ -554,25 +694,53 @@
       text-transform:uppercase;
     }
 
+
     /* =========================================================
        TABLET
     ========================================================= */
 
     @media(max-width:900px){
 
+      header{
+        padding:0 20px;
+      }
+
+      nav{
+        gap:17px;
+      }
+
       .product{
-        min-height:58vh;
+        padding:18px;
+      }
+
+      .product-no{
+        top:18px;
+        left:18px;
+      }
+
+      .product-overlay{
+        padding:22px;
       }
 
       .product-name{
         font-size:
           clamp(
-            29px,
+            30px,
             5vw,
             58px
           );
       }
+
+      .product-meaning-text{
+        font-size:
+          clamp(
+            15px,
+            2vw,
+            21px
+          );
+      }
     }
+
 
     /* =========================================================
        MOBILE
@@ -580,13 +748,22 @@
 
     @media(max-width:700px){
 
+      /* HEADER */
+
       header{
         height:60px;
-        padding:0 17px;
+
+        padding:
+          0 17px;
+      }
+
+      .logo{
+        font-size:12px;
       }
 
       nav{
-        gap:11px;
+        gap:10px;
+
         font-size:8px;
       }
 
@@ -597,6 +774,9 @@
       .languages button{
         font-size:8px;
       }
+
+
+      /* HERO */
 
       .hero{
         min-height:63vh;
@@ -610,8 +790,13 @@
       }
 
       .hero-meta{
+        margin-top:24px;
+
         font-size:7px;
       }
+
+
+      /* PRODUCTS */
 
       .products{
         padding:
@@ -622,130 +807,142 @@
         grid-template-columns:1fr;
       }
 
+
       /*
-        MOBILE PRODUCT:
-        Kart yüksekliği artık sabit değil.
-        İçerik ne kadar gerekiyorsa kart o kadar uzar.
+        MOBILE CARD
+        4:5 oran.
       */
 
       .product{
         min-height:0;
-        height:auto;
+
+        aspect-ratio:4 / 5;
 
         padding:18px;
-
-        display:flex;
-        flex-direction:column;
-
-        overflow:hidden;
       }
 
-      /*
-        Görsel alanı ayrı tutuluyor.
-        Açıklama ürünün üstüne çıkmayacak.
-      */
 
-      .product-art{
-        flex:none;
+      /* NUMBER */
 
-        min-height:58vw;
+      .product-no{
+        top:18px;
+        left:18px;
+
+        font-size:8px;
+      }
+
+
+      /* IMAGE */
+
+      .product-koç{
+        opacity:.8;
+
+        transform:scale(1.01);
+      }
+
+
+      /* OVERLAY */
+
+      .product-overlay{
+        align-items:flex-end;
 
         padding:
-          30px 10px;
+          22px 18px;
+
+        /*
+          Mobile'da başlangıçta görünmez.
+          Dokununca .is-open ile açılır.
+        */
+
+        background:
+          linear-gradient(
+            to top,
+
+            rgba(17,17,17,.99) 0%,
+
+            rgba(17,17,17,.94) 20%,
+
+            rgba(17,17,17,.78) 40%,
+
+            rgba(17,17,17,.34) 68%,
+
+            rgba(17,17,17,0) 100%
+          );
       }
 
-      /*
-        KOÇBOYNUZU mobile
-      */
-
-      .product-koç-art{
-        position:absolute;
-        inset:0;
+      .product-overlay-inner{
+        width:100%;
       }
 
-      /*
-        Ürün bilgisi her zaman açıklamanın üstünde.
-      */
 
-      .product-info{
-        position:relative;
-
-        z-index:20;
-
-        padding-top:14px;
-      }
-
-      .product-name{
-        font-size:13vw;
-
-        line-height:.86;
-      }
-
-      .product-meta{
-        font-size:7px;
-      }
-
-      /*
-        MOBILE MEANING:
-        Artık overlay değil.
-        Normal document flow içinde aşağıda.
-      */
-
-      .product-meaning{
-        position:relative;
-
-        inset:auto;
-
-        z-index:15;
-
-        display:block;
-
-        margin:18px 0 0;
-
-        padding:
-          18px 0 4px;
-
-        min-height:0;
-
-        background:none;
-
-        border-top:
-          1px solid
-          rgba(243,241,235,.18);
-
-        opacity:1;
-
-        transform:none;
-
-        pointer-events:auto;
-      }
-
-      .product-meaning-inner{
-        max-width:none;
-      }
+      /* LABEL */
 
       .product-meaning-label{
-        font-size:7px;
-
         margin-bottom:8px;
+
+        font-size:7px;
       }
 
+
+      /* TITLE */
+
+      .product-name{
+        margin-bottom:12px;
+
+        font-size:
+          clamp(
+            30px,
+            11vw,
+            52px
+          );
+
+        line-height:.84;
+      }
+
+
+      /* DESCRIPTION */
+
       .product-meaning-text{
+        max-width:100%;
+
         font-size:16px;
 
-        line-height:1.08;
+        line-height:1.05;
 
         letter-spacing:-.025em;
       }
 
+
+      /* META */
+
+      .product-meta{
+        margin-top:15px;
+
+        font-size:7px;
+
+        line-height:1.5;
+      }
+
+
+      /* ABOUT */
+
       .about{
-        padding:85px 17px;
+        padding:
+          85px 17px;
       }
 
       .about-grid{
         grid-template-columns:1fr;
 
         gap:28px;
+      }
+
+
+      /* FOOTER */
+
+      footer{
+        padding:
+          55px 17px 22px;
       }
 
       .footer-top{
@@ -765,11 +962,15 @@
 
         gap:10px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================================================
        HEADER
@@ -783,6 +984,7 @@
     >
       THE TUFTER<span class="registered">®</span>
     </a>
+
 
     <nav>
 
@@ -807,6 +1009,7 @@
         ABOUT
       </a>
 
+
       <!-- LANGUAGE SWITCHER -->
 
       <div class="languages">
@@ -815,6 +1018,7 @@
           type="button"
           data-lang="en"
           class="active"
+          aria-label="English"
         >
           EN
         </button>
@@ -822,6 +1026,7 @@
         <button
           type="button"
           data-lang="tr"
+          aria-label="Türkçe"
         >
           TR
         </button>
@@ -829,11 +1034,13 @@
         <button
           type="button"
           data-lang="el"
+          aria-label="Ελληνικά"
         >
           EL
         </button>
 
       </div>
+
 
       <a
         href="#"
@@ -853,7 +1060,10 @@
 
   <main>
 
-    <!-- HERO -->
+
+    <!-- =======================================================
+         HERO
+    ======================================================= -->
 
     <section class="hero">
 
@@ -864,9 +1074,11 @@
         DROP 001 / ANATOLIA
       </div>
 
+
       <h1>
         ANATOLIA
       </h1>
+
 
       <div class="hero-meta">
 
@@ -883,7 +1095,10 @@
     </section>
 
 
-    <!-- PRODUCTS -->
+
+    <!-- =======================================================
+         PRODUCTS
+    ======================================================= -->
 
     <section
       class="products"
@@ -900,33 +1115,20 @@
         <a
           class="product"
           href="#"
+          data-product="01"
         >
 
           <span class="product-no">
             01 / 05
           </span>
 
+
           <div class="product-art"></div>
 
-          <div class="product-info">
 
-            <h2 class="product-name">
-              ELİBELİNDE
-            </h2>
+          <div class="product-overlay">
 
-            <div
-              class="product-meta"
-              data-i18n="comingSoon"
-            >
-              ANATOLIA<br>
-              COMING SOON
-            </div>
-
-          </div>
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
+            <div class="product-overlay-inner">
 
               <div
                 class="product-meaning-label"
@@ -935,11 +1137,26 @@
                 MEANING
               </div>
 
+
+              <h2 class="product-name">
+                ELİBELİNDE
+              </h2>
+
+
               <div
                 class="product-meaning-text"
                 data-i18n="elibelindeMeaning"
               >
                 FERTILITY, ABUNDANCE, MOTHERHOOD AND THE FEMININE.
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                ANATOLIA<br>
+                COMING SOON
               </div>
 
             </div>
@@ -949,6 +1166,7 @@
         </a>
 
 
+
         <!-- =====================================================
              02 — KOÇBOYNUZU
         ===================================================== -->
@@ -956,11 +1174,13 @@
         <a
           class="product"
           href="#"
+          data-product="02"
         >
 
           <span class="product-no">
             02 / 05
           </span>
+
 
           <div class="product-koç-art">
 
@@ -972,25 +1192,10 @@
 
           </div>
 
-          <div class="product-info">
 
-            <h2 class="product-name">
-              KOÇBOYNUZU
-            </h2>
+          <div class="product-overlay">
 
-            <div
-              class="product-meta"
-              data-i18n="comingSoon"
-            >
-              ANATOLIA<br>
-              COMING SOON
-            </div>
-
-          </div>
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
+            <div class="product-overlay-inner">
 
               <div
                 class="product-meaning-label"
@@ -999,6 +1204,12 @@
                 MEANING
               </div>
 
+
+              <h2 class="product-name">
+                KOÇBOYNUZU
+              </h2>
+
+
               <div
                 class="product-meaning-text"
                 data-i18n="kocboynuzuMeaning"
@@ -1006,11 +1217,21 @@
                 POWER, HEROISM, MASCULINITY AND ABUNDANCE.
               </div>
 
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                ANATOLIA<br>
+                COMING SOON
+              </div>
+
             </div>
 
           </div>
 
         </a>
+
 
 
         <!-- =====================================================
@@ -1020,33 +1241,20 @@
         <a
           class="product"
           href="#"
+          data-product="03"
         >
 
           <span class="product-no">
             03 / 05
           </span>
 
+
           <div class="product-art"></div>
 
-          <div class="product-info">
 
-            <h2 class="product-name">
-              PITIRAK
-            </h2>
+          <div class="product-overlay">
 
-            <div
-              class="product-meta"
-              data-i18n="comingSoon"
-            >
-              ANATOLIA<br>
-              COMING SOON
-            </div>
-
-          </div>
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
+            <div class="product-overlay-inner">
 
               <div
                 class="product-meaning-label"
@@ -1055,6 +1263,12 @@
                 MEANING
               </div>
 
+
+              <h2 class="product-name">
+                PITIRAK
+              </h2>
+
+
               <div
                 class="product-meaning-text"
                 data-i18n="pitirakMeaning"
@@ -1062,11 +1276,21 @@
                 PROTECTION, FORTUNE AND THE POWER TO HOLD HARM AT A DISTANCE.
               </div>
 
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                ANATOLIA<br>
+                COMING SOON
+              </div>
+
             </div>
 
           </div>
 
         </a>
+
 
 
         <!-- =====================================================
@@ -1076,33 +1300,20 @@
         <a
           class="product"
           href="#"
+          data-product="04"
         >
 
           <span class="product-no">
             04 / 05
           </span>
 
+
           <div class="product-art"></div>
 
-          <div class="product-info">
 
-            <h2 class="product-name">
-              SAÇBAĞI
-            </h2>
+          <div class="product-overlay">
 
-            <div
-              class="product-meta"
-              data-i18n="comingSoon"
-            >
-              ANATOLIA<br>
-              COMING SOON
-            </div>
-
-          </div>
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
+            <div class="product-overlay-inner">
 
               <div
                 class="product-meaning-label"
@@ -1111,11 +1322,26 @@
                 MEANING
               </div>
 
+
+              <h2 class="product-name">
+                SAÇBAĞI
+              </h2>
+
+
               <div
                 class="product-meaning-text"
                 data-i18n="sacbagiMeaning"
               >
                 CONTINUITY, FAMILY, BOND AND THE PASSING OF TRADITION.
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                ANATOLIA<br>
+                COMING SOON
               </div>
 
             </div>
@@ -1125,6 +1351,7 @@
         </a>
 
 
+
         <!-- =====================================================
              05 — SUYOLU
         ===================================================== -->
@@ -1132,33 +1359,20 @@
         <a
           class="product"
           href="#"
+          data-product="05"
         >
 
           <span class="product-no">
             05 / 05
           </span>
 
+
           <div class="product-art"></div>
 
-          <div class="product-info">
 
-            <h2 class="product-name">
-              SUYOLU
-            </h2>
+          <div class="product-overlay">
 
-            <div
-              class="product-meta"
-              data-i18n="comingSoon"
-            >
-              ANATOLIA<br>
-              COMING SOON
-            </div>
-
-          </div>
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
+            <div class="product-overlay-inner">
 
               <div
                 class="product-meaning-label"
@@ -1167,11 +1381,26 @@
                 MEANING
               </div>
 
+
+              <h2 class="product-name">
+                SUYOLU
+              </h2>
+
+
               <div
                 class="product-meaning-text"
                 data-i18n="suyoluMeaning"
               >
                 WATER, LIFE, CONTINUITY, ABUNDANCE AND RENEWAL.
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                ANATOLIA<br>
+                COMING SOON
               </div>
 
             </div>
@@ -1183,6 +1412,7 @@
       </div>
 
     </section>
+
 
 
     <!-- =========================================================
@@ -1198,6 +1428,7 @@
         DROP 001 / THE IDEA
       </div>
 
+
       <div class="about-grid">
 
         <div
@@ -1206,6 +1437,7 @@
         >
           SYMBOLS OF THE LAND
         </div>
+
 
         <div
           class="about-copy"
@@ -1221,6 +1453,7 @@
   </main>
 
 
+
   <!-- =========================================================
        FOOTER
   ========================================================= -->
@@ -1229,10 +1462,12 @@
 
     <div class="footer-top">
 
+
       <div class="footer-logo">
         THE<br>
         TUFTER<span class="registered">®</span>
       </div>
+
 
       <div class="footer-links">
 
@@ -1260,6 +1495,7 @@
           </a>
 
         </div>
+
 
         <div>
 
@@ -1290,6 +1526,7 @@
 
     </div>
 
+
     <div class="footer-bottom">
 
       <span>
@@ -1305,6 +1542,7 @@
   </footer>
 
 
+
   <!-- =========================================================
        LANGUAGE SYSTEM
   ========================================================= -->
@@ -1312,6 +1550,7 @@
   <script>
 
     const translations = {
+
 
       /* =======================================================
          ENGLISH
@@ -1346,11 +1585,11 @@
         heroMeta:
           "FIVE SYMBOLS / ONE DROP",
 
-        comingSoon:
-          "ANATOLIA<br>COMING SOON",
-
         meaning:
           "MEANING",
+
+        comingSoon:
+          "ANATOLIA<br>COMING SOON",
 
         elibelindeMeaning:
           "FERTILITY, ABUNDANCE, MOTHERHOOD AND THE FEMININE.",
@@ -1412,11 +1651,11 @@
         heroMeta:
           "BEŞ SEMBOL / TEK DROP",
 
-        comingSoon:
-          "ANADOLU<br>YAKINDA",
-
         meaning:
           "ANLAMI",
+
+        comingSoon:
+          "ANADOLU<br>YAKINDA",
 
         elibelindeMeaning:
           "BEREKET, DOĞURGANLIK, ANNELİK VE DİŞİLİĞİ TEMSİL EDER.",
@@ -1478,11 +1717,11 @@
         heroMeta:
           "ΠΕΝΤΕ ΣΥΜΒΟΛΑ / ΕΝΑ DROP",
 
-        comingSoon:
-          "ΑΝΑΤΟΛΙΑ<br>ΣΥΝΤΟΜΑ",
-
         meaning:
           "ΣΗΜΑΣΙΑ",
+
+        comingSoon:
+          "ΑΝΑΤΟΛΙΑ<br>ΣΥΝΤΟΜΑ",
 
         elibelindeMeaning:
           "ΓΟΝΙΜΟΤΗΤΑ, ΑΦΘΟΝΙΑ, ΜΗΤΡΟΤΗΤΑ ΚΑΙ ΤΟ ΘΗΛΥΚΟ.",
@@ -1514,12 +1753,24 @@
 
 
     /* =========================================================
-       LANGUAGE FUNCTION
+       SET LANGUAGE
     ========================================================= */
 
     function setLanguage(lang){
 
+      if(!translations[lang]){
+        lang = "en";
+      }
+
+
       document.documentElement.lang = lang;
+
+
+      /*
+        Replace translated elements.
+        innerHTML is intentional because some meta strings
+        contain <br>.
+      */
 
       document
         .querySelectorAll("[data-i18n]")
@@ -1541,6 +1792,10 @@
         });
 
 
+      /*
+        Active language button
+      */
+
       document
         .querySelectorAll("[data-lang]")
         .forEach(element => {
@@ -1553,6 +1808,10 @@
         });
 
 
+      /*
+        Save language
+      */
+
       localStorage.setItem(
         "tufter-language",
         lang
@@ -1562,19 +1821,21 @@
 
 
     /* =========================================================
-       LANGUAGE BUTTONS
+       LANGUAGE BUTTON EVENTS
     ========================================================= */
 
     document
       .querySelectorAll("[data-lang]")
-      .forEach(element => {
+      .forEach(button => {
 
-        element.addEventListener(
+        button.addEventListener(
           "click",
-          () => {
+          event => {
+
+            event.preventDefault();
 
             setLanguage(
-              element.getAttribute("data-lang")
+              button.getAttribute("data-lang")
             );
 
           }
@@ -1584,11 +1845,91 @@
 
 
     /* =========================================================
+       MOBILE PRODUCT OPEN / CLOSE
+    ========================================================= */
+
+    const products =
+      document.querySelectorAll(".product");
+
+
+    products.forEach(product => {
+
+      product.addEventListener(
+        "click",
+        event => {
+
+          /*
+            On touch devices the first tap opens the
+            composition instead of navigating to "#".
+          */
+
+          if(
+            window.matchMedia(
+              "(max-width: 700px)"
+            ).matches
+          ){
+
+            event.preventDefault();
+
+            const wasOpen =
+              product.classList.contains("is-open");
+
+
+            products.forEach(item => {
+              item.classList.remove("is-open");
+            });
+
+
+            if(!wasOpen){
+              product.classList.add("is-open");
+            }
+
+          }
+
+        }
+      );
+
+    });
+
+
+    /* =========================================================
+       CLICK OUTSIDE — CLOSE MOBILE CARD
+    ========================================================= */
+
+    document.addEventListener(
+      "click",
+      event => {
+
+        if(
+          !window.matchMedia(
+            "(max-width: 700px)"
+          ).matches
+        ){
+          return;
+        }
+
+
+        if(
+          !event.target.closest(".product")
+        ){
+
+          products.forEach(product => {
+            product.classList.remove("is-open");
+          });
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
        LOAD SAVED LANGUAGE
     ========================================================= */
 
     const savedLanguage =
       localStorage.getItem("tufter-language") || "en";
+
 
     setLanguage(savedLanguage);
 
