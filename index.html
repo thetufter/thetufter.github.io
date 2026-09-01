@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>THE TUFTER®</title>
-  <meta
-    name="description"
-    content="THE TUFTER® — Contemporary tufted objects."
-  >
+  <meta name="description" content="THE TUFTER® — Contemporary tufted objects.">
 
   <style>
     * {
@@ -42,7 +39,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 70px;
+      height: 68px;
       padding: 0 28px;
 
       display: flex;
@@ -59,6 +56,13 @@
       font-weight: 700;
       letter-spacing: -0.035em;
       white-space: nowrap;
+    }
+
+    .logo .registered {
+      font-size: 0.55em;
+      position: relative;
+      top: -0.35em;
+      margin-left: 1px;
     }
 
     nav {
@@ -102,7 +106,7 @@
 
     .hero {
       min-height: 100vh;
-      padding: 100px 28px 28px;
+      padding: 95px 28px 28px;
 
       display: flex;
       flex-direction: column;
@@ -124,24 +128,34 @@
       flex-direction: column;
       align-items: center;
 
-      font-size: clamp(60px, 9.5vw, 145px);
+      font-size: clamp(58px, 9vw, 145px);
       line-height: 0.86;
 
       letter-spacing: -0.045em;
       font-weight: 800;
     }
 
-    .hero-title span {
+    .hero-title > span {
       display: block;
       white-space: nowrap;
     }
 
+    .hero-title .brand-word {
+      display: block;
+    }
+
     .hero-title .registered {
-      font-size: 0.42em;
+      display: inline-block;
+
+      font-size: 0.21em;
+      line-height: 1;
+
       vertical-align: top;
+
       position: relative;
-      top: -0.35em;
-      margin-left: 0.04em;
+      top: -0.16em;
+
+      margin-left: 0.035em;
     }
 
     .hero-bottom {
@@ -204,6 +218,7 @@
     .drop-name {
       font-size: clamp(40px, 6vw, 88px);
       line-height: 0.9;
+
       letter-spacing: -0.055em;
       font-weight: 700;
 
@@ -295,6 +310,7 @@
     .current-title {
       font-size: clamp(50px, 7.5vw, 110px);
       line-height: 0.86;
+
       letter-spacing: -0.065em;
       font-weight: 800;
 
@@ -355,6 +371,7 @@
 
       font-size: clamp(34px, 5vw, 70px);
       line-height: 0.95;
+
       letter-spacing: -0.06em;
       font-weight: 700;
     }
@@ -382,8 +399,18 @@
     .footer-logo {
       font-size: clamp(38px, 6vw, 80px);
       line-height: 0.82;
+
       letter-spacing: -0.065em;
       font-weight: 800;
+    }
+
+    .footer-logo .registered {
+      font-size: 0.3em;
+
+      position: relative;
+      top: -0.45em;
+
+      margin-left: 2px;
     }
 
     .footer-links {
@@ -496,22 +523,24 @@
         flex-direction: column;
         gap: 10px;
       }
+
     }
+
   </style>
 </head>
 
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+
+  <!-- HEADER -->
 
   <header>
 
     <a href="#" class="logo">
       THE TUFTER<span class="registered">®</span>
     </a>
+
 
     <nav>
 
@@ -523,15 +552,34 @@
         SHOP
       </a>
 
-      <a href="#about" class="about-link" data-i18n="about">
+      <a
+        href="#about"
+        class="about-link"
+        data-i18n="about"
+      >
         ABOUT
       </a>
 
+
       <div class="languages">
-        <span data-lang="en" class="active">EN</span>
-        <span data-lang="tr">TR</span>
-        <span data-lang="el">EL</span>
+
+        <span
+          data-lang="en"
+          class="active"
+        >
+          EN
+        </span>
+
+        <span data-lang="tr">
+          TR
+        </span>
+
+        <span data-lang="el">
+          EL
+        </span>
+
       </div>
+
 
       <a href="#" data-i18n="cart">
         CART
@@ -542,22 +590,27 @@
   </header>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+
+  <!-- HERO -->
 
   <main>
 
     <section class="hero">
 
+
       <div class="hero-center">
 
         <h1 class="hero-title">
 
-          <span>THE</span>
-
           <span>
+            THE
+          </span>
+
+
+          <span class="brand-word">
+
             TUFTER<span class="registered">®</span>
+
           </span>
 
         </h1>
@@ -571,6 +624,7 @@
           CONTEMPORARY TUFTED OBJECTS
         </span>
 
+
         <span data-i18n="scroll">
           SCROLL TO EXPLORE ↓
         </span>
@@ -580,24 +634,33 @@
     </section>
 
 
-    <!-- =========================
-         DROPS
-    ========================= -->
 
-    <section class="drops" id="drops">
+    <!-- DROPS -->
 
-      <div class="section-label" data-i18n="dropsLabel">
+    <section
+      class="drops"
+      id="drops"
+    >
+
+
+      <div
+        class="section-label"
+        data-i18n="dropsLabel"
+      >
         THE DROPS / 001—003
       </div>
 
 
-      <!-- DROP 001 -->
+
+      <!-- ANATOLIA -->
 
       <article class="drop">
 
         <div class="drop-meta">
 
-          <span>001</span>
+          <span>
+            001
+          </span>
 
           <span data-i18n="anatoliaCount">
             07 TUFTS
@@ -617,7 +680,12 @@
             SYMBOLS OF THE LAND
           </span>
 
-          <a href="#" class="explore" data-i18n="explore">
+
+          <a
+            href="#"
+            class="explore"
+            data-i18n="explore"
+          >
             EXPLORE →
           </a>
 
@@ -626,13 +694,16 @@
       </article>
 
 
-      <!-- DROP 002 -->
+
+      <!-- KHAGANATES -->
 
       <article class="drop">
 
         <div class="drop-meta">
 
-          <span>002</span>
+          <span>
+            002
+          </span>
 
           <span data-i18n="khaganatesCount">
             05 WALL HANGINGS
@@ -652,7 +723,12 @@
             BANNERS OF LEGACY
           </span>
 
-          <a href="#" class="explore" data-i18n="explore">
+
+          <a
+            href="#"
+            class="explore"
+            data-i18n="explore"
+          >
             EXPLORE →
           </a>
 
@@ -661,13 +737,16 @@
       </article>
 
 
-      <!-- DROP 003 -->
+
+      <!-- OTUKEN -->
 
       <article class="drop">
 
         <div class="drop-meta">
 
-          <span>003</span>
+          <span>
+            003
+          </span>
 
           <span data-i18n="otukenCount">
             05 TUFTS
@@ -690,7 +769,12 @@
             THE CALL OF THE ORIGIN
           </span>
 
-          <a href="#" class="explore" data-i18n="explore">
+
+          <a
+            href="#"
+            class="explore"
+            data-i18n="explore"
+          >
             EXPLORE →
           </a>
 
@@ -701,13 +785,19 @@
     </section>
 
 
-    <!-- =========================
-         SHOP
-    ========================= -->
 
-    <section class="shop" id="shop">
+    <!-- SHOP -->
 
-      <div class="section-label" data-i18n="shopLabel">
+    <section
+      class="shop"
+      id="shop"
+    >
+
+
+      <div
+        class="section-label"
+        data-i18n="shopLabel"
+      >
         SHOP
       </div>
 
@@ -715,68 +805,107 @@
       <div class="shop-grid">
 
 
-        <a href="#" class="shop-item">
+        <a
+          href="#"
+          class="shop-item"
+        >
 
           <span class="shop-number">
             01
           </span>
 
-          <span class="shop-name" data-i18n="tufts">
+          <span
+            class="shop-name"
+            data-i18n="tufts"
+          >
             TUFTS
           </span>
 
-          <span class="coming" data-i18n="available">
+          <span
+            class="coming"
+            data-i18n="available"
+          >
             AVAILABLE
           </span>
 
         </a>
 
 
-        <a href="#" class="shop-item">
+
+        <a
+          href="#"
+          class="shop-item"
+        >
 
           <span class="shop-number">
             02
           </span>
 
-          <span class="shop-name" data-i18n="tees">
+          <span
+            class="shop-name"
+            data-i18n="tees"
+          >
             TEES
           </span>
 
-          <span class="coming" data-i18n="comingSoon">
+          <span
+            class="coming"
+            data-i18n="comingSoon"
+          >
             COMING SOON
           </span>
 
         </a>
 
 
-        <a href="#" class="shop-item">
+
+        <a
+          href="#"
+          class="shop-item"
+        >
 
           <span class="shop-number">
             03
           </span>
 
-          <span class="shop-name" data-i18n="stickers">
+          <span
+            class="shop-name"
+            data-i18n="stickers"
+          >
             STICKERS
           </span>
 
-          <span class="coming" data-i18n="comingSoon">
+          <span
+            class="coming"
+            data-i18n="comingSoon"
+          >
             COMING SOON
           </span>
 
         </a>
 
 
-        <a href="#" class="shop-item">
+
+        <a
+          href="#"
+          class="shop-item"
+        >
 
           <span class="shop-number">
             04
           </span>
 
-          <span class="shop-name" data-i18n="handmade">
+          <span
+            class="shop-name"
+            data-i18n="handmade"
+          >
             HANDMADE
           </span>
 
-          <span class="coming" data-i18n="comingSoon">
+          <span
+            class="coming"
+            data-i18n="comingSoon"
+          >
             COMING SOON
           </span>
 
@@ -788,13 +917,16 @@
     </section>
 
 
-    <!-- =========================
-         CURRENT DROP
-    ========================= -->
+
+    <!-- CURRENT DROP -->
 
     <section class="current">
 
-      <div class="section-label" data-i18n="currentDrop">
+
+      <div
+        class="section-label"
+        data-i18n="currentDrop"
+      >
         CURRENT DROP / 001
       </div>
 
@@ -901,25 +1033,35 @@
       </div>
 
 
-      <a href="#" class="current-link" data-i18n="exploreAnatolia">
+      <a
+        href="#"
+        class="current-link"
+        data-i18n="exploreAnatolia"
+      >
         EXPLORE ANATOLIA →
       </a>
 
     </section>
 
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
+
+    <!-- ABOUT -->
 
     <section id="about">
 
-      <div class="section-label" data-i18n="aboutLabel">
+
+      <div
+        class="section-label"
+        data-i18n="aboutLabel"
+      >
         ABOUT THE TUFTER
       </div>
 
 
-      <h2 class="about-title" data-i18n="aboutText">
+      <h2
+        class="about-title"
+        data-i18n="aboutText"
+      >
         CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
       </h2>
 
@@ -928,11 +1070,11 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+
+  <!-- FOOTER -->
 
   <footer>
+
 
     <div class="footer-top">
 
@@ -947,17 +1089,27 @@
 
       <div class="footer-links">
 
+
         <div>
 
-          <a href="#drops" data-i18n="drops">
+          <a
+            href="#drops"
+            data-i18n="drops"
+          >
             DROPS
           </a>
 
-          <a href="#shop" data-i18n="shop">
+          <a
+            href="#shop"
+            data-i18n="shop"
+          >
             SHOP
           </a>
 
-          <a href="#about" data-i18n="about">
+          <a
+            href="#about"
+            data-i18n="about"
+          >
             ABOUT
           </a>
 
@@ -966,19 +1118,29 @@
 
         <div>
 
-          <a href="#" data-i18n="archive">
+          <a
+            href="#"
+            data-i18n="archive"
+          >
             ARCHIVE
           </a>
 
-          <a href="#" data-i18n="contact">
+          <a
+            href="#"
+            data-i18n="contact"
+          >
             CONTACT
           </a>
 
-          <a href="#" data-i18n="instagram">
+          <a
+            href="#"
+            data-i18n="instagram"
+          >
             INSTAGRAM
           </a>
 
         </div>
+
 
       </div>
 
@@ -1000,13 +1162,13 @@
   </footer>
 
 
-  <!-- =========================
-       LANGUAGE SYSTEM
-  ========================= -->
+
+  <!-- LANGUAGE SYSTEM -->
 
   <script>
 
     const translations = {
+
 
       en: {
 
