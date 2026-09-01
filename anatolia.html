@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>ANATOLIA — THE TUFTER®</title>
 
@@ -341,7 +338,7 @@
 
 
     /* =========================================================
-       KOÇBOYNUZU
+       KOÇBOYNUZU IMAGE
     ========================================================= */
 
     .product-koç-art{
@@ -369,11 +366,11 @@
       object-fit:cover;
 
       /*
-        KADRAJ AŞAĞI ALINDI
-        Görselin oranı / boyutu değişmiyor.
+        KADRAJ
+        Görsel aşağıdan yukarı doğru dengeli şekilde konumlanır.
       */
 
-      object-position:center 22%;
+      object-position:center 35%;
 
       opacity:.72;
 
@@ -467,11 +464,13 @@
     .product:focus-visible .product-overlay,
     .product.is-open .product-overlay{
       opacity:1;
+
       transform:translateY(0);
     }
 
     .product-overlay-inner{
       width:100%;
+
       max-width:720px;
     }
 
@@ -484,6 +483,7 @@
       margin-bottom:11px;
 
       font-size:8px;
+
       line-height:1;
 
       letter-spacing:.12em;
@@ -826,11 +826,7 @@
       /* MOBILE KOÇBOYNUZU */
 
       .product-koç{
-        /*
-          Aynı şekilde aşağı alınmış kadraj.
-        */
-
-        object-position:center 22%;
+        object-position:center 35%;
 
         opacity:.8;
 
@@ -1743,7 +1739,7 @@
 
 
     /* =========================================================
-       SET LANGUAGE
+       LANGUAGE
     ========================================================= */
 
     function setLanguage(lang){
@@ -1751,7 +1747,6 @@
       if(!translations[lang]){
         lang = "en";
       }
-
 
       document.documentElement.lang = lang;
 
@@ -1797,7 +1792,7 @@
 
 
     /* =========================================================
-       LANGUAGE BUTTON EVENTS
+       LANGUAGE BUTTONS
     ========================================================= */
 
     document
@@ -1864,7 +1859,7 @@
 
 
     /* =========================================================
-       CLOSE MOBILE CARD WHEN CLICKING OUTSIDE
+       CLOSE MOBILE CARD OUTSIDE
     ========================================================= */
 
     document.addEventListener(
