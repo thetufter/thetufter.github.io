@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -18,946 +15,761 @@
   >
 
   <style>
-
-    /* =========================================================
-       RESET
-    ========================================================= */
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      background: #111;
-      color: #f3f1eb;
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
+    body{
+      background:#f3f1eb;
+      color:#111;
+      font-family:Arial,Helvetica,sans-serif;
+      overflow-x:hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
+    button{
+      font:inherit;
+    }
 
     /* =========================================================
        HEADER
     ========================================================= */
 
-    header {
-      position: fixed;
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:68px;
+      padding:0 28px;
 
-      top: 0;
-      left: 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-      width: 100%;
-      height: 68px;
+      z-index:100;
 
-      padding: 0 28px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      z-index: 100;
-
-      color: #f3f1eb;
-
-      background: transparent;
+      mix-blend-mode:difference;
+      color:#fff;
     }
 
-    .logo {
-      font-size: 14px;
-
-      font-weight: 700;
-
-      letter-spacing: -0.035em;
-
-      white-space: nowrap;
+    .logo{
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:-.035em;
     }
 
-    .registered {
-      font-size: 0.55em;
-
-      position: relative;
-
-      top: -0.35em;
-
-      margin-left: 1px;
+    .registered{
+      font-size:.55em;
+      position:relative;
+      top:-.35em;
+      margin-left:1px;
     }
 
-    nav {
-      display: flex;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:25px;
 
-      align-items: center;
-
-      gap: 25px;
-
-      font-size: 10px;
-
-      letter-spacing: 0.09em;
-
-      text-transform: uppercase;
+      font-size:10px;
+      letter-spacing:.09em;
+      text-transform:uppercase;
     }
 
-    nav a {
-      opacity: 0.8;
-
-      transition:
-        opacity 0.25s ease;
+    nav a{
+      transition:opacity .25s ease;
     }
 
-    nav a:hover {
-      opacity: 0.45;
+    nav a:hover{
+      opacity:.5;
     }
 
+    /* =========================================================
+       LANGUAGE SWITCHER
+    ========================================================= */
+
+    .languages{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .languages button{
+      appearance:none;
+      border:0;
+      background:none;
+      color:inherit;
+
+      padding:0;
+      margin:0;
+
+      cursor:pointer;
+
+      font-size:10px;
+      line-height:1;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+
+      opacity:.35;
+
+      transition:opacity .25s ease;
+    }
+
+    .languages button:hover{
+      opacity:.7;
+    }
+
+    .languages button.active{
+      opacity:1;
+    }
 
     /* =========================================================
        HERO
     ========================================================= */
 
-    .hero {
+    .hero{
+      min-height:70vh;
 
-      min-height: 72vh;
+      padding:110px 28px 60px;
 
-      padding:
-        120px 28px 55px;
+      background:#111;
+      color:#f3f1eb;
 
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: flex-end;
-
-      background:
-        linear-gradient(
-          to bottom,
-          #181818 0%,
-          #111 100%
-        );
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
     }
 
-    .eyebrow {
+    .eyebrow{
+      font-size:9px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
 
-      font-size: 9px;
+      opacity:.6;
 
-      letter-spacing: 0.14em;
-
-      text-transform: uppercase;
-
-      opacity: 0.5;
-
-      margin-bottom: 28px;
+      margin-bottom:28px;
     }
 
-    .hero h1 {
+    .hero h1{
+      font-size:clamp(72px,13vw,190px);
+      line-height:.82;
 
-      font-size:
-        clamp(72px, 13vw, 190px);
-
-      line-height: 0.82;
-
-      letter-spacing: -0.075em;
-
-      font-weight: 800;
+      letter-spacing:-.075em;
+      font-weight:800;
     }
 
-    .hero-meta {
+    .hero-meta{
+      margin-top:35px;
 
-      margin-top: 36px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
 
-      display: flex;
-
-      justify-content: space-between;
-
-      gap: 20px;
-
-      font-size: 9px;
-
-      letter-spacing: 0.1em;
-
-      text-transform: uppercase;
-
-      opacity: 0.55;
+      font-size:9px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
     }
-
 
     /* =========================================================
        PRODUCTS
     ========================================================= */
 
-    .products {
+    .products{
+      padding:26px 28px 120px;
 
-      padding:
-        20px 28px 120px;
-
-      background: #111;
+      background:#111;
+      color:#f3f1eb;
     }
 
-    .product-grid {
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
 
-      display: grid;
+      gap:1px;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      background:rgba(243,241,235,.25);
 
-      gap: 1px;
-
-      background:
-        rgba(
-          243,
-          241,
-          235,
-          0.24
-        );
-
-      border-top:
-        1px solid rgba(
-          243,
-          241,
-          235,
-          0.24
-        );
-
-      border-left:
-        1px solid rgba(
-          243,
-          241,
-          235,
-          0.24
-        );
+      border-top:1px solid rgba(243,241,235,.25);
+      border-left:1px solid rgba(243,241,235,.25);
     }
 
+    .product{
+      position:relative;
 
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================= */
+      min-height:620px;
 
-    .product {
+      padding:22px;
 
-      position: relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
 
-      min-height: 620px;
+      background:#111;
 
-      padding: 22px;
+      overflow:hidden;
 
-      display: flex;
+      border-right:1px solid rgba(243,241,235,.25);
+      border-bottom:1px solid rgba(243,241,235,.25);
 
-      flex-direction: column;
-
-      justify-content: space-between;
-
-      background: #111;
-
-      overflow: hidden;
-
-      border-right:
-        1px solid rgba(
-          243,
-          241,
-          235,
-          0.24
-        );
-
-      border-bottom:
-        1px solid rgba(
-          243,
-          241,
-          235,
-          0.24
-        );
-
-      transition:
-        background 0.45s ease;
+      transition:background .45s ease;
     }
 
-    .product:hover {
-      background: #171717;
+    .product:hover{
+      background:#171717;
     }
-
 
     /* =========================================================
        PRODUCT NUMBER
     ========================================================= */
 
-    .product-no {
+    .product-no{
+      position:relative;
+      z-index:10;
 
-      position: relative;
+      font-size:9px;
+      letter-spacing:.11em;
 
-      z-index: 20;
-
-      font-size: 9px;
-
-      letter-spacing: 0.11em;
-
-      opacity: 0.5;
+      opacity:.55;
     }
 
-
     /* =========================================================
-       ART AREA
+       ART
     ========================================================= */
 
-    .product-art {
+    .product-art{
+      flex:1;
 
-      position: absolute;
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      overflow: hidden;
-
-      z-index: 1;
-
-      pointer-events: none;
+      padding:40px 20px 30px;
     }
 
+    .product-art::before{
+      content:"";
+
+      width:min(62%,300px);
+      aspect-ratio:1;
+
+      display:block;
+
+      border:1px solid rgba(243,241,235,.12);
+      border-radius:50%;
+
+      box-shadow:
+        0 0 90px rgba(255,255,255,.03);
+    }
 
     /* =========================================================
-       KOÇBOYNUZU FULL CARD IMAGE
+       KOÇBOYNUZU
     ========================================================= */
 
-    .product-koç {
+    .product-koç-art{
+      position:absolute;
+      inset:0;
 
-      position: absolute;
+      z-index:1;
 
-      inset: 0;
+      width:100%;
+      height:100%;
 
-      width: 100%;
-      height: 100%;
+      overflow:hidden;
 
-      object-fit: cover;
+      pointer-events:none;
+    }
 
-      object-position: center;
+    .product-koç{
+      position:absolute;
+      inset:0;
 
-      opacity: 0.64;
+      width:100%;
+      height:100%;
 
-      transform:
-        scale(1.025);
+      object-fit:cover;
+      object-position:center;
+
+      opacity:.64;
+
+      transform:scale(1.025);
 
       filter:
-        brightness(0.58)
+        brightness(.58)
         contrast(1.10);
 
       transition:
-        opacity 0.8s ease,
-        transform 1s cubic-bezier(
-          .22,
-          1,
-          .36,
-          1
-        ),
-        filter 0.8s ease;
+        opacity .55s ease,
+        transform .7s ease,
+        filter .55s ease;
     }
 
-    .product:hover
-    .product-koç {
+    .product:hover .product-koç{
+      opacity:.96;
 
-      opacity: 0.96;
-
-      transform:
-        scale(1);
+      transform:scale(1);
 
       filter:
-        brightness(0.91)
+        brightness(.91)
         contrast(1.06);
     }
 
+    .product-koç-art::after{
+      content:"";
 
-    /* =========================================================
-       IMAGE DARK EDGE
-    ========================================================= */
-
-    .product-art::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
+      position:absolute;
+      inset:0;
 
       background:
         radial-gradient(
-          ellipse at center,
-          transparent 28%,
-          rgba(17,17,17,0.12) 48%,
-          rgba(17,17,17,0.56) 76%,
-          rgba(17,17,17,0.94) 100%
+          circle at center,
+          rgba(17,17,17,0) 25%,
+          rgba(17,17,17,.16) 58%,
+          rgba(17,17,17,.88) 100%
         );
-
-      z-index: 2;
-
-      pointer-events: none;
     }
-
 
     /* =========================================================
        PRODUCT INFO
     ========================================================= */
 
-    .product-info {
+    .product-info{
+      position:relative;
+      z-index:10;
 
-      position: relative;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
 
-      z-index: 20;
-
-      min-height: 82px;
-
-      display: flex;
-
-      align-items: flex-end;
-
-      justify-content: space-between;
-
-      gap: 20px;
+      gap:20px;
     }
 
-    .product-name {
+    .product-name{
+      font-size:clamp(30px,4.8vw,68px);
 
-      font-size:
-        clamp(30px, 4.5vw, 68px);
+      line-height:.86;
 
-      line-height: 0.86;
+      letter-spacing:-.06em;
 
-      letter-spacing: -0.06em;
-
-      font-weight: 700;
-
-      max-width: 75%;
-
-      text-shadow:
-        0 3px 20px rgba(
-          0,
-          0,
-          0,
-          0.32
-        );
+      font-weight:700;
     }
 
-    .product-meta {
+    .product-meta{
+      text-align:right;
 
-      text-align: right;
+      font-size:8px;
+      line-height:1.6;
 
-      font-size: 8px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
 
-      line-height: 1.55;
-
-      letter-spacing: 0.1em;
-
-      text-transform: uppercase;
-
-      opacity: 0.6;
-
-      white-space: nowrap;
-
-      text-shadow:
-        0 2px 12px rgba(
-          0,
-          0,
-          0,
-          0.4
-        );
+      opacity:.55;
     }
-
 
     /* =========================================================
-       MEANING OVERLAY
+       MEANING — DESKTOP
     ========================================================= */
 
-    .product-meaning {
+    .product-meaning{
+      position:absolute;
+      inset:0;
 
-      position: absolute;
+      z-index:5;
 
-      left: 0;
-      right: 0;
+      display:flex;
+      align-items:flex-end;
 
-      bottom: 108px;
-
-      height:
-        calc(100% - 108px);
-
-      z-index: 10;
-
-      display: flex;
-
-      align-items: flex-end;
-
-      padding:
-        24px 22px;
+      padding:22px;
 
       background:
         linear-gradient(
           to top,
-          rgba(17,17,17,0.99) 0%,
-          rgba(17,17,17,0.94) 17%,
-          rgba(17,17,17,0.73) 37%,
-          rgba(17,17,17,0.34) 60%,
-          rgba(17,17,17,0) 86%
+          rgba(17,17,17,.96) 0%,
+          rgba(17,17,17,.74) 34%,
+          rgba(17,17,17,0) 72%
         );
 
-      opacity: 0;
+      opacity:0;
 
-      transform:
-        translateY(18px);
+      transform:translateY(12px);
 
-      pointer-events: none;
+      pointer-events:none;
 
       transition:
-        opacity 0.48s ease,
-        transform 0.6s cubic-bezier(
-          .22,
-          1,
-          .36,
-          1
-        );
+        opacity .45s ease,
+        transform .45s ease;
     }
 
-    .product:hover
-    .product-meaning {
-
-      opacity: 1;
-
-      transform:
-        translateY(0);
+    .product-meaning-inner{
+      max-width:440px;
     }
 
+    .product-meaning-label{
+      font-size:8px;
 
-    /* =========================================================
-       MEANING CONTENT
-    ========================================================= */
+      letter-spacing:.12em;
+      text-transform:uppercase;
 
-    .product-meaning-inner {
+      opacity:.45;
 
-      max-width: 510px;
-
-      padding-bottom: 7px;
+      margin-bottom:9px;
     }
 
-    .product-meaning-label {
+    .product-meaning-text{
+      font-size:clamp(16px,2vw,25px);
 
-      font-size: 8px;
+      line-height:1;
 
-      letter-spacing: 0.13em;
+      letter-spacing:-.035em;
 
-      text-transform: uppercase;
-
-      opacity: 0.42;
-
-      margin-bottom: 10px;
+      font-weight:500;
     }
 
-    .product-meaning-text {
-
-      font-size:
-        clamp(
-          17px,
-          2.2vw,
-          27px
-        );
-
-      line-height: 1.02;
-
-      letter-spacing: -0.04em;
-
-      font-weight: 500;
+    .product:hover .product-meaning,
+    .product:focus-visible .product-meaning{
+      opacity:1;
+      transform:translateY(0);
     }
-
 
     /* =========================================================
        ABOUT
     ========================================================= */
 
-    .about {
+    .about{
+      padding:110px 28px;
 
-      padding:
-        120px 28px;
-
-      background: #dedbd2;
-
-      color: #111;
+      background:#dedbd2;
     }
 
-    .section-label {
+    .section-label{
+      font-size:9px;
 
-      font-size: 9px;
+      letter-spacing:.13em;
+      text-transform:uppercase;
 
-      letter-spacing: 0.13em;
-
-      text-transform: uppercase;
-
-      margin-bottom: 38px;
-
-      opacity: 0.55;
+      margin-bottom:36px;
     }
 
-    .about-grid {
+    .about-grid{
+      display:grid;
 
-      display: grid;
+      grid-template-columns:1fr 2fr;
 
-      grid-template-columns:
-        1fr 2fr;
-
-      gap: 40px;
+      gap:40px;
     }
 
-    .about-copy {
+    .about-copy{
+      max-width:900px;
 
-      max-width: 1000px;
+      font-size:clamp(34px,5.4vw,82px);
 
-      font-size:
-        clamp(
-          34px,
-          5.4vw,
-          82px
-        );
+      line-height:.92;
 
-      line-height: 0.92;
+      letter-spacing:-.065em;
 
-      letter-spacing: -0.065em;
-
-      font-weight: 700;
+      font-weight:700;
     }
-
 
     /* =========================================================
        FOOTER
     ========================================================= */
 
-    footer {
+    footer{
+      background:#111;
+      color:#f3f1eb;
 
-      background: #111;
-
-      color: #f3f1eb;
-
-      padding:
-        65px 28px 25px;
+      padding:65px 28px 25px;
     }
 
-    .footer-top {
+    .footer-top{
+      display:flex;
 
-      display: flex;
+      justify-content:space-between;
+      align-items:flex-start;
 
-      justify-content: space-between;
-
-      align-items: flex-start;
-
-      margin-bottom: 100px;
+      margin-bottom:100px;
     }
 
-    .footer-logo {
+    .footer-logo{
+      font-size:clamp(38px,6vw,80px);
 
-      font-size:
-        clamp(
-          38px,
-          6vw,
-          80px
-        );
+      line-height:.82;
 
-      line-height: 0.82;
+      letter-spacing:-.065em;
 
-      letter-spacing: -0.065em;
-
-      font-weight: 800;
+      font-weight:800;
     }
 
-    .footer-links {
+    .footer-links{
+      display:flex;
 
-      display: flex;
+      gap:55px;
 
-      gap: 55px;
+      font-size:9px;
 
-      font-size: 9px;
+      letter-spacing:.1em;
 
-      letter-spacing: 0.1em;
-
-      text-transform: uppercase;
+      text-transform:uppercase;
     }
 
-    .footer-links div {
+    .footer-links div{
+      display:flex;
+      flex-direction:column;
 
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 11px;
+      gap:11px;
     }
 
-    .footer-links a {
-
-      transition:
-        opacity 0.25s ease;
+    .footer-links a{
+      transition:opacity .25s ease;
     }
 
-    .footer-links a:hover {
-      opacity: 0.45;
+    .footer-links a:hover{
+      opacity:.5;
     }
 
-    .footer-bottom {
-
-      padding-top: 18px;
+    .footer-bottom{
+      padding-top:18px;
 
       border-top:
-        1px solid rgba(
-          243,
-          241,
-          235,
-          0.3
-        );
+        1px solid
+        rgba(243,241,235,.3);
 
-      display: flex;
+      display:flex;
 
-      justify-content: space-between;
+      justify-content:space-between;
 
-      font-size: 8px;
+      font-size:8px;
 
-      letter-spacing: 0.08em;
+      letter-spacing:.08em;
 
-      text-transform: uppercase;
+      text-transform:uppercase;
     }
 
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media(max-width:900px){
+
+      .product{
+        min-height:58vh;
+      }
+
+      .product-name{
+        font-size:
+          clamp(
+            29px,
+            5vw,
+            58px
+          );
+      }
+    }
 
     /* =========================================================
        MOBILE
     ========================================================= */
 
-    @media (max-width: 700px) {
+    @media(max-width:700px){
 
-      header {
+      header{
+        height:60px;
+        padding:0 17px;
+      }
 
-        height: 60px;
+      nav{
+        gap:11px;
+        font-size:8px;
+      }
+
+      .languages{
+        gap:6px;
+      }
+
+      .languages button{
+        font-size:8px;
+      }
+
+      .hero{
+        min-height:63vh;
 
         padding:
-          0 17px;
+          90px 17px 42px;
       }
 
-      nav {
-
-        gap: 12px;
-
-        font-size: 8px;
+      .hero h1{
+        font-size:18vw;
       }
 
-      nav a:nth-child(3) {
-
-        display: none;
+      .hero-meta{
+        font-size:7px;
       }
 
+      .products{
+        padding:
+          18px 17px 90px;
+      }
 
-      /* -------------------------------------------------------
-         HERO
-      ------------------------------------------------------- */
+      .product-grid{
+        grid-template-columns:1fr;
+      }
 
-      .hero {
+      /*
+        MOBILE PRODUCT:
+        Kart yüksekliği artık sabit değil.
+        İçerik ne kadar gerekiyorsa kart o kadar uzar.
+      */
 
-        min-height: 62vh;
+      .product{
+        min-height:0;
+        height:auto;
+
+        padding:18px;
+
+        display:flex;
+        flex-direction:column;
+
+        overflow:hidden;
+      }
+
+      /*
+        Görsel alanı ayrı tutuluyor.
+        Açıklama ürünün üstüne çıkmayacak.
+      */
+
+      .product-art{
+        flex:none;
+
+        min-height:58vw;
 
         padding:
-          95px 17px 42px;
+          30px 10px;
       }
 
-      .hero h1 {
+      /*
+        KOÇBOYNUZU mobile
+      */
 
-        font-size: 18vw;
+      .product-koç-art{
+        position:absolute;
+        inset:0;
       }
 
-      .hero-meta {
+      /*
+        Ürün bilgisi her zaman açıklamanın üstünde.
+      */
 
-        font-size: 7px;
+      .product-info{
+        position:relative;
 
-        line-height: 1.4;
+        z-index:20;
+
+        padding-top:14px;
       }
 
+      .product-name{
+        font-size:13vw;
 
-      /* -------------------------------------------------------
-         PRODUCTS
-      ------------------------------------------------------- */
+        line-height:.86;
+      }
 
-      .products {
+      .product-meta{
+        font-size:7px;
+      }
+
+      /*
+        MOBILE MEANING:
+        Artık overlay değil.
+        Normal document flow içinde aşağıda.
+      */
+
+      .product-meaning{
+        position:relative;
+
+        inset:auto;
+
+        z-index:15;
+
+        display:block;
+
+        margin:18px 0 0;
 
         padding:
-          16px 17px 90px;
+          18px 0 4px;
+
+        min-height:0;
+
+        background:none;
+
+        border-top:
+          1px solid
+          rgba(243,241,235,.18);
+
+        opacity:1;
+
+        transform:none;
+
+        pointer-events:auto;
       }
 
-      .product-grid {
-
-        grid-template-columns:
-          1fr;
+      .product-meaning-inner{
+        max-width:none;
       }
 
-      .product {
+      .product-meaning-label{
+        font-size:7px;
 
-        min-height: 620px;
-
-        padding: 18px;
+        margin-bottom:8px;
       }
 
-      .product-koç {
+      .product-meaning-text{
+        font-size:16px;
 
-        object-position:
-          center center;
+        line-height:1.08;
 
-        opacity: 0.70;
+        letter-spacing:-.025em;
       }
 
-      .product-name {
-
-        font-size: 14vw;
-
-        max-width: 72%;
+      .about{
+        padding:85px 17px;
       }
 
-      .product-info {
+      .about-grid{
+        grid-template-columns:1fr;
 
-        min-height: 78px;
+        gap:28px;
       }
 
+      .footer-top{
+        flex-direction:column;
 
-      /* -------------------------------------------------------
-         MOBILE MEANING
-      ------------------------------------------------------- */
+        gap:60px;
 
-      .product-meaning {
-
-        position: relative;
-
-        left: auto;
-        right: auto;
-        bottom: auto;
-
-        width: auto;
-
-        height: auto;
-
-        min-height: 130px;
-
-        margin:
-          0 -18px -18px;
-
-        padding:
-          20px 18px;
-
-        background:
-          #171717;
-
-        opacity: 1;
-
-        transform: none;
-
-        pointer-events: auto;
+        margin-bottom:70px;
       }
 
-      .product:hover
-      .product-meaning {
-
-        opacity: 1;
-
-        transform: none;
+      .footer-links{
+        gap:35px;
       }
 
-      .product-meaning-inner {
+      .footer-bottom{
+        flex-direction:column;
 
-        max-width: 100%;
+        gap:10px;
       }
-
-      .product-meaning-text {
-
-        font-size: 20px;
-      }
-
-
-      /* -------------------------------------------------------
-         ABOUT
-      ------------------------------------------------------- */
-
-      .about {
-
-        padding:
-          85px 17px;
-      }
-
-      .about-grid {
-
-        grid-template-columns:
-          1fr;
-
-        gap: 28px;
-      }
-
-
-      /* -------------------------------------------------------
-         FOOTER
-      ------------------------------------------------------- */
-
-      .footer-top {
-
-        flex-direction: column;
-
-        gap: 60px;
-
-        margin-bottom: 70px;
-      }
-
-      .footer-links {
-
-        gap: 35px;
-      }
-
-      .footer-bottom {
-
-        flex-direction: column;
-
-        gap: 10px;
-      }
-
     }
-
-
-    /* =========================================================
-       SMALL MOBILE
-    ========================================================= */
-
-    @media (max-width: 430px) {
-
-      .hero h1 {
-
-        font-size: 19vw;
-      }
-
-      .product {
-
-        min-height: 570px;
-      }
-
-      .product-name {
-
-        font-size: 15vw;
-      }
-
-      .product-koç {
-
-        object-position:
-          center center;
-      }
-
-    }
-
   </style>
-
 </head>
 
-
 <body>
-
 
   <!-- =========================================================
        HEADER
@@ -972,22 +784,61 @@
       THE TUFTER<span class="registered">®</span>
     </a>
 
-
     <nav>
 
-      <a href="index.html#drops">
+      <a
+        href="index.html#drops"
+        data-i18n="drops"
+      >
         DROPS
       </a>
 
-      <a href="index.html#shop">
+      <a
+        href="index.html#shop"
+        data-i18n="shop"
+      >
         SHOP
       </a>
 
-      <a href="index.html#about">
+      <a
+        href="index.html#about"
+        data-i18n="about"
+      >
         ABOUT
       </a>
 
-      <a href="#">
+      <!-- LANGUAGE SWITCHER -->
+
+      <div class="languages">
+
+        <button
+          type="button"
+          data-lang="en"
+          class="active"
+        >
+          EN
+        </button>
+
+        <button
+          type="button"
+          data-lang="tr"
+        >
+          TR
+        </button>
+
+        <button
+          type="button"
+          data-lang="el"
+        >
+          EL
+        </button>
+
+      </div>
+
+      <a
+        href="#"
+        data-i18n="cart"
+      >
         CART
       </a>
 
@@ -1002,26 +853,24 @@
 
   <main>
 
-
-    <!-- =======================================================
-         HERO
-    ======================================================= -->
+    <!-- HERO -->
 
     <section class="hero">
 
-      <div class="eyebrow">
+      <div
+        class="eyebrow"
+        data-i18n="heroEyebrow"
+      >
         DROP 001 / ANATOLIA
       </div>
-
 
       <h1>
         ANATOLIA
       </h1>
 
-
       <div class="hero-meta">
 
-        <span>
+        <span data-i18n="heroMeta">
           FIVE SYMBOLS / ONE DROP
         </span>
 
@@ -1034,9 +883,7 @@
     </section>
 
 
-    <!-- =======================================================
-         PRODUCTS
-    ======================================================= -->
+    <!-- PRODUCTS -->
 
     <section
       class="products"
@@ -1046,36 +893,20 @@
       <div class="product-grid">
 
 
-        <!-- ===================================================
+        <!-- =====================================================
              01 — ELİBELİNDE
-        =================================================== -->
+        ===================================================== -->
 
-        <article class="product">
+        <a
+          class="product"
+          href="#"
+        >
 
           <span class="product-no">
             01 / 05
           </span>
 
-
           <div class="product-art"></div>
-
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
-
-              <div class="product-meaning-label">
-                MEANING
-              </div>
-
-              <div class="product-meaning-text">
-                FERTILITY, ABUNDANCE, MOTHERHOOD AND THE FEMININE.
-              </div>
-
-            </div>
-
-          </div>
-
 
           <div class="product-info">
 
@@ -1083,29 +914,55 @@
               ELİBELİNDE
             </h2>
 
-            <div class="product-meta">
-              ANATOLIA
-              <br>
+            <div
+              class="product-meta"
+              data-i18n="comingSoon"
+            >
+              ANATOLIA<br>
               COMING SOON
             </div>
 
           </div>
 
-        </article>
+          <div class="product-meaning">
+
+            <div class="product-meaning-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+              <div
+                class="product-meaning-text"
+                data-i18n="elibelindeMeaning"
+              >
+                FERTILITY, ABUNDANCE, MOTHERHOOD AND THE FEMININE.
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
 
 
-        <!-- ===================================================
+        <!-- =====================================================
              02 — KOÇBOYNUZU
-        =================================================== -->
+        ===================================================== -->
 
-        <article class="product">
+        <a
+          class="product"
+          href="#"
+        >
 
           <span class="product-no">
             02 / 05
           </span>
 
-
-          <div class="product-art">
+          <div class="product-koç-art">
 
             <img
               class="product-koç"
@@ -1115,16 +972,37 @@
 
           </div>
 
+          <div class="product-info">
+
+            <h2 class="product-name">
+              KOÇBOYNUZU
+            </h2>
+
+            <div
+              class="product-meta"
+              data-i18n="comingSoon"
+            >
+              ANATOLIA<br>
+              COMING SOON
+            </div>
+
+          </div>
 
           <div class="product-meaning">
 
             <div class="product-meaning-inner">
 
-              <div class="product-meaning-label">
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
                 MEANING
               </div>
 
-              <div class="product-meaning-text">
+              <div
+                class="product-meaning-text"
+                data-i18n="kocboynuzuMeaning"
+              >
                 POWER, HEROISM, MASCULINITY AND ABUNDANCE.
               </div>
 
@@ -1132,54 +1010,23 @@
 
           </div>
 
-
-          <div class="product-info">
-
-            <h2 class="product-name">
-              KOÇBOYNUZU
-            </h2>
-
-            <div class="product-meta">
-              ANATOLIA
-              <br>
-              COMING SOON
-            </div>
-
-          </div>
-
-        </article>
+        </a>
 
 
-        <!-- ===================================================
+        <!-- =====================================================
              03 — PITIRAK
-        =================================================== -->
+        ===================================================== -->
 
-        <article class="product">
+        <a
+          class="product"
+          href="#"
+        >
 
           <span class="product-no">
             03 / 05
           </span>
 
-
           <div class="product-art"></div>
-
-
-          <div class="product-meaning">
-
-            <div class="product-meaning-inner">
-
-              <div class="product-meaning-label">
-                MEANING
-              </div>
-
-              <div class="product-meaning-text">
-                PROTECTION, FORTUNE AND THE POWER TO HOLD HARM AT A DISTANCE.
-              </div>
-
-            </div>
-
-          </div>
-
 
           <div class="product-info">
 
@@ -1187,47 +1034,55 @@
               PITIRAK
             </h2>
 
-            <div class="product-meta">
-              ANATOLIA
-              <br>
+            <div
+              class="product-meta"
+              data-i18n="comingSoon"
+            >
+              ANATOLIA<br>
               COMING SOON
             </div>
 
           </div>
 
-        </article>
-
-
-        <!-- ===================================================
-             04 — SAÇBAĞI
-        =================================================== -->
-
-        <article class="product">
-
-          <span class="product-no">
-            04 / 05
-          </span>
-
-
-          <div class="product-art"></div>
-
-
           <div class="product-meaning">
 
             <div class="product-meaning-inner">
 
-              <div class="product-meaning-label">
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
                 MEANING
               </div>
 
-              <div class="product-meaning-text">
-                CONTINUITY, FAMILY, BOND AND THE PASSING OF TRADITION.
+              <div
+                class="product-meaning-text"
+                data-i18n="pitirakMeaning"
+              >
+                PROTECTION, FORTUNE AND THE POWER TO HOLD HARM AT A DISTANCE.
               </div>
 
             </div>
 
           </div>
 
+        </a>
+
+
+        <!-- =====================================================
+             04 — SAÇBAĞI
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+        >
+
+          <span class="product-no">
+            04 / 05
+          </span>
+
+          <div class="product-art"></div>
 
           <div class="product-info">
 
@@ -1235,47 +1090,55 @@
               SAÇBAĞI
             </h2>
 
-            <div class="product-meta">
-              ANATOLIA
-              <br>
+            <div
+              class="product-meta"
+              data-i18n="comingSoon"
+            >
+              ANATOLIA<br>
               COMING SOON
             </div>
 
           </div>
 
-        </article>
-
-
-        <!-- ===================================================
-             05 — SUYOLU
-        =================================================== -->
-
-        <article class="product">
-
-          <span class="product-no">
-            05 / 05
-          </span>
-
-
-          <div class="product-art"></div>
-
-
           <div class="product-meaning">
 
             <div class="product-meaning-inner">
 
-              <div class="product-meaning-label">
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
                 MEANING
               </div>
 
-              <div class="product-meaning-text">
-                WATER, LIFE, CONTINUITY, ABUNDANCE AND RENEWAL.
+              <div
+                class="product-meaning-text"
+                data-i18n="sacbagiMeaning"
+              >
+                CONTINUITY, FAMILY, BOND AND THE PASSING OF TRADITION.
               </div>
 
             </div>
 
           </div>
 
+        </a>
+
+
+        <!-- =====================================================
+             05 — SUYOLU
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+        >
+
+          <span class="product-no">
+            05 / 05
+          </span>
+
+          <div class="product-art"></div>
 
           <div class="product-info">
 
@@ -1283,41 +1146,71 @@
               SUYOLU
             </h2>
 
-            <div class="product-meta">
-              ANATOLIA
-              <br>
+            <div
+              class="product-meta"
+              data-i18n="comingSoon"
+            >
+              ANATOLIA<br>
               COMING SOON
             </div>
 
           </div>
 
-        </article>
+          <div class="product-meaning">
 
+            <div class="product-meaning-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+              <div
+                class="product-meaning-text"
+                data-i18n="suyoluMeaning"
+              >
+                WATER, LIFE, CONTINUITY, ABUNDANCE AND RENEWAL.
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
 
       </div>
 
     </section>
 
 
-    <!-- =======================================================
+    <!-- =========================================================
          ABOUT
-    ======================================================= -->
+    ========================================================= -->
 
     <section class="about">
 
-      <div class="section-label">
+      <div
+        class="section-label"
+        data-i18n="aboutLabel"
+      >
         DROP 001 / THE IDEA
       </div>
 
-
       <div class="about-grid">
 
-        <div class="eyebrow">
+        <div
+          class="eyebrow"
+          data-i18n="aboutEyebrow"
+        >
           SYMBOLS OF THE LAND
         </div>
 
-
-        <div class="about-copy">
+        <div
+          class="about-copy"
+          data-i18n="aboutCopy"
+        >
           ANATOLIA REIMAGINED THROUGH FIVE SYMBOLS, TRANSLATED INTO CONTEMPORARY TUFTED OBJECTS.
         </div>
 
@@ -1336,49 +1229,58 @@
 
     <div class="footer-top">
 
-
       <div class="footer-logo">
-
-        THE
-
-        <br>
-
+        THE<br>
         TUFTER<span class="registered">®</span>
-
       </div>
-
 
       <div class="footer-links">
 
-
         <div>
 
-          <a href="index.html#drops">
+          <a
+            href="index.html#drops"
+            data-i18n="drops"
+          >
             DROPS
           </a>
 
-          <a href="index.html#shop">
+          <a
+            href="index.html#shop"
+            data-i18n="shop"
+          >
             SHOP
           </a>
 
-          <a href="index.html#about">
+          <a
+            href="index.html#about"
+            data-i18n="about"
+          >
             ABOUT
           </a>
 
         </div>
 
-
         <div>
 
-          <a href="#">
+          <a
+            href="#"
+            data-i18n="archive"
+          >
             ARCHIVE
           </a>
 
-          <a href="#">
+          <a
+            href="#"
+            data-i18n="contact"
+          >
             CONTACT
           </a>
 
-          <a href="#">
+          <a
+            href="#"
+            data-i18n="instagram"
+          >
             INSTAGRAM
           </a>
 
@@ -1387,7 +1289,6 @@
       </div>
 
     </div>
-
 
     <div class="footer-bottom">
 
@@ -1404,6 +1305,294 @@
   </footer>
 
 
-</body>
+  <!-- =========================================================
+       LANGUAGE SYSTEM
+  ========================================================= -->
 
+  <script>
+
+    const translations = {
+
+      /* =======================================================
+         ENGLISH
+      ======================================================= */
+
+      en: {
+
+        drops:
+          "DROPS",
+
+        shop:
+          "SHOP",
+
+        about:
+          "ABOUT",
+
+        cart:
+          "CART",
+
+        archive:
+          "ARCHIVE",
+
+        contact:
+          "CONTACT",
+
+        instagram:
+          "INSTAGRAM",
+
+        heroEyebrow:
+          "DROP 001 / ANATOLIA",
+
+        heroMeta:
+          "FIVE SYMBOLS / ONE DROP",
+
+        comingSoon:
+          "ANATOLIA<br>COMING SOON",
+
+        meaning:
+          "MEANING",
+
+        elibelindeMeaning:
+          "FERTILITY, ABUNDANCE, MOTHERHOOD AND THE FEMININE.",
+
+        kocboynuzuMeaning:
+          "POWER, HEROISM, MASCULINITY AND ABUNDANCE.",
+
+        pitirakMeaning:
+          "PROTECTION, FORTUNE AND THE POWER TO HOLD HARM AT A DISTANCE.",
+
+        sacbagiMeaning:
+          "CONTINUITY, FAMILY, BOND AND THE PASSING OF TRADITION.",
+
+        suyoluMeaning:
+          "WATER, LIFE, CONTINUITY, ABUNDANCE AND RENEWAL.",
+
+        aboutLabel:
+          "DROP 001 / THE IDEA",
+
+        aboutEyebrow:
+          "SYMBOLS OF THE LAND",
+
+        aboutCopy:
+          "ANATOLIA REIMAGINED THROUGH FIVE SYMBOLS, TRANSLATED INTO CONTEMPORARY TUFTED OBJECTS."
+
+      },
+
+
+      /* =======================================================
+         TÜRKÇE
+      ======================================================= */
+
+      tr: {
+
+        drops:
+          "DROPLAR",
+
+        shop:
+          "MAĞAZA",
+
+        about:
+          "HAKKIMIZDA",
+
+        cart:
+          "SEPET",
+
+        archive:
+          "ARŞİV",
+
+        contact:
+          "İLETİŞİM",
+
+        instagram:
+          "INSTAGRAM",
+
+        heroEyebrow:
+          "DROP 001 / ANADOLU",
+
+        heroMeta:
+          "BEŞ SEMBOL / TEK DROP",
+
+        comingSoon:
+          "ANADOLU<br>YAKINDA",
+
+        meaning:
+          "ANLAMI",
+
+        elibelindeMeaning:
+          "BEREKET, DOĞURGANLIK, ANNELİK VE DİŞİLİĞİ TEMSİL EDER.",
+
+        kocboynuzuMeaning:
+          "GÜCÜ, KAHRAMANLIĞI, ERİLLİĞİ VE BEREKETİ TEMSİL EDER.",
+
+        pitirakMeaning:
+          "KORUNMAYI, UĞURU VE KÖTÜLÜĞÜ UZAK TUTMA GÜCÜNÜ TEMSİL EDER.",
+
+        sacbagiMeaning:
+          "SÜREKLİLİĞİ, AİLEYİ, BAĞI VE GELENEĞİN NESİLDEN NESİLE AKTARILMASINI TEMSİL EDER.",
+
+        suyoluMeaning:
+          "SUYU, YAŞAMI, SÜREKLİLİĞİ, BEREKETİ VE YENİLENMEYİ TEMSİL EDER.",
+
+        aboutLabel:
+          "DROP 001 / FİKİR",
+
+        aboutEyebrow:
+          "TOPRAĞIN SEMBOLLERİ",
+
+        aboutCopy:
+          "ANADOLU, BEŞ SEMBOL ÜZERİNDEN YENİDEN YORUMLANARAK ÇAĞDAŞ TUFTED OBJELERE DÖNÜŞTÜRÜLÜYOR."
+
+      },
+
+
+      /* =======================================================
+         ΕΛΛΗΝΙΚΑ
+      ======================================================= */
+
+      el: {
+
+        drops:
+          "DROPS",
+
+        shop:
+          "ΚΑΤΑΣΤΗΜΑ",
+
+        about:
+          "ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ",
+
+        cart:
+          "ΚΑΛΑΘΙ",
+
+        archive:
+          "ΑΡΧΕΙΟ",
+
+        contact:
+          "ΕΠΙΚΟΙΝΩΝΙΑ",
+
+        instagram:
+          "INSTAGRAM",
+
+        heroEyebrow:
+          "DROP 001 / ΑΝΑΤΟΛΙΑ",
+
+        heroMeta:
+          "ΠΕΝΤΕ ΣΥΜΒΟΛΑ / ΕΝΑ DROP",
+
+        comingSoon:
+          "ΑΝΑΤΟΛΙΑ<br>ΣΥΝΤΟΜΑ",
+
+        meaning:
+          "ΣΗΜΑΣΙΑ",
+
+        elibelindeMeaning:
+          "ΓΟΝΙΜΟΤΗΤΑ, ΑΦΘΟΝΙΑ, ΜΗΤΡΟΤΗΤΑ ΚΑΙ ΤΟ ΘΗΛΥΚΟ.",
+
+        kocboynuzuMeaning:
+          "ΔΥΝΑΜΗ, ΗΡΩΙΣΜΟΣ, ΑΡΡΕΝΩΠΟΤΗΤΑ ΚΑΙ ΑΦΘΟΝΙΑ.",
+
+        pitirakMeaning:
+          "ΠΡΟΣΤΑΣΙΑ, ΤΥΧΗ ΚΑΙ Η ΔΥΝΑΜΗ ΝΑ ΚΡΑΤΑ ΤΟ ΚΑΚΟ ΜΑΚΡΙΑ.",
+
+        sacbagiMeaning:
+          "ΣΥΝΕΧΕΙΑ, ΟΙΚΟΓΕΝΕΙΑ, ΔΕΣΜΟΣ ΚΑΙ Η ΜΕΤΑΒΙΒΑΣΗ ΤΗΣ ΠΑΡΑΔΟΣΗΣ.",
+
+        suyoluMeaning:
+          "ΝΕΡΟ, ΖΩΗ, ΣΥΝΕΧΕΙΑ, ΑΦΘΟΝΙΑ ΚΑΙ ΑΝΑΝΕΩΣΗ.",
+
+        aboutLabel:
+          "DROP 001 / Η ΙΔΕΑ",
+
+        aboutEyebrow:
+          "ΣΥΜΒΟΛΑ ΤΗΣ ΓΗΣ",
+
+        aboutCopy:
+          "Η ΑΝΑΤΟΛΙΑ ΕΠΑΝΑΦΑΝΤΑΖΕΤΑΙ ΜΕΣΑ ΑΠΟ ΠΕΝΤΕ ΣΥΜΒΟΛΑ, ΜΕΤΑΦΕΡΟΜΕΝΑ ΣΕ ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ."
+
+      }
+
+    };
+
+
+    /* =========================================================
+       LANGUAGE FUNCTION
+    ========================================================= */
+
+    function setLanguage(lang){
+
+      document.documentElement.lang = lang;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+          const key =
+            element.getAttribute("data-i18n");
+
+          if(
+            translations[lang] &&
+            translations[lang][key]
+          ){
+
+            element.innerHTML =
+              translations[lang][key];
+
+          }
+
+        });
+
+
+      document
+        .querySelectorAll("[data-lang]")
+        .forEach(element => {
+
+          element.classList.toggle(
+            "active",
+            element.getAttribute("data-lang") === lang
+          );
+
+        });
+
+
+      localStorage.setItem(
+        "tufter-language",
+        lang
+      );
+
+    }
+
+
+    /* =========================================================
+       LANGUAGE BUTTONS
+    ========================================================= */
+
+    document
+      .querySelectorAll("[data-lang]")
+      .forEach(element => {
+
+        element.addEventListener(
+          "click",
+          () => {
+
+            setLanguage(
+              element.getAttribute("data-lang")
+            );
+
+          }
+        );
+
+      });
+
+
+    /* =========================================================
+       LOAD SAVED LANGUAGE
+    ========================================================= */
+
+    const savedLanguage =
+      localStorage.getItem("tufter-language") || "en";
+
+    setLanguage(savedLanguage);
+
+  </script>
+
+</body>
 </html>
