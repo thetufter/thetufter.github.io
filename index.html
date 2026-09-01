@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>THE TUFTER®</title>
+  <meta name="description" content="THE TUFTER® — Contemporary tufted objects.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f3f1eb;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .logo {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      transition: opacity 0.25s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.5;
+    }
+
+    .languages {
+      display: flex;
+      gap: 8px;
+    }
+
+    .languages span {
+      cursor: pointer;
+    }
+
+    .languages .active {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding: 120px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(64px, 13vw, 210px);
+      line-height: 0.78;
+      letter-spacing: -0.075em;
+      font-weight: 800;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 140px 32px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 70px;
+    }
+
+    /* DROPS */
+
+    .drops {
+      background: #111;
+      color: #f3f1eb;
+    }
+
+    .drop {
+      border-top: 1px solid rgba(243, 241, 235, 0.35);
+      padding: 35px 0 110px;
+    }
+
+    .drop:last-child {
+      border-bottom: 1px solid rgba(243, 241, 235, 0.35);
+    }
+
+    .drop-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 45px;
+    }
+
+    .drop-name {
+      font-size: clamp(54px, 10vw, 150px);
+      line-height: 0.82;
+      letter-spacing: -0.065em;
+      font-weight: 700;
+      max-width: 1100px;
+    }
+
+    .drop-footer {
+      margin-top: 55px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .explore {
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 5px;
+    }
+
+    /* SHOP */
+
+    .shop {
+      background: #f3f1eb;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #111;
+      border-left: 1px solid #111;
+    }
+
+    .shop-item {
+      min-height: 260px;
+      padding: 24px;
+      border-right: 1px solid #111;
+      border-bottom: 1px solid #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    .shop-item:hover {
+      background: #111;
+      color: #f3f1eb;
+    }
+
+    .shop-number {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+    }
+
+    .shop-name {
+      font-size: clamp(25px, 3vw, 46px);
+      letter-spacing: -0.05em;
+      font-weight: 700;
+    }
+
+    .coming {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* CURRENT DROP */
+
+    .current {
+      background: #dedbd2;
+    }
+
+    .current-title {
+      font-size: clamp(60px, 12vw, 170px);
+      line-height: 0.8;
+      letter-spacing: -0.07em;
+      font-weight: 800;
+      margin-bottom: 80px;
+    }
+
+    .motifs {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border-top: 1px solid #111;
+      border-left: 1px solid #111;
+    }
+
+    .motif {
+      min-height: 180px;
+      padding: 18px;
+      border-right: 1px solid #111;
+      border-bottom: 1px solid #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .motif-number {
+      font-size: 9px;
+    }
+
+    .motif-name {
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .current-link {
+      margin-top: 45px;
+      display: inline-block;
+      border-bottom: 1px solid #111;
+      padding-bottom: 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: #f3f1eb;
+      padding: 70px 32px 30px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 120px;
+    }
+
+    .footer-logo {
+      font-size: clamp(40px, 7vw, 100px);
+      line-height: 0.8;
+      letter-spacing: -0.065em;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 60px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-links div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid rgba(243, 241, 235, 0.3);
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 0 18px;
+      }
+
+      nav {
+        gap: 12px;
+        font-size: 9px;
+      }
+
+      nav .about-link {
+        display: none;
+      }
+
+      section {
+        padding: 100px 18px;
+      }
+
+      .hero {
+        padding: 100px 18px 24px;
+      }
+
+      .hero-bottom {
+        font-size: 8px;
+      }
+
+      .drop {
+        padding-bottom: 75px;
+      }
+
+      .drop-meta {
+        margin-bottom: 35px;
+      }
+
+      .drop-name {
+        font-size: 16vw;
+      }
+
+      .drop-footer {
+        font-size: 9px;
+      }
+
+      .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .shop-item {
+        min-height: 180px;
+        padding: 16px;
+      }
+
+      .motifs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .motif {
+        min-height: 130px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 70px;
+        margin-bottom: 80px;
+      }
+
+      .footer-links {
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <a href="#" class="logo">THE TUFTER®</a>
+
+    <nav>
+      <a href="#drops">DROPS</a>
+      <a href="#shop">SHOP</a>
+      <a href="#about" class="about-link">ABOUT</a>
+
+      <div class="languages">
+        <span class="active">EN</span>
+        <span>TR</span>
+        <span>EL</span>
+      </div>
+
+      <a href="#">CART</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-center">
+        <h1 class="hero-title">
+          THE<br>
+          TUFTER®
+        </h1>
+      </div>
+
+      <div class="hero-bottom">
+        <span>CONTEMPORARY TUFTED OBJECTS</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+      </div>
+
+    </section>
+
+
+    <!-- DROPS -->
+
+    <section class="drops" id="drops">
+
+      <div class="section-label">
+        THE DROPS / 001—003
+      </div>
+
+
+      <article class="drop">
+
+        <div class="drop-meta">
+          <span>001</span>
+          <span>07 TUFTS</span>
+        </div>
+
+        <h2 class="drop-name">
+          ANATOLIA
+        </h2>
+
+        <div class="drop-footer">
+          <span>SYMBOLS OF THE LAND</span>
+          <a href="#" class="explore">EXPLORE →</a>
+        </div>
+
+      </article>
+
+
+      <article class="drop">
+
+        <div class="drop-meta">
+          <span>002</span>
+          <span>05 WALL HANGINGS</span>
+        </div>
+
+        <h2 class="drop-name">
+          KHAGANATES
+        </h2>
+
+        <div class="drop-footer">
+          <span>BANNERS OF LEGACY</span>
+          <a href="#" class="explore">EXPLORE →</a>
+        </div>
+
+      </article>
+
+
+      <article class="drop">
+
+        <div class="drop-meta">
+          <span>003</span>
+          <span>05 TUFTS</span>
+        </div>
+
+        <h2 class="drop-name">
+          OTUKEN<br>
+          IS CALLIN' US
+        </h2>
+
+        <div class="drop-footer">
+          <span>THE CALL OF THE ORIGIN</span>
+          <a href="#" class="explore">EXPLORE →</a>
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- SHOP -->
+
+    <section class="shop" id="shop">
+
+      <div class="section-label">
+        SHOP
+      </div>
+
+      <div class="shop-grid">
+
+        <a href="#" class="shop-item">
+          <span class="shop-number">01</span>
+          <span class="shop-name">TUFTS</span>
+          <span class="coming">AVAILABLE</span>
+        </a>
+
+        <a href="#" class="shop-item">
+          <span class="shop-number">02</span>
+          <span class="shop-name">TEES</span>
+          <span class="coming">COMING SOON</span>
+        </a>
+
+        <a href="#" class="shop-item">
+          <span class="shop-number">03</span>
+          <span class="shop-name">STICKERS</span>
+          <span class="coming">COMING SOON</span>
+        </a>
+
+        <a href="#" class="shop-item">
+          <span class="shop-number">04</span>
+          <span class="shop-name">HANDMADE</span>
+          <span class="coming">COMING SOON</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CURRENT DROP -->
+
+    <section class="current">
+
+      <div class="section-label">
+        CURRENT DROP / 001
+      </div>
+
+      <h2 class="current-title">
+        ANATOLIA
+      </h2>
+
+      <div class="motifs">
+
+        <div class="motif">
+          <span class="motif-number">01</span>
+          <span class="motif-name">ELİBELİNDE</span>
+        </div>
+
+        <div class="motif">
+          <span class="motif-number">02</span>
+          <span class="motif-name">KOÇBOYNUZU</span>
+        </div>
+
+        <div class="motif">
+          <span class="motif-number">03</span>
+          <span class="motif-name">SUYOLU</span>
+        </div>
+
+        <div class="motif">
+          <span class="motif-number">04</span>
+          <span class="motif-name">BEREKET</span>
+        </div>
+
+        <div class="motif">
+          <span class="motif-number">05</span>
+          <span class="motif-name">PITIRAK</span>
+        </div>
+
+        <div class="motif">
+          <span class="motif-number">06</span>
+          <span class="motif-name">SAÇBAĞI</span>
+        </div>
+
+        <div class="motif">
+          <span class="motif-number">07</span>
+          <span class="motif-name">AKREP</span>
+        </div>
+
+      </div>
+
+      <a href="#" class="current-link">
+        EXPLORE ANATOLIA →
+      </a>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="section-label">
+        ABOUT THE TUFTER
+      </div>
+
+      <h2 style="
+        max-width: 1000px;
+        font-size: clamp(38px, 6vw, 90px);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        font-weight: 700;
+      ">
+        CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
+      </h2>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        THE<br>
+        TUFTER®
+      </div>
+
+      <div class="footer-links">
+
+        <div>
+          <a href="#drops">DROPS</a>
+          <a href="#shop">SHOP</a>
+          <a href="#about">ABOUT</a>
+        </div>
+
+        <div>
+          <a href="#">ARCHIVE</a>
+          <a href="#">CONTACT</a>
+          <a href="#">INSTAGRAM</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 THE TUFTER®</span>
+      <span>EN / TR / EL</span>
+    </div>
+
+  </footer>
+
+</body>
+</html>
