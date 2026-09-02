@@ -336,7 +336,6 @@
 
     /* =========================================================
        IMAGE PRODUCTS
-       PITIRAK + future image cards
     ========================================================= */
 
     .product-image-art{
@@ -361,7 +360,8 @@
 
       object-fit:cover;
 
-      object-position:center;
+      /* TÜM GÖRSEL KADRAJI %35 */
+      object-position:center 35%;
 
       opacity:.72;
 
@@ -434,12 +434,7 @@
 
       object-fit:cover;
 
-      /*
-        KADRAJ
-        Görsel aşağı-yukarı yalnızca konum olarak ayarlanıyor.
-        Görselin oranı değiştirilmez.
-      */
-
+      /* KOÇBOYNUZU KADRAJI %35 */
       object-position:center 35%;
 
       opacity:.72;
@@ -902,6 +897,8 @@
       /* IMAGE PRODUCTS */
 
       .product-image{
+        object-position:center 35%;
+
         opacity:.8;
 
         transform:scale(1.01);
@@ -1180,7 +1177,15 @@
           </span>
 
 
-          <div class="product-art"></div>
+          <div class="product-image-art">
+
+            <img
+              class="product-image"
+              src="elibelinde.png"
+              alt="ELİBELİNDE — THE TUFTER"
+            >
+
+          </div>
 
 
           <div class="product-overlay">
@@ -1306,7 +1311,7 @@
           </span>
 
 
-          <div class="product-art product-image-art">
+          <div class="product-image-art">
 
             <img
               class="product-image"
