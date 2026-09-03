@@ -1,21 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
 
   <title>THE TUFTER®</title>
 
-  <meta
-    name="description"
-    content="THE TUFTER® — Contemporary tufted objects."
-  >
+<meta
+name="description"
+content="THE TUFTER® — Contemporary tufted objects."
+
+>
 
   <style>
 
@@ -363,11 +366,11 @@
 
 
     /* =========================================================
-       ANATOLIA
-       KOÇBOYNUZU IMAGE
+       DROP CARD IMAGE
     ========================================================= */
 
-    .drop-card-anatolia {
+    .drop-card-anatolia,
+    .drop-card-khaganates {
       isolation: isolate;
     }
 
@@ -388,12 +391,6 @@
       z-index: 1;
 
       pointer-events: none;
-
-      /*
-        Görselin kenarlarını siyaha yumuşatıyoruz.
-        Böylece PNG kutu gibi görünmek yerine
-        karanlıktan çıkıyormuş hissi veriyor.
-      */
 
       -webkit-mask-image:
         linear-gradient(
@@ -450,6 +447,9 @@
     }
 
     .drop-card-anatolia:hover
+    .drop-card-image,
+
+    .drop-card-khaganates:hover
     .drop-card-image {
 
       opacity: 0.96;
@@ -465,11 +465,24 @@
     }
 
     .drop-card-anatolia:hover
+    .drop-card-image img,
+
+    .drop-card-khaganates:hover
     .drop-card-image img {
 
       filter:
         brightness(0.96)
         contrast(1.03);
+    }
+
+
+    /* =========================================================
+       KHAGANATES — AVRUPA HUN
+    ========================================================= */
+
+    .drop-card-khaganates
+    .drop-card-image {
+      width: min(72%, 560px);
     }
 
 
@@ -507,6 +520,12 @@
       opacity: 0.5;
 
       white-space: nowrap;
+    }
+
+    .drop-card-flagship {
+      opacity: 0.45;
+
+      margin-left: 5px;
     }
 
     .drop-card-center {
@@ -610,19 +629,6 @@
       font-weight: 400;
 
       letter-spacing: -0.07em;
-    }
-
-    .drop-card-premium
-    .drop-card-top {
-
-      letter-spacing: 0.15em;
-    }
-
-    .premium-tag {
-
-      opacity: 0.45;
-
-      margin-left: 5px;
     }
 
     .drop-card-premium:hover {
@@ -1152,15 +1158,17 @@
         transform: none;
       }
 
-      .drop-card-premium
-      .drop-card-name {
 
-        font-size: 12.2vw;
+      /* MOBILE DROP IMAGES */
+
+      .drop-card-image {
+
+        width: 76%;
+
+        top: 52%;
       }
 
-
-      /* MOBILE KOÇBOYNUZU */
-
+      .drop-card-khaganates
       .drop-card-image {
 
         width: 76%;
@@ -1280,12 +1288,6 @@
         font-size: 14vw;
       }
 
-      .drop-card-premium
-      .drop-card-name {
-
-        font-size: 13vw;
-      }
-
       .motifs {
 
         grid-template-columns:
@@ -1297,9 +1299,7 @@
 
 </head>
 
-
 <body>
-
 
   <!-- =========================================================
        HEADER
@@ -1307,15 +1307,658 @@
 
   <header>
 
-    <a
-      href="#"
-      class="logo"
+```
+<a
+  href="#"
+  class="logo"
+>
+  THE TUFTER<span class="registered">®</span>
+</a>
+
+
+<nav>
+
+  <a
+    href="#drops"
+    data-i18n="drops"
+  >
+    DROPS
+  </a>
+
+
+  <a
+    href="#shop"
+    data-i18n="shop"
+  >
+    SHOP
+  </a>
+
+
+  <a
+    href="#about"
+    class="about-link"
+    data-i18n="about"
+  >
+    ABOUT
+  </a>
+
+
+  <div class="languages">
+
+    <span
+      data-lang="en"
+      class="active"
     >
-      THE TUFTER<span class="registered">®</span>
+      EN
+    </span>
+
+    <span data-lang="tr">
+      TR
+    </span>
+
+    <span data-lang="el">
+      EL
+    </span>
+
+  </div>
+
+
+  <a
+    href="#"
+    data-i18n="cart"
+  >
+    CART
+  </a>
+
+</nav>
+```
+
+  </header>
+
+  <!-- =========================================================
+       MAIN
+  ========================================================= -->
+
+  <main>
+
+```
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+  <div class="hero-center">
+
+    <h1 class="hero-title">
+
+      <span>
+        THE
+      </span>
+
+      <span class="brand-word">
+        TUFTER<span class="registered">®</span>
+      </span>
+
+    </h1>
+
+  </div>
+
+
+  <div class="hero-bottom">
+
+    <span data-i18n="heroSubtitle">
+      CONTEMPORARY TUFTED OBJECTS
+    </span>
+
+    <span data-i18n="scroll">
+      SCROLL TO EXPLORE ↓
+    </span>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     DROPS
+======================================================= -->
+
+<section
+  class="drops"
+  id="drops"
+>
+
+
+  <div class="drops-label-row">
+
+    <div
+      class="section-label"
+      data-i18n="dropsLabel"
+    >
+      THE DROPS / 001—003
+    </div>
+
+
+    <div class="drops-total">
+      03 DROPS / 16 OBJECTS
+    </div>
+
+  </div>
+
+
+  <div class="drops-grid">
+
+
+    <!-- ===================================================
+         DROP 001 — ANATOLIA
+    =================================================== -->
+
+    <a
+      href="anatolia.html"
+      class="drop-card drop-card-anatolia"
+    >
+
+
+      <div class="drop-card-image">
+
+        <img
+          src="kocboynuzu.png"
+          alt="KOÇBOYNUZU — THE TUFTER"
+        >
+
+      </div>
+
+
+      <div class="drop-card-top">
+
+        <span class="drop-card-number">
+          001
+        </span>
+
+
+        <span
+          class="drop-card-count"
+          data-i18n="anatoliaCount"
+        >
+          05 TUFTS
+        </span>
+
+      </div>
+
+
+      <div class="drop-card-center">
+
+        <h2 class="drop-card-name">
+          ANATOLIA
+        </h2>
+
+
+        <p
+          class="drop-card-description"
+          data-i18n="anatoliaDesc"
+        >
+          SYMBOLS OF THE LAND
+        </p>
+
+      </div>
+
+
+      <div class="drop-card-bottom">
+
+        <span
+          class="drop-enter"
+          data-i18n="enterDrop"
+        >
+          ENTER DROP →
+        </span>
+
+      </div>
+
     </a>
 
 
-    <nav>
+    <!-- ===================================================
+         DROP 002 — KHAGANATES
+    =================================================== -->
+
+    <a
+      href="khaganates.html"
+      class="drop-card drop-card-khaganates"
+    >
+
+
+      <!-- AVRUPA HUN -->
+
+      <div class="drop-card-image">
+
+        <img
+          src="avrupahun.png"
+          alt="AVRUPA HUN — THE TUFTER"
+        >
+
+      </div>
+
+
+      <div class="drop-card-top">
+
+        <span class="drop-card-number">
+          002
+        </span>
+
+
+        <span
+          class="drop-card-count"
+          data-i18n="khaganatesCount"
+        >
+          06 OBJECTS
+        </span>
+
+      </div>
+
+
+      <div class="drop-card-center">
+
+        <h2 class="drop-card-name">
+          KHAGANATES
+        </h2>
+
+
+        <p
+          class="drop-card-description"
+          data-i18n="khaganatesDesc"
+        >
+          BANNERS OF LEGACY
+        </p>
+
+      </div>
+
+
+      <div class="drop-card-bottom">
+
+        <span
+          class="drop-enter"
+          data-i18n="enterDrop"
+        >
+          ENTER DROP →
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- ===================================================
+         DROP 003 — OTUKEN
+    =================================================== -->
+
+    <a
+      href="#"
+      class="drop-card drop-card-premium"
+    >
+
+
+      <div class="drop-card-top">
+
+        <span class="drop-card-number">
+          003
+        </span>
+
+
+        <span class="drop-card-count">
+
+          <span data-i18n="otukenCount">
+            05 OBJECTS
+          </span>
+
+          <span class="drop-card-flagship">
+            / FLAGSHIP
+          </span>
+
+        </span>
+
+      </div>
+
+
+      <div class="drop-card-center">
+
+        <h2 class="drop-card-name">
+
+          OTUKEN
+
+          <br>
+
+          IS CALLIN' US
+
+        </h2>
+
+
+        <p
+          class="drop-card-description"
+          data-i18n="otukenDesc"
+        >
+          THE CALL OF THE ORIGIN
+        </p>
+
+      </div>
+
+
+      <div class="drop-card-bottom">
+
+        <span
+          class="drop-enter"
+          data-i18n="enterDrop"
+        >
+          ENTER DROP →
+        </span>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SHOP
+======================================================= -->
+
+<section
+  class="shop"
+  id="shop"
+>
+
+
+  <div
+    class="section-label"
+    data-i18n="shopLabel"
+  >
+    SHOP
+  </div>
+
+
+  <div class="shop-grid">
+
+
+    <a
+      href="#"
+      class="shop-item"
+    >
+
+      <span class="shop-number">
+        01
+      </span>
+
+      <span
+        class="shop-name"
+        data-i18n="tufts"
+      >
+        TUFTS
+      </span>
+
+      <span
+        class="coming"
+        data-i18n="available"
+      >
+        AVAILABLE
+      </span>
+
+    </a>
+
+
+    <a
+      href="#"
+      class="shop-item"
+    >
+
+      <span class="shop-number">
+        02
+      </span>
+
+      <span
+        class="shop-name"
+        data-i18n="tees"
+      >
+        TEES
+      </span>
+
+      <span
+        class="coming"
+        data-i18n="comingSoon"
+      >
+        COMING SOON
+      </span>
+
+    </a>
+
+
+    <a
+      href="#"
+      class="shop-item"
+    >
+
+      <span class="shop-number">
+        03
+      </span>
+
+      <span
+        class="shop-name"
+        data-i18n="stickers"
+      >
+        STICKERS
+      </span>
+
+      <span
+        class="coming"
+        data-i18n="comingSoon"
+      >
+        COMING SOON
+      </span>
+
+    </a>
+
+
+    <a
+      href="#"
+      class="shop-item"
+    >
+
+      <span class="shop-number">
+        04
+      </span>
+
+      <span
+        class="shop-name"
+        data-i18n="handmade"
+      >
+        HANDMADE
+      </span>
+
+      <span
+        class="coming"
+        data-i18n="comingSoon"
+      >
+        COMING SOON
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CURRENT DROP
+======================================================= -->
+
+<section
+  class="current"
+  id="current"
+>
+
+
+  <div
+    class="section-label"
+    data-i18n="currentDrop"
+  >
+    CURRENT DROP / 001
+  </div>
+
+
+  <h2 class="current-title">
+    ANATOLIA
+  </h2>
+
+
+  <div class="current-subline">
+
+    <span data-i18n="currentDropIntro">
+      FIVE SYMBOLS / ONE DROP
+    </span>
+
+    <span>
+      001—005
+    </span>
+
+  </div>
+
+
+  <div class="motifs">
+
+
+    <div class="motif">
+
+      <span class="motif-number">
+        01
+      </span>
+
+      <span class="motif-name">
+        ELİBELİNDE
+      </span>
+
+    </div>
+
+
+    <div class="motif">
+
+      <span class="motif-number">
+        02
+      </span>
+
+      <span class="motif-name">
+        KOÇBOYNUZU
+      </span>
+
+    </div>
+
+
+    <div class="motif">
+
+      <span class="motif-number">
+        03
+      </span>
+
+      <span class="motif-name">
+        PITIRAK
+      </span>
+
+    </div>
+
+
+    <div class="motif">
+
+      <span class="motif-number">
+        04
+      </span>
+
+      <span class="motif-name">
+        SAÇBAĞI
+      </span>
+
+    </div>
+
+
+    <div class="motif">
+
+      <span class="motif-number">
+        05
+      </span>
+
+      <span class="motif-name">
+        SUYOLU
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <a
+    href="anatolia.html"
+    class="current-link"
+    data-i18n="exploreAnatolia"
+  >
+    EXPLORE ANATOLIA →
+  </a>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section id="about">
+
+
+  <div
+    class="section-label"
+    data-i18n="aboutLabel"
+  >
+    ABOUT THE TUFTER
+  </div>
+
+
+  <h2
+    class="about-title"
+    data-i18n="aboutText"
+  >
+    CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
+  </h2>
+
+</section>
+```
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+```
+<div class="footer-top">
+
+
+  <div class="footer-logo">
+
+    THE
+
+    <br>
+
+    TUFTER<span class="registered">®</span>
+
+  </div>
+
+
+  <div class="footer-links">
+
+
+    <div>
 
       <a
         href="#drops"
@@ -1324,7 +1967,6 @@
         DROPS
       </a>
 
-
       <a
         href="#shop"
         data-i18n="shop"
@@ -1332,691 +1974,60 @@
         SHOP
       </a>
 
-
       <a
         href="#about"
-        class="about-link"
         data-i18n="about"
       >
         ABOUT
       </a>
 
+    </div>
 
-      <div class="languages">
 
-        <span
-          data-lang="en"
-          class="active"
-        >
-          EN
-        </span>
-
-        <span data-lang="tr">
-          TR
-        </span>
-
-        <span data-lang="el">
-          EL
-        </span>
-
-      </div>
-
+    <div>
 
       <a
         href="#"
-        data-i18n="cart"
+        data-i18n="archive"
       >
-        CART
+        ARCHIVE
       </a>
-
-    </nav>
-
-  </header>
-
-
-  <!-- =========================================================
-       MAIN
-  ========================================================= -->
-
-  <main>
-
-
-    <!-- =======================================================
-         HERO
-    ======================================================= -->
-
-    <section class="hero">
-
-      <div class="hero-center">
-
-        <h1 class="hero-title">
-
-          <span>
-            THE
-          </span>
-
-          <span class="brand-word">
-            TUFTER<span class="registered">®</span>
-          </span>
-
-        </h1>
-
-      </div>
-
-
-      <div class="hero-bottom">
-
-        <span data-i18n="heroSubtitle">
-          CONTEMPORARY TUFTED OBJECTS
-        </span>
-
-        <span data-i18n="scroll">
-          SCROLL TO EXPLORE ↓
-        </span>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         DROPS
-    ======================================================= -->
-
-    <section
-      class="drops"
-      id="drops"
-    >
-
-
-      <div class="drops-label-row">
-
-        <div
-          class="section-label"
-          data-i18n="dropsLabel"
-        >
-          THE DROPS / 001—003
-        </div>
-
-
-        <div class="drops-total">
-          03 DROPS / 15 OBJECTS
-        </div>
-
-      </div>
-
-
-      <div class="drops-grid">
-
-
-        <!-- ===================================================
-             DROP 001 — ANATOLIA
-        =================================================== -->
-
-        <a
-          href="anatolia.html"
-          class="drop-card drop-card-anatolia"
-        >
-
-
-          <!-- KOÇBOYNUZU -->
-
-          <div class="drop-card-image">
-
-            <img
-              src="kocboynuzu.png"
-              alt="KOÇBOYNUZU — THE TUFTER"
-            >
-
-          </div>
-
-
-          <div class="drop-card-top">
-
-            <span class="drop-card-number">
-              001
-            </span>
-
-
-            <span
-              class="drop-card-count"
-              data-i18n="anatoliaCount"
-            >
-              05 TUFTS
-            </span>
-
-          </div>
-
-
-          <div class="drop-card-center">
-
-            <h2 class="drop-card-name">
-              ANATOLIA
-            </h2>
-
-
-            <p
-              class="drop-card-description"
-              data-i18n="anatoliaDesc"
-            >
-              SYMBOLS OF THE LAND
-            </p>
-
-          </div>
-
-
-          <div class="drop-card-bottom">
-
-            <span
-              class="drop-enter"
-              data-i18n="enterDrop"
-            >
-              ENTER DROP →
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <!-- ===================================================
-             DROP 002 — KHAGANATES
-        =================================================== -->
-
-        <a
-          href="#"
-          class="drop-card"
-        >
-
-
-          <div class="drop-card-top">
-
-            <span class="drop-card-number">
-              002
-            </span>
-
-
-            <span
-              class="drop-card-count"
-              data-i18n="khaganatesCount"
-            >
-              05 OBJECTS
-            </span>
-
-          </div>
-
-
-          <div class="drop-card-center">
-
-            <h2 class="drop-card-name">
-              KHAGANATES
-            </h2>
-
-
-            <p
-              class="drop-card-description"
-              data-i18n="khaganatesDesc"
-            >
-              BANNERS OF LEGACY
-            </p>
-
-          </div>
-
-
-          <div class="drop-card-bottom">
-
-            <span
-              class="drop-enter"
-              data-i18n="enterDrop"
-            >
-              ENTER DROP →
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <!-- ===================================================
-             DROP 003 — OTUKEN
-        =================================================== -->
-
-        <a
-          href="#"
-          class="drop-card drop-card-premium"
-        >
-
-
-          <div class="drop-card-top">
-
-            <span class="drop-card-number">
-              003
-            </span>
-
-
-            <span
-              class="drop-card-count"
-              data-i18n="otukenCount"
-            >
-              05 OBJECTS
-
-              <span class="premium-tag">
-                / FLAGSHIP
-              </span>
-
-            </span>
-
-          </div>
-
-
-          <div class="drop-card-center">
-
-            <h2 class="drop-card-name">
-
-              OTUKEN
-
-              <br>
-
-              IS CALLIN' US
-
-            </h2>
-
-
-            <p
-              class="drop-card-description"
-              data-i18n="otukenDesc"
-            >
-              THE CALL OF THE ORIGIN
-            </p>
-
-          </div>
-
-
-          <div class="drop-card-bottom">
-
-            <span
-              class="drop-enter"
-              data-i18n="enterDrop"
-            >
-              ENTER DROP →
-            </span>
-
-          </div>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         SHOP
-    ======================================================= -->
-
-    <section
-      class="shop"
-      id="shop"
-    >
-
-
-      <div
-        class="section-label"
-        data-i18n="shopLabel"
-      >
-        SHOP
-      </div>
-
-
-      <div class="shop-grid">
-
-
-        <a
-          href="#"
-          class="shop-item"
-        >
-
-          <span class="shop-number">
-            01
-          </span>
-
-          <span
-            class="shop-name"
-            data-i18n="tufts"
-          >
-            TUFTS
-          </span>
-
-          <span
-            class="coming"
-            data-i18n="available"
-          >
-            AVAILABLE
-          </span>
-
-        </a>
-
-
-        <a
-          href="#"
-          class="shop-item"
-        >
-
-          <span class="shop-number">
-            02
-          </span>
-
-          <span
-            class="shop-name"
-            data-i18n="tees"
-          >
-            TEES
-          </span>
-
-          <span
-            class="coming"
-            data-i18n="comingSoon"
-          >
-            COMING SOON
-          </span>
-
-        </a>
-
-
-        <a
-          href="#"
-          class="shop-item"
-        >
-
-          <span class="shop-number">
-            03
-          </span>
-
-          <span
-            class="shop-name"
-            data-i18n="stickers"
-          >
-            STICKERS
-          </span>
-
-          <span
-            class="coming"
-            data-i18n="comingSoon"
-          >
-            COMING SOON
-          </span>
-
-        </a>
-
-
-        <a
-          href="#"
-          class="shop-item"
-        >
-
-          <span class="shop-number">
-            04
-          </span>
-
-          <span
-            class="shop-name"
-            data-i18n="handmade"
-          >
-            HANDMADE
-          </span>
-
-          <span
-            class="coming"
-            data-i18n="comingSoon"
-          >
-            COMING SOON
-          </span>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         CURRENT DROP
-    ======================================================= -->
-
-    <section
-      class="current"
-      id="current"
-    >
-
-
-      <div
-        class="section-label"
-        data-i18n="currentDrop"
-      >
-        CURRENT DROP / 001
-      </div>
-
-
-      <h2 class="current-title">
-        ANATOLIA
-      </h2>
-
-
-      <div class="current-subline">
-
-        <span data-i18n="currentDropIntro">
-          FIVE SYMBOLS / ONE DROP
-        </span>
-
-        <span>
-          001—005
-        </span>
-
-      </div>
-
-
-      <div class="motifs">
-
-
-        <div class="motif">
-
-          <span class="motif-number">
-            01
-          </span>
-
-          <span class="motif-name">
-            ELİBELİNDE
-          </span>
-
-        </div>
-
-
-        <div class="motif">
-
-          <span class="motif-number">
-            02
-          </span>
-
-          <span class="motif-name">
-            KOÇBOYNUZU
-          </span>
-
-        </div>
-
-
-        <div class="motif">
-
-          <span class="motif-number">
-            03
-          </span>
-
-          <span class="motif-name">
-            PITIRAK
-          </span>
-
-        </div>
-
-
-        <div class="motif">
-
-          <span class="motif-number">
-            04
-          </span>
-
-          <span class="motif-name">
-            SAÇBAĞI
-          </span>
-
-        </div>
-
-
-        <div class="motif">
-
-          <span class="motif-number">
-            05
-          </span>
-
-          <span class="motif-name">
-            SUYOLU
-          </span>
-
-        </div>
-
-      </div>
-
 
       <a
-        href="anatolia.html"
-        class="current-link"
-        data-i18n="exploreAnatolia"
+        href="#"
+        data-i18n="contact"
       >
-        EXPLORE ANATOLIA →
+        CONTACT
       </a>
 
-    </section>
-
-
-    <!-- =======================================================
-         ABOUT
-    ======================================================= -->
-
-    <section id="about">
-
-
-      <div
-        class="section-label"
-        data-i18n="aboutLabel"
+      <a
+        href="#"
+        data-i18n="instagram"
       >
-        ABOUT THE TUFTER
-      </div>
-
-
-      <h2
-        class="about-title"
-        data-i18n="aboutText"
-      >
-        CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
-      </h2>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================= -->
-
-  <footer>
-
-
-    <div class="footer-top">
-
-
-      <div class="footer-logo">
-
-        THE
-
-        <br>
-
-        TUFTER<span class="registered">®</span>
-
-      </div>
-
-
-      <div class="footer-links">
-
-
-        <div>
-
-          <a
-            href="#drops"
-            data-i18n="drops"
-          >
-            DROPS
-          </a>
-
-          <a
-            href="#shop"
-            data-i18n="shop"
-          >
-            SHOP
-          </a>
-
-          <a
-            href="#about"
-            data-i18n="about"
-          >
-            ABOUT
-          </a>
-
-        </div>
-
-
-        <div>
-
-          <a
-            href="#"
-            data-i18n="archive"
-          >
-            ARCHIVE
-          </a>
-
-          <a
-            href="#"
-            data-i18n="contact"
-          >
-            CONTACT
-          </a>
-
-          <a
-            href="#"
-            data-i18n="instagram"
-          >
-            INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
+        INSTAGRAM
+      </a>
 
     </div>
 
+  </div>
 
-    <div class="footer-bottom">
+</div>
 
-      <span>
-        © 2026 THE TUFTER®
-      </span>
 
-      <span>
-        EN / TR / EL
-      </span>
+<div class="footer-bottom">
 
-    </div>
+  <span>
+    © 2026 THE TUFTER®
+  </span>
+
+  <span>
+    EN / TR / EL
+  </span>
+
+</div>
+```
 
   </footer>
-
 
   <!-- =========================================================
        LANGUAGE SYSTEM
@@ -2061,7 +2072,7 @@
           "SYMBOLS OF THE LAND",
 
         khaganatesCount:
-          "05 OBJECTS",
+          "06 OBJECTS",
 
         khaganatesDesc:
           "BANNERS OF LEGACY",
@@ -2157,7 +2168,7 @@
           "TOPRAĞIN SEMBOLLERİ",
 
         khaganatesCount:
-          "05 OBJE",
+          "06 OBJE",
 
         khaganatesDesc:
           "MİRASIN SANCAKLARI",
@@ -2253,7 +2264,7 @@
           "ΣΥΜΒΟΛΑ ΤΗΣ ΓΗΣ",
 
         khaganatesCount:
-          "05 ΑΝΤΙΚΕΙΜΕΝΑ",
+          "06 ΑΝΤΙΚΕΙΜΕΝΑ",
 
         khaganatesDesc:
           "ΠΑΝΟ ΤΗΣ ΚΛΗΡΟΝΟΜΙΑΣ",
@@ -2399,7 +2410,6 @@
     setLanguage(savedLanguage);
 
   </script>
-
 
 </body>
 
