@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>KHAGANATES — THE TUFTER®</title>
 
-<meta
-name="description"
-content="THE TUFTER® — DROP 002 / KHAGANATES."
-
->
+  <meta
+    name="description"
+    content="THE TUFTER® — DROP 002 / KHAGANATES."
+  >
 
   <style>
 
@@ -32,9 +33,9 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
     }
 
     body{
-      background:#f3f1eb;
-      color:#111;
-      font-family:Arial,Helvetica,sans-serif;
+      background:#111;
+      color:#f3f1eb;
+      font-family:Arial, Helvetica, sans-serif;
       overflow-x:hidden;
     }
 
@@ -69,7 +70,6 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       z-index:100;
 
       color:#fff;
-
       mix-blend-mode:difference;
     }
 
@@ -77,6 +77,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       font-size:14px;
       font-weight:700;
       letter-spacing:-.035em;
+      white-space:nowrap;
     }
 
     .registered{
@@ -97,7 +98,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
     }
 
     nav a{
-      transition:opacity .25s ease;
+      transition:opacity:.25s ease;
     }
 
     nav a:hover{
@@ -136,7 +137,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
       opacity:.35;
 
-      transition:opacity .25s ease;
+      transition:opacity:.25s ease;
     }
 
     .languages button:hover{
@@ -216,7 +217,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       display:grid;
 
       grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(2, minmax(0, 1fr));
 
       gap:1px;
 
@@ -243,8 +244,6 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
       aspect-ratio:3 / 2;
 
-      padding:22px;
-
       display:block;
 
       background:#111;
@@ -259,17 +258,19 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
         1px solid
         rgba(243,241,235,.25);
 
+      isolation:isolate;
+
       transition:
-        background .45s ease;
+        background:.45s ease;
     }
 
     .product:hover{
-      background:#171717;
+      background:#151515;
     }
 
 
     /* =========================================================
-       NUMBER
+       PRODUCT NUMBER
     ========================================================= */
 
     .product-no{
@@ -278,10 +279,9 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       top:22px;
       left:22px;
 
-      z-index:30;
+      z-index:40;
 
       font-size:9px;
-
       letter-spacing:.11em;
 
       opacity:.55;
@@ -291,7 +291,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
 
     /* =========================================================
-       IMAGE ART
+       PRODUCT ART
     ========================================================= */
 
     .product-art{
@@ -302,121 +302,88 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       z-index:1;
 
       display:flex;
+
       align-items:center;
       justify-content:center;
 
-      padding:40px;
+      padding:28px;
 
       overflow:hidden;
+
+      pointer-events:none;
     }
 
     .product-art::before{
       content:"";
 
-      width:min(48%,320px);
+      position:absolute;
 
+      width:min(54%,360px);
       aspect-ratio:1;
-
-      display:block;
 
       border:
         1px solid
-        rgba(243,241,235,.12);
+        rgba(243,241,235,.10);
 
       border-radius:50%;
 
       box-shadow:
-        0 0 90px
-        rgba(255,255,255,.03);
+        0 0 90px rgba(255,255,255,.025);
+
+      opacity:.75;
 
       transition:
-        transform .7s ease,
-        opacity .5s ease;
+        transform .8s ease,
+        opacity .6s ease;
     }
 
     .product:hover
     .product-art::before{
-      transform:scale(1.05);
-      opacity:.7;
+      transform:scale(1.04);
+      opacity:.95;
     }
 
 
     /* =========================================================
-       PNG PRODUCT IMAGES
+       REAL PRODUCT IMAGE
+       IMPORTANT:
+       NO COVER / NO HEAVY DARK FILTER
     ========================================================= */
 
-    .product-image-art{
-      position:absolute;
-
-      inset:0;
-
-      z-index:1;
-
-      padding:0;
-
-      display:block;
-
-      overflow:hidden;
-    }
-
     .product-image{
-      width:100%;
-      height:100%;
+      position:relative;
+
+      z-index:2;
 
       display:block;
 
-      object-fit:cover;
+      width:92%;
+      height:92%;
 
-      object-position:center 35%;
+      object-fit:contain;
+      object-position:center;
 
-      opacity:.72;
+      opacity:1;
 
-      transform:scale(1.025);
+      transform:scale(.96);
 
-      filter:
-        brightness(.56)
-        contrast(1.10)
-        saturate(.9);
+      filter:none;
 
       transition:
-        opacity .6s ease,
-        transform .75s ease,
-        filter .6s ease;
+        transform .8s cubic-bezier(.22,1,.36,1),
+        opacity .6s ease;
     }
 
     .product:hover
     .product-image{
       opacity:1;
 
-      transform:scale(1);
-
-      filter:
-        brightness(.88)
-        contrast(1.06)
-        saturate(.92);
-    }
-
-    .product-image-art::after{
-      content:"";
-
-      position:absolute;
-
-      inset:0;
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(17,17,17,0) 20%,
-          rgba(17,17,17,.08) 48%,
-          rgba(17,17,17,.62) 100%
-        );
-
-      pointer-events:none;
+      transform:scale(1.02);
     }
 
 
     /* =========================================================
-       PDF PRODUCT — KARA SANCAK
+       PDF PRODUCT
     ========================================================= */
 
     .product-pdf-art{
@@ -429,12 +396,11 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       display:flex;
 
       align-items:center;
-
       justify-content:center;
 
-      padding:28px;
+      padding:18px;
 
-      overflow:hidden;
+      background:#111;
     }
 
     .product-pdf{
@@ -447,38 +413,15 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
       background:#f3f1eb;
 
-      opacity:.78;
-
-      transform:scale(1.015);
+      opacity:1;
 
       transition:
-        opacity .6s ease,
-        transform .75s ease;
+        transform .8s cubic-bezier(.22,1,.36,1);
     }
 
     .product:hover
     .product-pdf{
-      opacity:1;
-
-      transform:scale(1);
-    }
-
-    .product-pdf-art::after{
-      content:"";
-
-      position:absolute;
-
-      inset:0;
-
-      pointer-events:none;
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(17,17,17,0) 18%,
-          rgba(17,17,17,.08) 48%,
-          rgba(17,17,17,.64) 100%
-        );
+      transform:scale(1.015);
     }
 
 
@@ -503,15 +446,15 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
         linear-gradient(
           to top,
           rgba(17,17,17,.98) 0%,
-          rgba(17,17,17,.91) 17%,
-          rgba(17,17,17,.72) 34%,
-          rgba(17,17,17,.28) 58%,
-          rgba(17,17,17,0) 82%
+          rgba(17,17,17,.88) 15%,
+          rgba(17,17,17,.58) 32%,
+          rgba(17,17,17,.20) 52%,
+          rgba(17,17,17,0) 75%
         );
 
       opacity:0;
 
-      transform:translateY(16px);
+      transform:translateY(12px);
 
       pointer-events:none;
 
@@ -520,9 +463,12 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
         transform .55s ease;
     }
 
-    .product:hover .product-overlay,
-    .product:focus-visible .product-overlay,
-    .product.is-open .product-overlay{
+    .product:hover
+    .product-overlay,
+    .product:focus-visible
+    .product-overlay,
+    .product.is-open
+    .product-overlay{
 
       opacity:1;
 
@@ -531,7 +477,6 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
     .product-overlay-inner{
       width:100%;
-
       max-width:720px;
     }
 
@@ -574,8 +519,6 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       letter-spacing:-.065em;
 
       font-weight:700;
-
-      max-width:100%;
     }
 
 
@@ -628,9 +571,10 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       padding:110px 28px;
 
       background:#dedbd2;
+      color:#111;
     }
 
-    .section-label{
+    .about .section-label{
       margin-bottom:36px;
 
       font-size:9px;
@@ -725,7 +669,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
     }
 
     .footer-links a{
-      transition:opacity .25s ease;
+      transition:opacity:.25s ease;
     }
 
     .footer-links a:hover{
@@ -766,12 +710,12 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       }
 
       .product{
-        padding:18px;
+        aspect-ratio:3 / 2;
       }
 
-      .product-no{
-        top:18px;
-        left:18px;
+      .product-image{
+        width:94%;
+        height:94%;
       }
 
       .product-overlay{
@@ -865,11 +809,9 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
       /* CARD */
 
       .product{
-        min-height:0;
-
         aspect-ratio:4 / 5;
 
-        padding:18px;
+        padding:0;
       }
 
 
@@ -885,18 +827,27 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
       /* IMAGE */
 
-      .product-image{
-        opacity:.8;
-
-        transform:scale(1.01);
-
-        object-position:center 35%;
+      .product-art{
+        padding:15px;
       }
 
-      .product-pdf{
-        opacity:.84;
+      .product-image{
+        width:94%;
+        height:94%;
 
-        transform:scale(1.01);
+        transform:scale(.94);
+      }
+
+      .product:hover
+      .product-image{
+        transform:scale(1);
+      }
+
+
+      /* PDF */
+
+      .product-pdf-art{
+        padding:12px;
       }
 
 
@@ -913,8 +864,8 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
             to top,
             rgba(17,17,17,.99) 0%,
             rgba(17,17,17,.94) 20%,
-            rgba(17,17,17,.78) 40%,
-            rgba(17,17,17,.34) 68%,
+            rgba(17,17,17,.72) 42%,
+            rgba(17,17,17,.22) 70%,
             rgba(17,17,17,0) 100%
           );
 
@@ -1021,7 +972,9 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
 </head>
 
+
 <body>
+
 
   <!-- =========================================================
        HEADER
@@ -1029,591 +982,15 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
   <header>
 
-```
-<a
-  href="index.html"
-  class="logo"
->
-  THE TUFTER<span class="registered">®</span>
-</a>
-
-
-<nav>
-
-  <a
-    href="index.html#drops"
-    data-i18n="drops"
-  >
-    DROPS
-  </a>
-
-
-  <a
-    href="index.html#shop"
-    data-i18n="shop"
-  >
-    SHOP
-  </a>
-
-
-  <a
-    href="index.html#about"
-    data-i18n="about"
-  >
-    ABOUT
-  </a>
-
-
-  <div class="languages">
-
-    <button
-      type="button"
-      data-lang="en"
-      class="active"
-    >
-      EN
-    </button>
-
-    <button
-      type="button"
-      data-lang="tr"
-    >
-      TR
-    </button>
-
-    <button
-      type="button"
-      data-lang="el"
-    >
-      EL
-    </button>
-
-  </div>
-
-
-  <a
-    href="#"
-    data-i18n="cart"
-  >
-    CART
-  </a>
-
-</nav>
-```
-
-  </header>
-
-  <!-- =========================================================
-       MAIN
-  ========================================================= -->
-
-  <main>
-
-```
-<!-- =======================================================
-     HERO
-======================================================= -->
-
-<section class="hero">
-
-  <div
-    class="eyebrow"
-    data-i18n="heroEyebrow"
-  >
-    DROP 002 / KHAGANATES
-  </div>
-
-
-  <h1>
-    KHAGANATES
-  </h1>
-
-
-  <div class="hero-meta">
-
-    <span data-i18n="heroMeta">
-      SIX OBJECTS / ONE DROP
-    </span>
-
-    <span>
-      001—006
-    </span>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     PRODUCTS
-======================================================= -->
-
-<section
-  class="products"
-  id="products"
->
-
-  <div class="product-grid">
-
-
-    <!-- =====================================================
-         01 — ASYA HUN
-    ===================================================== -->
-
     <a
-      class="product"
-      href="#"
-      data-product="01"
+      href="index.html"
+      class="logo"
     >
-
-      <span class="product-no">
-        01 / 06
-      </span>
-
-
-      <div class="product-art product-image-art">
-
-        <img
-          class="product-image"
-          src="asyahun.png"
-          alt="ASYA HUN — THE TUFTER"
-        >
-
-      </div>
-
-
-      <div class="product-overlay">
-
-        <div class="product-overlay-inner">
-
-          <div
-            class="product-meaning-label"
-            data-i18n="meaning"
-          >
-            MEANING
-          </div>
-
-
-          <h2 class="product-name">
-            ASYA HUN
-          </h2>
-
-
-          <div
-            class="product-meaning-text"
-          >
-            —
-          </div>
-
-
-          <div
-            class="product-meta"
-            data-i18n="comingSoon"
-          >
-            KHAGANATES<br>
-            COMING SOON
-          </div>
-
-        </div>
-
-      </div>
-
+      THE TUFTER<span class="registered">®</span>
     </a>
 
 
-    <!-- =====================================================
-         02 — AVRUPA HUN
-    ===================================================== -->
-
-    <a
-      class="product"
-      href="#"
-      data-product="02"
-    >
-
-      <span class="product-no">
-        02 / 06
-      </span>
-
-
-      <div class="product-art product-image-art">
-
-        <img
-          class="product-image"
-          src="avrupahun.png"
-          alt="AVRUPA HUN — THE TUFTER"
-        >
-
-      </div>
-
-
-      <div class="product-overlay">
-
-        <div class="product-overlay-inner">
-
-          <div
-            class="product-meaning-label"
-            data-i18n="meaning"
-          >
-            MEANING
-          </div>
-
-
-          <h2 class="product-name">
-            AVRUPA HUN
-          </h2>
-
-
-          <div
-            class="product-meaning-text"
-          >
-            —
-          </div>
-
-
-          <div
-            class="product-meta"
-            data-i18n="comingSoon"
-          >
-            KHAGANATES<br>
-            COMING SOON
-          </div>
-
-        </div>
-
-      </div>
-
-    </a>
-
-
-    <!-- =====================================================
-         03 — GÖKTÜRK
-    ===================================================== -->
-
-    <a
-      class="product"
-      href="#"
-      data-product="03"
-    >
-
-      <span class="product-no">
-        03 / 06
-      </span>
-
-
-      <div class="product-art product-image-art">
-
-        <img
-          class="product-image"
-          src="gokturk.png"
-          alt="GÖKTÜRK — THE TUFTER"
-        >
-
-      </div>
-
-
-      <div class="product-overlay">
-
-        <div class="product-overlay-inner">
-
-          <div
-            class="product-meaning-label"
-            data-i18n="meaning"
-          >
-            MEANING
-          </div>
-
-
-          <h2 class="product-name">
-            GÖKTÜRK
-          </h2>
-
-
-          <div
-            class="product-meaning-text"
-          >
-            —
-          </div>
-
-
-          <div
-            class="product-meta"
-            data-i18n="comingSoon"
-          >
-            KHAGANATES<br>
-            COMING SOON
-          </div>
-
-        </div>
-
-      </div>
-
-    </a>
-
-
-    <!-- =====================================================
-         04 — MOĞOL
-    ===================================================== -->
-
-    <a
-      class="product"
-      href="#"
-      data-product="04"
-    >
-
-      <span class="product-no">
-        04 / 06
-      </span>
-
-
-      <div class="product-art product-image-art">
-
-        <img
-          class="product-image"
-          src="mongol.png"
-          alt="MOĞOL — THE TUFTER"
-        >
-
-      </div>
-
-
-      <div class="product-overlay">
-
-        <div class="product-overlay-inner">
-
-          <div
-            class="product-meaning-label"
-            data-i18n="meaning"
-          >
-            MEANING
-          </div>
-
-
-          <h2 class="product-name">
-            MOĞOL
-          </h2>
-
-
-          <div
-            class="product-meaning-text"
-          >
-            —
-          </div>
-
-
-          <div
-            class="product-meta"
-            data-i18n="comingSoon"
-          >
-            KHAGANATES<br>
-            COMING SOON
-          </div>
-
-        </div>
-
-      </div>
-
-    </a>
-
-
-    <!-- =====================================================
-         05 — TİMURLU
-    ===================================================== -->
-
-    <a
-      class="product"
-      href="#"
-      data-product="05"
-    >
-
-      <span class="product-no">
-        05 / 06
-      </span>
-
-
-      <div class="product-art product-image-art">
-
-        <img
-          class="product-image"
-          src="timurimparatorlugu.png"
-          alt="TİMURLU — THE TUFTER"
-        >
-
-      </div>
-
-
-      <div class="product-overlay">
-
-        <div class="product-overlay-inner">
-
-          <div
-            class="product-meaning-label"
-            data-i18n="meaning"
-          >
-            MEANING
-          </div>
-
-
-          <h2 class="product-name">
-            TİMURLU
-          </h2>
-
-
-          <div
-            class="product-meaning-text"
-          >
-            —
-          </div>
-
-
-          <div
-            class="product-meta"
-            data-i18n="comingSoon"
-          >
-            KHAGANATES<br>
-            COMING SOON
-          </div>
-
-        </div>
-
-      </div>
-
-    </a>
-
-
-    <!-- =====================================================
-         06 — KARA SANCAK
-    ===================================================== -->
-
-    <a
-      class="product"
-      href="#"
-      data-product="06"
-    >
-
-      <span class="product-no">
-        06 / 06
-      </span>
-
-
-      <div class="product-pdf-art">
-
-        <object
-          class="product-pdf"
-          data="turkiye.pdf"
-          type="application/pdf"
-        >
-          <a href="turkiye.pdf">
-            VIEW PDF
-          </a>
-        </object>
-
-      </div>
-
-
-      <div class="product-overlay">
-
-        <div class="product-overlay-inner">
-
-          <div
-            class="product-meaning-label"
-            data-i18n="meaning"
-          >
-            MEANING
-          </div>
-
-
-          <h2 class="product-name">
-            KARA SANCAK
-          </h2>
-
-
-          <div
-            class="product-meaning-text"
-          >
-            —
-          </div>
-
-
-          <div
-            class="product-meta"
-            data-i18n="comingSoon"
-          >
-            KHAGANATES<br>
-            COMING SOON
-          </div>
-
-        </div>
-
-      </div>
-
-    </a>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section class="about">
-
-  <div
-    class="section-label"
-    data-i18n="aboutLabel"
-  >
-    DROP 002 / THE IDEA
-  </div>
-
-
-  <div class="about-grid">
-
-    <div
-      class="eyebrow"
-      data-i18n="aboutEyebrow"
-    >
-      BANNERS OF LEGACY
-    </div>
-
-
-    <div
-      class="about-copy"
-      data-i18n="aboutCopy"
-    >
-      KHAGANATES REIMAGINED THROUGH SIX HISTORICAL TERRITORIES, EMPIRES AND SYMBOLS, TRANSLATED INTO CONTEMPORARY TUFTED OBJECTS.
-    </div>
-
-  </div>
-
-</section>
-```
-
-  </main>
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================= -->
-
-  <footer>
-
-```
-<div class="footer-top">
-
-  <div class="footer-logo">
-
-    THE<br>
-
-    TUFTER<span class="registered">®</span>
-
-  </div>
-
-
-  <div class="footer-links">
-
-    <div>
+    <nav>
 
       <a
         href="index.html#drops"
@@ -1636,53 +1013,609 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
         ABOUT
       </a>
 
+
+      <div class="languages">
+
+        <button
+          type="button"
+          data-lang="en"
+          class="active"
+        >
+          EN
+        </button>
+
+        <button
+          type="button"
+          data-lang="tr"
+        >
+          TR
+        </button>
+
+        <button
+          type="button"
+          data-lang="el"
+        >
+          EL
+        </button>
+
+      </div>
+
+
+      <a
+        href="#"
+        data-i18n="cart"
+      >
+        CART
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================= -->
+
+  <main>
+
+
+    <!-- =======================================================
+         HERO
+    ======================================================= -->
+
+    <section class="hero">
+
+      <div
+        class="eyebrow"
+        data-i18n="heroEyebrow"
+      >
+        DROP 002 / KHAGANATES
+      </div>
+
+
+      <h1>
+        KHAGANATES
+      </h1>
+
+
+      <div class="hero-meta">
+
+        <span data-i18n="heroMeta">
+          SIX OBJECTS / ONE DROP
+        </span>
+
+        <span>
+          001—006
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PRODUCTS
+    ======================================================= -->
+
+    <section
+      class="products"
+      id="products"
+    >
+
+      <div class="product-grid">
+
+
+        <!-- =====================================================
+             01 — ASYA HUN
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+          data-product="01"
+        >
+
+          <span class="product-no">
+            01 / 06
+          </span>
+
+
+          <div class="product-art">
+
+            <img
+              class="product-image"
+              src="asyahun.png"
+              alt="ASYA HUN — THE TUFTER"
+            >
+
+          </div>
+
+
+          <div class="product-overlay">
+
+            <div class="product-overlay-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+
+              <h2 class="product-name">
+                ASYA HUN
+              </h2>
+
+
+              <div class="product-meaning-text">
+                —
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                KHAGANATES<br>
+                COMING SOON
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- =====================================================
+             02 — AVRUPA HUN
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+          data-product="02"
+        >
+
+          <span class="product-no">
+            02 / 06
+          </span>
+
+
+          <div class="product-art">
+
+            <img
+              class="product-image"
+              src="avrupahun.png"
+              alt="AVRUPA HUN — THE TUFTER"
+            >
+
+          </div>
+
+
+          <div class="product-overlay">
+
+            <div class="product-overlay-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+
+              <h2 class="product-name">
+                AVRUPA HUN
+              </h2>
+
+
+              <div class="product-meaning-text">
+                —
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                KHAGANATES<br>
+                COMING SOON
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- =====================================================
+             03 — GÖKTÜRK
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+          data-product="03"
+        >
+
+          <span class="product-no">
+            03 / 06
+          </span>
+
+
+          <div class="product-art">
+
+            <img
+              class="product-image"
+              src="gokturk.png"
+              alt="GÖKTÜRK — THE TUFTER"
+            >
+
+          </div>
+
+
+          <div class="product-overlay">
+
+            <div class="product-overlay-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+
+              <h2 class="product-name">
+                GÖKTÜRK
+              </h2>
+
+
+              <div class="product-meaning-text">
+                —
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                KHAGANATES<br>
+                COMING SOON
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- =====================================================
+             04 — MOĞOL
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+          data-product="04"
+        >
+
+          <span class="product-no">
+            04 / 06
+          </span>
+
+
+          <div class="product-art">
+
+            <img
+              class="product-image"
+              src="mongol.png"
+              alt="MOĞOL — THE TUFTER"
+            >
+
+          </div>
+
+
+          <div class="product-overlay">
+
+            <div class="product-overlay-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+
+              <h2 class="product-name">
+                MOĞOL
+              </h2>
+
+
+              <div class="product-meaning-text">
+                —
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                KHAGANATES<br>
+                COMING SOON
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- =====================================================
+             05 — TİMURLU
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+          data-product="05"
+        >
+
+          <span class="product-no">
+            05 / 06
+          </span>
+
+
+          <div class="product-art">
+
+            <img
+              class="product-image"
+              src="timurimparatorlugu.png"
+              alt="TİMURLU — THE TUFTER"
+            >
+
+          </div>
+
+
+          <div class="product-overlay">
+
+            <div class="product-overlay-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+
+              <h2 class="product-name">
+                TİMURLU
+              </h2>
+
+
+              <div class="product-meaning-text">
+                —
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                KHAGANATES<br>
+                COMING SOON
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- =====================================================
+             06 — KARA SANCAK
+        ===================================================== -->
+
+        <a
+          class="product"
+          href="#"
+          data-product="06"
+        >
+
+          <span class="product-no">
+            06 / 06
+          </span>
+
+
+          <div class="product-pdf-art">
+
+            <iframe
+              class="product-pdf"
+              src="turkiye.pdf"
+              title="KARA SANCAK — THE TUFTER"
+            ></iframe>
+
+          </div>
+
+
+          <div class="product-overlay">
+
+            <div class="product-overlay-inner">
+
+              <div
+                class="product-meaning-label"
+                data-i18n="meaning"
+              >
+                MEANING
+              </div>
+
+
+              <h2 class="product-name">
+                KARA SANCAK
+              </h2>
+
+
+              <div class="product-meaning-text">
+                —
+              </div>
+
+
+              <div
+                class="product-meta"
+                data-i18n="comingSoon"
+              >
+                KHAGANATES<br>
+                COMING SOON
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================= -->
+
+    <section class="about">
+
+      <div
+        class="section-label"
+        data-i18n="aboutLabel"
+      >
+        DROP 002 / THE IDEA
+      </div>
+
+
+      <div class="about-grid">
+
+        <div
+          class="eyebrow"
+          data-i18n="aboutEyebrow"
+        >
+          BANNERS OF LEGACY
+        </div>
+
+
+        <div
+          class="about-copy"
+          data-i18n="aboutCopy"
+        >
+          KHAGANATES REIMAGINED THROUGH SIX HISTORICAL TERRITORIES, EMPIRES AND SYMBOLS, TRANSLATED INTO CONTEMPORARY TUFTED OBJECTS.
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+
+        THE<br>
+
+        TUFTER<span class="registered">®</span>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <div>
+
+          <a
+            href="index.html#drops"
+            data-i18n="drops"
+          >
+            DROPS
+          </a>
+
+          <a
+            href="index.html#shop"
+            data-i18n="shop"
+          >
+            SHOP
+          </a>
+
+          <a
+            href="index.html#about"
+            data-i18n="about"
+          >
+            ABOUT
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="#"
+            data-i18n="archive"
+          >
+            ARCHIVE
+          </a>
+
+          <a
+            href="#"
+            data-i18n="contact"
+          >
+            CONTACT
+          </a>
+
+          <a
+            href="#"
+            data-i18n="instagram"
+          >
+            INSTAGRAM
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
 
 
-    <div>
+    <div class="footer-bottom">
 
-      <a
-        href="#"
-        data-i18n="archive"
-      >
-        ARCHIVE
-      </a>
+      <span>
+        © 2026 THE TUFTER®
+      </span>
 
-      <a
-        href="#"
-        data-i18n="contact"
-      >
-        CONTACT
-      </a>
-
-      <a
-        href="#"
-        data-i18n="instagram"
-      >
-        INSTAGRAM
-      </a>
+      <span>
+        EN / TR / EL
+      </span>
 
     </div>
-
-  </div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-  <span>
-    © 2026 THE TUFTER®
-  </span>
-
-  <span>
-    EN / TR / EL
-  </span>
-
-</div>
-```
 
   </footer>
+
 
   <!-- =========================================================
        LANGUAGE SYSTEM
@@ -1795,7 +1728,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
 
 
       /* =======================================================
-         ΕΛΛΗΝΙΚΑ
+         GREEK
       ======================================================= */
 
       el: {
@@ -1804,10 +1737,10 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
           "DROPS",
 
         shop:
-          "ΚΑΤΑΣΤΗΜΑ",
+          "SHOP",
 
         about:
-          "ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ",
+          "ΣΧΕΤΙΚΑ",
 
         cart:
           "ΚΑΛΑΘΙ",
@@ -1854,10 +1787,10 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
     function setLanguage(lang){
 
       if(!translations[lang]){
-        lang = "en";
+        lang="en";
       }
 
-      document.documentElement.lang = lang;
+      document.documentElement.lang=lang;
 
 
       document
@@ -2020,6 +1953,7 @@ content="THE TUFTER® — DROP 002 / KHAGANATES."
     setLanguage(savedLanguage);
 
   </script>
+
 
 </body>
 
