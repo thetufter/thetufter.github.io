@@ -443,7 +443,10 @@
         filter 0.9s ease;
     }
 
-    /* ANATOLIA */
+
+    /* =========================================================
+       ANATOLIA IMAGE
+    ========================================================= */
 
     .drop-card-anatolia:hover
     .drop-card-image {
@@ -471,13 +474,12 @@
 
     /* =========================================================
        KHAGANATES — AVRUPA HUN
-       AGGRESSIVE SCALE
     ========================================================= */
 
     .drop-card-khaganates
     .drop-card-image {
 
-      width: 150%;
+      width: 125%;
 
       max-width: none;
 
@@ -486,10 +488,11 @@
 
       transform:
         translate(-50%, -50%)
-        scale(1.18);
+        scale(1.05);
 
       opacity: 0;
     }
+
 
     .drop-card-khaganates:hover
     .drop-card-image {
@@ -498,7 +501,7 @@
 
       transform:
         translate(-50%, -50%)
-        scale(1.55);
+        scale(1.28);
 
       filter:
         drop-shadow(
@@ -510,6 +513,7 @@
     .drop-card-image img {
 
       width: 100%;
+
       height: auto;
 
       display: block;
@@ -523,6 +527,21 @@
       filter:
         brightness(0.96)
         contrast(1.03);
+    }
+
+
+    /* =========================================================
+       KHAGANATES TITLE — THIN BLACK OUTLINE
+    ========================================================= */
+
+    .drop-card-khaganates
+    .drop-card-name {
+
+      -webkit-text-stroke:
+        1px #111;
+
+      paint-order:
+        stroke fill;
     }
 
 
@@ -1023,7 +1042,7 @@
       .drop-card-khaganates
       .drop-card-image {
 
-        width: 165%;
+        width: 135%;
       }
 
       .shop-grid {
@@ -1205,18 +1224,20 @@
       }
 
 
-      /* MOBILE KHAGANATES */
+      /* -------------------------------------------------------
+         MOBILE KHAGANATES IMAGE
+      ------------------------------------------------------- */
 
       .drop-card-khaganates
       .drop-card-image {
 
-        width: 175%;
+        width: 145%;
 
         top: 52%;
 
         transform:
           translate(-50%, -50%)
-          scale(1.18);
+          scale(1.02);
       }
 
       .drop-card-khaganates:hover
@@ -1224,7 +1245,19 @@
 
         transform:
           translate(-50%, -50%)
-          scale(1.32);
+          scale(1.16);
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE KHAGANATES OUTLINE
+      ------------------------------------------------------- */
+
+      .drop-card-khaganates
+      .drop-card-name {
+
+        -webkit-text-stroke:
+          .8px #111;
       }
 
 
@@ -1342,7 +1375,7 @@
       .drop-card-khaganates
       .drop-card-image {
 
-        width: 190%;
+        width: 155%;
       }
 
       .motifs {
