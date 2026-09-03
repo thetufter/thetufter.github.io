@@ -120,7 +120,6 @@
 
     .languages button{
       appearance:none;
-
       border:0;
       outline:0;
 
@@ -349,7 +348,6 @@
       height:100%;
 
       padding:0;
-
       margin:0;
 
       overflow:hidden;
@@ -359,7 +357,7 @@
 
 
     /* =========================================================
-       FULL CARD IMAGE
+       FULL CARD PRODUCT IMAGE
     ========================================================= */
 
     .product-image{
@@ -402,7 +400,7 @@
 
 
     /* =========================================================
-       IMAGE EDGE VIGNETTE
+       IMAGE VIGNETTE
     ========================================================= */
 
     .product-art::after{
@@ -422,77 +420,6 @@
           rgba(17,17,17,0) 28%,
           rgba(17,17,17,.04) 58%,
           rgba(17,17,17,.24) 100%
-        );
-    }
-
-
-    /* =========================================================
-       KARA SANCAK PDF
-    ========================================================= */
-
-    .product-pdf-art{
-      position:absolute;
-
-      inset:0;
-
-      z-index:1;
-
-      width:100%;
-      height:100%;
-
-      padding:0;
-
-      margin:0;
-
-      overflow:hidden;
-
-      background:#111;
-
-      pointer-events:none;
-    }
-
-    .product-pdf{
-      display:block;
-
-      width:100%;
-      height:100%;
-
-      border:0;
-
-      background:#f3f1eb;
-
-      transform:scale(1);
-
-      transition:
-        transform .8s
-        cubic-bezier(
-          .22,
-          1,
-          .36,
-          1
-        );
-    }
-
-    .product:hover
-    .product-pdf{
-      transform:scale(1.025);
-    }
-
-    .product-pdf-art::after{
-      content:"";
-
-      position:absolute;
-
-      inset:0;
-
-      pointer-events:none;
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(17,17,17,0) 28%,
-          rgba(17,17,17,.05) 60%,
-          rgba(17,17,17,.20) 100%
         );
     }
 
@@ -728,8 +655,7 @@
       font-weight:800;
     }
 
-    .footer-logo
-    .registered{
+    .footer-logo .registered{
       font-size:.3em;
 
       position:relative;
@@ -867,9 +793,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         HERO
-      ------------------------------------------------------- */
+      /* HERO */
 
       .hero{
         min-height:63vh;
@@ -889,9 +813,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         PRODUCTS
-      ------------------------------------------------------- */
+      /* PRODUCTS */
 
       .products{
         padding:
@@ -903,9 +825,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         MOBILE CARD
-      ------------------------------------------------------- */
+      /* CARD */
 
       .product{
         aspect-ratio:4 / 5;
@@ -913,17 +833,8 @@
         padding:0;
       }
 
-      .product-no{
-        top:18px;
-        left:18px;
 
-        font-size:8px;
-      }
-
-
-      /* -------------------------------------------------------
-         MOBILE IMAGE
-      ------------------------------------------------------- */
+      /* IMAGE */
 
       .product-art{
         padding:0;
@@ -946,23 +857,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         MOBILE PDF
-      ------------------------------------------------------- */
-
-      .product-pdf-art{
-        padding:0;
-      }
-
-      .product-pdf{
-        width:100%;
-        height:100%;
-      }
-
-
-      /* -------------------------------------------------------
-         MOBILE OVERLAY
-      ------------------------------------------------------- */
+      /* OVERLAY */
 
       .product-overlay{
         align-items:flex-end;
@@ -991,16 +886,12 @@
       }
 
 
-      /* LABEL */
-
       .product-meaning-label{
         margin-bottom:8px;
 
         font-size:7px;
       }
 
-
-      /* TITLE */
 
       .product-name{
         margin-bottom:12px;
@@ -1016,8 +907,6 @@
       }
 
 
-      /* DESCRIPTION */
-
       .product-meaning-text{
         max-width:100%;
 
@@ -1029,8 +918,6 @@
       }
 
 
-      /* META */
-
       .product-meta{
         margin-top:15px;
 
@@ -1040,9 +927,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         ABOUT
-      ------------------------------------------------------- */
+      /* ABOUT */
 
       .about{
         padding:
@@ -1056,9 +941,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         FOOTER
-      ------------------------------------------------------- */
+      /* FOOTER */
 
       footer{
         padding:
@@ -1555,13 +1438,13 @@
           </span>
 
 
-          <div class="product-pdf-art">
+          <div class="product-art">
 
-            <iframe
-              class="product-pdf"
-              src="turkiye.pdf"
-              title="KARA SANCAK — THE TUFTER"
-            ></iframe>
+            <img
+              class="product-image"
+              src="türkiye.png"
+              alt="KARA SANCAK — THE TUFTER"
+            >
 
           </div>
 
@@ -1772,6 +1655,12 @@
         instagram:
           "INSTAGRAM",
 
+        heroSubtitle:
+          "CONTEMPORARY TUFTED OBJECTS",
+
+        scroll:
+          "SCROLL TO EXPLORE ↓",
+
         heroEyebrow:
           "DROP 002 / KHAGANATES",
 
@@ -1822,6 +1711,12 @@
 
         instagram:
           "INSTAGRAM",
+
+        heroSubtitle:
+          "ÇAĞDAŞ TUFT OBJELERİ",
+
+        scroll:
+          "KEŞFETMEK İÇİN KAYDIR ↓",
 
         heroEyebrow:
           "DROP 002 / KHAGANATES",
@@ -1874,6 +1769,12 @@
         instagram:
           "INSTAGRAM",
 
+        heroSubtitle:
+          "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ",
+
+        scroll:
+          "ΚΑΝΤΕ ΚΥΛΙΣΗ ΓΙΑ ΕΞΕΡΕΥΝΗΣΗ ↓",
+
         heroEyebrow:
           "DROP 002 / KHAGANATES",
 
@@ -1901,7 +1802,7 @@
 
 
     /* =========================================================
-       SET LANGUAGE
+       LANGUAGE FUNCTION
     ========================================================= */
 
     function setLanguage(lang){
