@@ -366,7 +366,7 @@ content="THE TUFTER® — Contemporary tufted objects."
 
 
     /* =========================================================
-       DROP CARD IMAGE
+       DROP CARD IMAGES
     ========================================================= */
 
     .drop-card-anatolia,
@@ -447,9 +447,6 @@ content="THE TUFTER® — Contemporary tufted objects."
     }
 
     .drop-card-anatolia:hover
-    .drop-card-image,
-
-    .drop-card-khaganates:hover
     .drop-card-image {
 
       opacity: 0.96;
@@ -465,9 +462,6 @@ content="THE TUFTER® — Contemporary tufted objects."
     }
 
     .drop-card-anatolia:hover
-    .drop-card-image img,
-
-    .drop-card-khaganates:hover
     .drop-card-image img {
 
       filter:
@@ -482,7 +476,35 @@ content="THE TUFTER® — Contemporary tufted objects."
 
     .drop-card-khaganates
     .drop-card-image {
-      width: min(72%, 560px);
+
+      width: min(105%, 780px);
+
+      transform:
+        translate(-50%, -46%)
+        scale(1.18);
+    }
+
+    .drop-card-khaganates:hover
+    .drop-card-image {
+
+      opacity: 0.96;
+
+      transform:
+        translate(-50%, -50%)
+        scale(1.08);
+
+      filter:
+        drop-shadow(
+          0 38px 62px rgba(0, 0, 0, 0.58)
+        );
+    }
+
+    .drop-card-khaganates:hover
+    .drop-card-image img {
+
+      filter:
+        brightness(0.96)
+        contrast(1.03);
     }
 
 
@@ -980,6 +1002,13 @@ content="THE TUFTER® — Contemporary tufted objects."
           );
       }
 
+      .drop-card-khaganates
+      .drop-card-image {
+
+        width: min(115%, 760px);
+
+      }
+
       .shop-grid {
 
         grid-template-columns:
@@ -1159,7 +1188,9 @@ content="THE TUFTER® — Contemporary tufted objects."
       }
 
 
-      /* MOBILE DROP IMAGES */
+      /* -------------------------------------------------------
+         MOBILE DROP IMAGES
+      ------------------------------------------------------- */
 
       .drop-card-image {
 
@@ -1171,9 +1202,13 @@ content="THE TUFTER® — Contemporary tufted objects."
       .drop-card-khaganates
       .drop-card-image {
 
-        width: 76%;
+        width: 94%;
 
         top: 52%;
+
+        transform:
+          translate(-50%, -46%)
+          scale(1.08);
       }
 
 
@@ -1286,6 +1321,13 @@ content="THE TUFTER® — Contemporary tufted objects."
       .drop-card-name {
 
         font-size: 14vw;
+      }
+
+      .drop-card-khaganates
+      .drop-card-image {
+
+        width: 102%;
+
       }
 
       .motifs {
@@ -1459,6 +1501,8 @@ content="THE TUFTER® — Contemporary tufted objects."
       class="drop-card drop-card-anatolia"
     >
 
+
+      <!-- KOÇBOYNUZU -->
 
       <div class="drop-card-image">
 
@@ -2334,6 +2378,10 @@ content="THE TUFTER® — Contemporary tufted objects."
 
     function setLanguage(lang) {
 
+      if (!translations[lang]) {
+        lang = "en";
+      }
+
       document.documentElement.lang = lang;
 
 
@@ -2344,13 +2392,12 @@ content="THE TUFTER® — Contemporary tufted objects."
           const key =
             element.getAttribute("data-i18n");
 
-
           if (
             translations[lang] &&
             translations[lang][key]
           ) {
 
-            element.textContent =
+            element.innerHTML =
               translations[lang][key];
 
           }
