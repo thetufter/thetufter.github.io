@@ -1,0 +1,3588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>THE TUFTER®</title>
+
+  <meta
+    name="description"
+    content="THE TUFTER® — A world defined by design, identity and expression."
+  >
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f3f1eb;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 68px;
+
+      padding: 0 28px;
+
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+
+      z-index: 140;
+
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .logo {
+      grid-column: 2;
+      justify-self: center;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      letter-spacing: -0.035em;
+
+      white-space: nowrap;
+
+      cursor: default;
+      user-select: none;
+    }
+
+    .registered {
+      font-size: 0.55em;
+
+      position: relative;
+      top: -0.35em;
+
+      margin-left: 1px;
+    }
+
+
+    /* =========================================================
+       HAMBURGER
+    ========================================================= */
+
+    .menu-trigger {
+      grid-column: 1;
+      justify-self: start;
+
+      width: 30px;
+      height: 30px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      gap: 4px;
+
+      border: 0;
+      background: transparent;
+      color: inherit;
+
+      padding: 0;
+
+      cursor: pointer;
+    }
+
+    .menu-trigger span {
+      display: block;
+
+      width: 18px;
+      height: 1px;
+
+      background: currentColor;
+
+      transition:
+        width 0.25s ease;
+    }
+
+    .menu-trigger:hover span:first-child,
+    .menu-trigger:hover span:last-child {
+      width: 14px;
+    }
+
+
+    /* =========================================================
+       RIGHT HEADER
+    ========================================================= */
+
+    header nav {
+      grid-column: 3;
+      justify-self: end;
+
+      display: flex;
+      align-items: center;
+
+      gap: 25px;
+
+      font-size: 10px;
+
+      letter-spacing: 0.09em;
+
+      text-transform: uppercase;
+    }
+
+    header nav a,
+    .languages span {
+      transition:
+        opacity 0.25s ease;
+    }
+
+    header nav a:hover,
+    .languages span:hover {
+      opacity: 0.5;
+    }
+
+    .languages {
+      display: flex;
+      gap: 8px;
+    }
+
+    .languages span {
+      cursor: pointer;
+    }
+
+    .languages .active {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+
+    /* =========================================================
+       LEFT HOVER DRAWER
+    ========================================================= */
+
+    .menu-hit-zone {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 58px;
+      height: 100vh;
+
+      z-index: 145;
+    }
+
+    .menu-drawer {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: min(32vw, 460px);
+      min-width: 320px;
+      height: 100vh;
+
+      padding:
+        96px
+        34px
+        34px;
+
+      display: flex;
+      flex-direction: column;
+
+      background: #f3f1eb;
+      color: #111;
+
+      box-shadow:
+        18px 0 50px rgba(0, 0, 0, 0.12);
+
+      transform:
+        translateX(-102%);
+
+      transition:
+        transform
+        0.48s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        );
+
+      z-index: 150;
+    }
+
+    .menu-backdrop {
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.45
+        );
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition:
+        opacity 0.35s ease;
+
+      z-index: 148;
+    }
+
+    body.menu-open
+    .menu-drawer {
+      transform:
+        translateX(0);
+    }
+
+    body.menu-open
+    .menu-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+
+    /* =========================================================
+       DRAWER CLOSE
+    ========================================================= */
+
+    .menu-close {
+      position: absolute;
+
+      top: 24px;
+      right: 24px;
+
+      width: 28px;
+      height: 28px;
+
+      border: 0;
+      background: transparent;
+
+      cursor: pointer;
+    }
+
+    .menu-close::before,
+    .menu-close::after {
+      content: "";
+
+      position: absolute;
+
+      left: 5px;
+      top: 13px;
+
+      width: 18px;
+      height: 1px;
+
+      background: #111;
+    }
+
+    .menu-close::before {
+      transform:
+        rotate(45deg);
+    }
+
+    .menu-close::after {
+      transform:
+        rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       DRAWER CONTENT
+    ========================================================= */
+
+    .menu-brand {
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing:
+        -0.03em;
+
+      margin-bottom:
+        65px;
+    }
+
+    .menu-nav {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        28px;
+
+      font-size:
+        12px;
+
+      letter-spacing:
+        0.09em;
+
+      text-transform:
+        uppercase;
+    }
+
+    .menu-nav > a,
+    .menu-drop-group > a,
+    .menu-subnav a {
+      transition:
+        opacity 0.25s ease;
+    }
+
+    .menu-nav > a:hover,
+    .menu-drop-group > a:hover,
+    .menu-subnav a:hover {
+      opacity:
+        0.45;
+    }
+
+    .menu-drop-group {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        14px;
+    }
+
+    .menu-subnav {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        10px;
+
+      padding-left:
+        18px;
+
+      font-size:
+        10px;
+
+      letter-spacing:
+        0.08em;
+    }
+
+    .menu-footer {
+      margin-top:
+        auto;
+
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        13px;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.09em;
+
+      text-transform:
+        uppercase;
+    }
+
+    .menu-instagram {
+      opacity:
+        0.55;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height:
+        100vh;
+
+      min-height:
+        100svh;
+
+      padding:
+        95px
+        28px
+        28px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        space-between;
+
+      background:
+        #f3f1eb;
+    }
+
+    .hero-center {
+      flex:
+        1;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      text-align:
+        center;
+    }
+
+    .hero-title {
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      align-items:
+        center;
+
+      font-size:
+        clamp(
+          58px,
+          9vw,
+          145px
+        );
+
+      line-height:
+        0.84;
+
+      letter-spacing:
+        -0.055em;
+
+      font-weight:
+        800;
+
+      user-select:
+        none;
+    }
+
+    .hero-title > span {
+      display:
+        block;
+
+      white-space:
+        nowrap;
+    }
+
+    .hero-title .brand-word {
+      display:
+        block;
+    }
+
+    .hero-title .registered {
+      display:
+        inline-block;
+
+      font-size:
+        0.21em;
+
+      line-height:
+        1;
+
+      vertical-align:
+        top;
+
+      position:
+        relative;
+
+      top:
+        -0.16em;
+
+      margin-left:
+        0.035em;
+    }
+
+    .hero-bottom {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        flex-end;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* =========================================================
+       HERO — BRAND IMAGE
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 95px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      color: #f3f1eb;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.18)),
+        url("brand_hero.png") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.08) 0%,
+        transparent 35%,
+        rgba(0,0,0,0.22) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-center {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: clamp(48px, 6vw, 92px);
+      line-height: 0.84;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+      user-select: none;
+    }
+
+    .hero-title > span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-title .brand-word {
+      display: block;
+    }
+
+    .hero-title .registered {
+      display: inline-block;
+      font-size: 0.21em;
+      line-height: 1;
+      vertical-align: top;
+      position: relative;
+      top: -0.16em;
+      margin-left: 0.035em;
+    }
+
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-enter {
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 5px;
+      transition: opacity 0.25s ease;
+    }
+
+    .hero-enter:hover {
+      opacity: 0.55;
+    }
+
+
+    /* =========================================================
+       BRAND INTRO
+    ========================================================= */
+
+    .brand-intro {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background: #f3f1eb;
+      color: #111;
+    }
+
+    .brand-intro-inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .brand-intro-kicker {
+      margin-bottom: 36px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-intro-headline {
+      max-width: 980px;
+      margin-bottom: 38px;
+      font-size: clamp(38px, 4.6vw, 68px);
+      line-height: 0.91;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+    }
+
+    .brand-intro-copy {
+      max-width: 760px;
+      margin-left: 0;
+      margin-right: 0;
+      font-size: clamp(15px, 1.15vw, 18px);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-intro-copy p {
+      margin-bottom: 34px;
+    }
+
+    .brand-intro-closing {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 42px;
+      width: fit-content;
+      max-width: 100%;
+      margin-top: 72px;
+      margin-left: 0;
+      margin-right: 0;
+      font-size: clamp(11px, 0.9vw, 14px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+
+    .brand-intro-closing span {
+      display: block;
+    }
+
+
+    /* =========================================================
+       GENERAL SECTIONS
+    ========================================================= */
+
+    section {
+      padding:
+        120px
+        28px;
+    }
+
+    .section-label {
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.13em;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        42px;
+    }
+
+
+    /* =========================================================
+       DROPS
+    ========================================================= */
+
+    .drops {
+      background:
+        #111;
+
+      color:
+        #f3f1eb;
+
+      padding-top:
+        100px;
+
+      padding-bottom:
+        100px;
+    }
+
+    .drops-label-row {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      margin-bottom:
+        42px;
+    }
+
+    .drops-label-row
+    .section-label {
+      margin-bottom:
+        0;
+    }
+
+    .drops-total {
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform:
+        uppercase;
+
+      opacity:
+        0.5;
+    }
+
+
+    /* =========================================================
+       DROP GRID
+    ========================================================= */
+
+    .drops-grid {
+      display:
+        flex;
+
+      width:
+        100%;
+
+      min-height:
+        63vh;
+
+      border-top:
+        1px solid
+        rgba(
+          243,
+          241,
+          235,
+          0.28
+        );
+
+      border-bottom:
+        1px solid
+        rgba(
+          243,
+          241,
+          235,
+          0.28
+        );
+    }
+
+
+    /* =========================================================
+       DROP CARD
+    ========================================================= */
+
+    .drop-card {
+      position:
+        relative;
+
+      flex:
+        1 1 0;
+
+      min-width:
+        0;
+
+      min-height:
+        63vh;
+
+      padding:
+        24px
+        22px
+        26px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        space-between;
+
+      border-right:
+        1px solid
+        rgba(
+          243,
+          241,
+          235,
+          0.28
+        );
+
+      overflow:
+        hidden;
+
+      cursor:
+        pointer;
+
+      transition:
+        flex
+        0.65s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+        background
+        0.45s ease,
+        color
+        0.45s ease;
+    }
+
+    .drop-card:last-child {
+      border-right:
+        none;
+    }
+
+    .drop-card:hover {
+      flex:
+        1.75 1 0;
+    }
+
+    .drops-grid:hover
+    .drop-card:not(:hover) {
+      opacity:
+        0.52;
+    }
+
+
+    /* =========================================================
+       AMBIENT LIGHT
+    ========================================================= */
+
+    .drop-card::before {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        radial-gradient(
+          circle at 50% 52%,
+          rgba(
+            255,
+            255,
+            255,
+            0.055
+          ),
+          transparent 48%
+        );
+
+      opacity:
+        0;
+
+      transition:
+        opacity 0.7s ease;
+
+      pointer-events:
+        none;
+
+      z-index:
+        0;
+    }
+
+    .drop-card:hover::before {
+      opacity:
+        1;
+    }
+
+
+    /* =========================================================
+       ANATOLIA IMAGE
+    ========================================================= */
+
+    .drop-card-anatolia {
+      isolation:
+        isolate;
+    }
+
+    .drop-card-image {
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      width:
+        min(
+          72%,
+          560px
+        );
+
+      transform:
+        translate(
+          -50%,
+          -46%
+        )
+        scale(
+          1.12
+        );
+
+      opacity:
+        0;
+
+      z-index:
+        1;
+
+      pointer-events:
+        none;
+
+      -webkit-mask-image:
+        linear-gradient(
+          to right,
+          transparent 0%,
+          #000 14%,
+          #000 86%,
+          transparent 100%
+        );
+
+      mask-image:
+        linear-gradient(
+          to right,
+          transparent 0%,
+          #000 14%,
+          #000 86%,
+          transparent 100%
+        );
+
+      -webkit-mask-repeat:
+        no-repeat;
+
+      mask-repeat:
+        no-repeat;
+
+      -webkit-mask-size:
+        100% 100%;
+
+      mask-size:
+        100% 100%;
+
+      filter:
+        drop-shadow(
+          0
+          28px
+          50px
+          rgba(
+            0,
+            0,
+            0,
+            0.42
+          )
+        );
+
+      transition:
+        opacity
+        0.9s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+        transform
+        1.1s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+        filter
+        0.9s ease;
+    }
+
+    .drop-card-image img {
+      display:
+        block;
+
+      width:
+        100%;
+
+      height:
+        auto;
+
+      object-fit:
+        contain;
+
+      filter:
+        brightness(
+          0.66
+        )
+        contrast(
+          1.14
+        );
+
+      transition:
+        filter
+        0.9s ease;
+    }
+
+    .drop-card-anatolia:hover
+    .drop-card-image {
+      opacity:
+        0.96;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        scale(
+          1
+        );
+
+      filter:
+        drop-shadow(
+          0
+          38px
+          62px
+          rgba(
+            0,
+            0,
+            0,
+            0.58
+          )
+        );
+    }
+
+    .drop-card-anatolia:hover
+    .drop-card-image img {
+      filter:
+        brightness(
+          0.96
+        )
+        contrast(
+          1.03
+        );
+    }
+
+
+    /* =========================================================
+       KHAGANATES IMAGE
+    ========================================================= */
+
+    .khaganates-image {
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      width:
+        125%;
+
+      max-width:
+        none;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        scale(
+          1.05
+        );
+
+      opacity:
+        0;
+
+      z-index:
+        1;
+
+      pointer-events:
+        none;
+
+      filter:
+        drop-shadow(
+          0
+          28px
+          50px
+          rgba(
+            0,
+            0,
+            0,
+            0.42
+          )
+        );
+
+      transition:
+        opacity
+        0.9s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+        transform
+        1.1s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+        filter
+        0.9s ease;
+    }
+
+    .khaganates-image img {
+      width:
+        100%;
+
+      height:
+        auto;
+
+      display:
+        block;
+
+      object-fit:
+        contain;
+
+      filter:
+        brightness(
+          0.96
+        )
+        contrast(
+          1.03
+        );
+    }
+
+    .drop-card:hover
+    .khaganates-image {
+      opacity:
+        0.96;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        )
+        scale(
+          1.28
+        );
+
+      filter:
+        drop-shadow(
+          0
+          38px
+          62px
+          rgba(
+            0,
+            0,
+            0,
+            0.58
+          )
+        );
+    }
+
+
+    /* =========================================================
+       DROP CONTENT
+    ========================================================= */
+
+    .drop-card-top,
+    .drop-card-center,
+    .drop-card-bottom {
+      position:
+        relative;
+
+      z-index:
+        3;
+    }
+
+    .drop-card-top {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.11em;
+
+      text-transform:
+        uppercase;
+    }
+
+    .drop-card-number {
+      opacity:
+        0.65;
+    }
+
+    .drop-card-count {
+      opacity:
+        0.5;
+
+      white-space:
+        nowrap;
+    }
+
+    .drop-card-center {
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        18px;
+    }
+
+    .drop-card-name {
+      font-size:
+        clamp(
+          34px,
+          4.2vw,
+          74px
+        );
+
+      line-height:
+        0.87;
+
+      letter-spacing:
+        -0.06em;
+
+      font-weight:
+        700;
+
+      max-width:
+        100%;
+    }
+
+    .drop-card-description {
+      max-width:
+        270px;
+
+      font-size:
+        9px;
+
+      line-height:
+        1.5;
+
+      letter-spacing:
+        0.08em;
+
+      text-transform:
+        uppercase;
+
+      opacity:
+        0;
+
+      transform:
+        translateY(
+          8px
+        );
+
+      transition:
+        opacity
+        0.45s ease,
+        transform
+        0.45s ease;
+    }
+
+    .drop-card:hover
+    .drop-card-description {
+      opacity:
+        0.6;
+
+      transform:
+        translateY(
+          0
+        );
+    }
+
+    .drop-card-bottom {
+      display:
+        flex;
+
+      justify-content:
+        flex-end;
+
+      align-items:
+        flex-end;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.08em;
+
+      text-transform:
+        uppercase;
+    }
+
+    .drop-enter {
+      border-bottom:
+        1px solid
+        currentColor;
+
+      padding-bottom:
+        4px;
+
+      opacity:
+        0;
+
+      transform:
+        translateX(
+          -6px
+        );
+
+      transition:
+        opacity
+        0.4s ease,
+        transform
+        0.4s ease;
+    }
+
+    .drop-card:hover
+    .drop-enter {
+      opacity:
+        1;
+
+      transform:
+        translateX(
+          0
+        );
+    }
+
+
+    /* =========================================================
+       PREMIUM — OTUKEN
+    ========================================================= */
+
+    .drop-card-premium {
+      background:
+        #171717;
+    }
+
+    .drop-card-premium
+    .drop-card-name {
+      font-weight:
+        400;
+
+      letter-spacing:
+        -0.07em;
+    }
+
+    .drop-card-premium
+    .drop-card-top {
+      letter-spacing:
+        0.15em;
+    }
+
+    .premium-tag {
+      opacity:
+        0.45;
+
+      margin-left:
+        5px;
+    }
+
+    .drop-card-premium:hover {
+      background:
+        #1d1d1d;
+    }
+
+
+    /* =========================================================
+       SHOP
+    ========================================================= */
+
+    .shop {
+      background:
+        #f3f1eb;
+    }
+
+    .shop-grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          4,
+          1fr
+        );
+
+      border-top:
+        1px solid
+        #111;
+
+      border-left:
+        1px solid
+        #111;
+    }
+
+    .shop-item {
+      min-height:
+        220px;
+
+      padding:
+        20px;
+
+      border-right:
+        1px solid
+        #111;
+
+      border-bottom:
+        1px solid
+        #111;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        space-between;
+
+      transition:
+        background
+        0.35s ease,
+        color
+        0.35s ease;
+    }
+
+    .shop-item:hover {
+      background:
+        #111;
+
+      color:
+        #f3f1eb;
+    }
+
+    .shop-number {
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.1em;
+    }
+
+    .shop-name {
+      font-size:
+        clamp(
+          22px,
+          2.5vw,
+          37px
+        );
+
+      letter-spacing:
+        -0.045em;
+
+      font-weight:
+        700;
+    }
+
+    .coming {
+      font-size:
+        8px;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* =========================================================
+       CURRENT DROP
+    ========================================================= */
+
+    .current {
+      background:
+        #dedbd2;
+    }
+
+    .current-title {
+      font-size:
+        clamp(
+          50px,
+          7.5vw,
+          110px
+        );
+
+      line-height:
+        0.86;
+
+      letter-spacing:
+        -0.065em;
+
+      font-weight:
+        800;
+
+      margin-bottom:
+        48px;
+    }
+
+    .current-subline {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      margin-bottom:
+        34px;
+
+      font-size:
+        9px;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.1em;
+    }
+
+    .motifs {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          5,
+          1fr
+        );
+
+      border-top:
+        1px solid
+        #111;
+
+      border-left:
+        1px solid
+        #111;
+    }
+
+    .motif {
+      min-height:
+        180px;
+
+      padding:
+        15px;
+
+      border-right:
+        1px solid
+        #111;
+
+      border-bottom:
+        1px solid
+        #111;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        space-between;
+
+      transition:
+        background
+        0.3s ease,
+        color
+        0.3s ease;
+    }
+
+    .motif:hover {
+      background:
+        #111;
+
+      color:
+        #f3f1eb;
+    }
+
+    .motif-number {
+      font-size:
+        8px;
+    }
+
+    .motif-name {
+      font-size:
+        13px;
+
+      letter-spacing:
+        -0.02em;
+
+      font-weight:
+        700;
+    }
+
+    .current-link {
+      margin-top:
+        35px;
+
+      display:
+        inline-block;
+
+      border-bottom:
+        1px solid
+        #111;
+
+      padding-bottom:
+        5px;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.08em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-title {
+      max-width:
+        1000px;
+
+      font-size:
+        clamp(
+          38px,
+          5.5vw,
+          78px
+        );
+
+      line-height:
+        0.94;
+
+      letter-spacing:
+        -0.065em;
+
+      font-weight:
+        700;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background:
+        #111;
+
+      color:
+        #f3f1eb;
+
+      padding:
+        65px
+        28px
+        25px;
+    }
+
+    .footer-top {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        flex-start;
+
+      margin-bottom:
+        100px;
+    }
+
+    .footer-logo {
+      font-size:
+        clamp(
+          38px,
+          6vw,
+          80px
+        );
+
+      line-height:
+        0.82;
+
+      letter-spacing:
+        -0.065em;
+
+      font-weight:
+        800;
+    }
+
+    .footer-logo
+    .registered {
+      font-size:
+        0.3em;
+
+      position:
+        relative;
+
+      top:
+        -0.45em;
+
+      margin-left:
+        2px;
+    }
+
+    .footer-links {
+      display:
+        flex;
+
+      gap:
+        55px;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform:
+        uppercase;
+    }
+
+    .footer-links div {
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        11px;
+    }
+
+    .footer-links a {
+      transition:
+        opacity
+        0.25s ease;
+    }
+
+    .footer-links a:hover {
+      opacity:
+        0.5;
+    }
+
+    .footer-bottom {
+      padding-top:
+        18px;
+
+      border-top:
+        1px solid
+        rgba(
+          243,
+          241,
+          235,
+          0.3
+        );
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      font-size:
+        8px;
+
+      letter-spacing:
+        0.08em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .drops-grid {
+        min-height:
+          58vh;
+      }
+
+      .drop-card {
+        min-height:
+          58vh;
+
+        padding:
+          20px
+          16px
+          20px;
+      }
+
+      .drop-card:hover {
+        flex:
+          1.5 1 0;
+      }
+
+      .drop-card-name {
+        font-size:
+          clamp(
+            29px,
+            5vw,
+            58px
+          );
+      }
+
+      .shop-grid {
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+      }
+
+      .motifs {
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 700px) {
+
+      header {
+        height:
+          60px;
+
+        padding:
+          0 17px;
+      }
+
+      header nav {
+        gap:
+          11px;
+      }
+
+      .menu-drawer {
+        width:
+          min(
+            88vw,
+            420px
+          );
+
+        min-width:
+          0;
+
+        padding:
+          88px
+          25px
+          25px;
+      }
+
+      .menu-nav {
+        gap:
+          25px;
+
+        font-size:
+          11px;
+      }
+
+      .menu-hit-zone {
+        width:
+          52px;
+      }
+
+      section {
+        padding:
+          90px
+          17px;
+      }
+
+      .hero {
+        padding:
+          85px
+          17px
+          22px;
+      }
+
+      .hero-title {
+        font-size:
+          16vw;
+
+        line-height:
+          0.88;
+      }
+
+      .hero {
+        padding: 85px 17px 22px;
+        background-position: center center;
+      }
+
+      .hero-bottom {
+        font-size: 7px;
+      }
+
+      .hero-bottom span:first-child {
+        display: none;
+      }
+
+      .hero-enter {
+        font-size: 8px;
+      }
+
+      .brand-intro {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+
+      .brand-intro-kicker {
+        margin-bottom: 34px;
+      }
+
+      .brand-intro-headline {
+        margin-bottom: 42px;
+        font-size: 10vw;
+      }
+
+      .brand-intro-copy {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 18px;
+      }
+
+      .brand-intro-closing {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-top: 42px;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 13px;
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE DROPS
+      ------------------------------------------------------- */
+
+      .drops {
+        padding:
+          78px
+          0
+          78px;
+      }
+
+      .drops-label-row {
+        padding:
+          0 17px;
+
+        margin-bottom:
+          28px;
+      }
+
+      .drops-grid {
+        min-height:
+          68vh;
+
+        width:
+          100%;
+
+        overflow-x:
+          auto;
+
+        overflow-y:
+          hidden;
+
+        scroll-snap-type:
+          x mandatory;
+
+        scrollbar-width:
+          none;
+      }
+
+      .drops-grid::-webkit-scrollbar {
+        display:
+          none;
+      }
+
+      .drop-card {
+        flex:
+          0 0 82vw;
+
+        width:
+          82vw;
+
+        min-height:
+          68vh;
+
+        padding:
+          22px
+          18px
+          22px;
+
+        scroll-snap-align:
+          start;
+      }
+
+      .drop-card:hover {
+        flex:
+          0 0 82vw;
+      }
+
+      .drops-grid:hover
+      .drop-card:not(:hover) {
+        opacity:
+          1;
+      }
+
+      .drop-card-name {
+        font-size:
+          13vw;
+      }
+
+      .drop-card-description {
+        opacity:
+          0.55;
+
+        transform:
+          none;
+
+        max-width:
+          220px;
+      }
+
+      .drop-enter {
+        opacity:
+          1;
+
+        transform:
+          none;
+      }
+
+      .drop-card-premium
+      .drop-card-name {
+        font-size:
+          12.2vw;
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE KOÇBOYNUZU
+      ------------------------------------------------------- */
+
+      .drop-card-image {
+        width:
+          76%;
+
+        top:
+          52%;
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE KHAGANATES
+      ------------------------------------------------------- */
+
+      .khaganates-image {
+        width:
+          145%;
+
+        top:
+          52%;
+
+        transform:
+          translate(
+            -50%,
+            -50%
+          )
+          scale(
+            1.02
+          );
+      }
+
+      .drop-card:hover
+      .khaganates-image {
+        transform:
+          translate(
+            -50%,
+            -50%
+          )
+          scale(
+            1.16
+          );
+      }
+
+
+      /* -------------------------------------------------------
+         SHOP
+      ------------------------------------------------------- */
+
+      .shop-grid {
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+      }
+
+      .shop-item {
+        min-height:
+          160px;
+
+        padding:
+          15px;
+      }
+
+
+      /* -------------------------------------------------------
+         CURRENT DROP
+      ------------------------------------------------------- */
+
+      .motifs {
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+      }
+
+      .motif {
+        min-height:
+          125px;
+      }
+
+      .motif-name {
+        font-size:
+          12px;
+      }
+
+      .current-subline {
+        flex-direction:
+          column;
+
+        gap:
+          8px;
+      }
+
+
+      /* -------------------------------------------------------
+         FOOTER
+      ------------------------------------------------------- */
+
+      .footer-top {
+        flex-direction:
+          column;
+
+        gap:
+          60px;
+
+        margin-bottom:
+          70px;
+      }
+
+      .footer-links {
+        gap:
+          35px;
+      }
+
+      .footer-bottom {
+        flex-direction:
+          column;
+
+        gap:
+          10px;
+      }
+
+    }
+
+
+    /* =========================================================
+       SMALL MOBILE
+    ========================================================= */
+
+    @media (max-width: 430px) {
+
+      header nav {
+        gap:
+          8px;
+      }
+
+      .languages {
+        gap:
+          5px;
+      }
+
+      .hero-title {
+        font-size:
+          17vw;
+      }
+
+      .drop-card {
+        flex-basis:
+          88vw;
+
+        width:
+          88vw;
+      }
+
+      .drop-card:hover {
+        flex-basis:
+          88vw;
+      }
+
+      .drop-card-name {
+        font-size:
+          14vw;
+      }
+
+      .drop-card-premium
+      .drop-card-name {
+        font-size:
+          13vw;
+      }
+
+      .motifs {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
+
+  <header>
+
+    <button
+      class="menu-trigger"
+      id="menuTrigger"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="menuDrawer"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+    <div
+      class="logo"
+      aria-label="THE TUFTER"
+    >
+
+      THE TUFTER<span class="registered">®</span>
+
+    </div>
+
+
+    <nav>
+
+      <div class="languages">
+
+        <span
+          data-lang="en"
+          class="active"
+        >
+          EN
+        </span>
+
+        <span data-lang="tr">
+          TR
+        </span>
+
+        <span data-lang="el">
+          EL
+        </span>
+
+      </div>
+
+
+      <a
+        href="#"
+        data-i18n="cart"
+      >
+        CART
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================================================
+       LEFT HOVER MENU
+  ========================================================= -->
+
+  <div
+    class="menu-hit-zone"
+    id="menuHitZone"
+    aria-hidden="true"
+  ></div>
+
+
+  <div
+    class="menu-backdrop"
+    id="menuBackdrop"
+  ></div>
+
+
+  <aside
+    class="menu-drawer"
+    id="menuDrawer"
+    aria-hidden="true"
+  >
+
+    <button
+      class="menu-close"
+      id="menuClose"
+      type="button"
+      aria-label="Close menu"
+    ></button>
+
+
+    <div class="menu-brand">
+
+      THE TUFTER<span class="registered">®</span>
+
+    </div>
+
+
+    <nav
+      class="menu-nav"
+      aria-label="Main menu"
+    >
+
+
+      <a
+        href="#shop"
+        data-i18n="shop"
+      >
+        SHOP
+      </a>
+
+
+      <a
+        href="#about"
+        data-i18n="about"
+      >
+        ABOUT
+      </a>
+
+
+      <a href="#">
+        ARCHIVE
+      </a>
+
+
+      <a href="#">
+        CONTACT
+      </a>
+
+
+      <a
+        href="#"
+        class="menu-instagram"
+      >
+        INSTAGRAM
+      </a>
+
+    </nav>
+
+
+    <div class="menu-footer">
+
+      <div>
+        EN / TR / EL
+      </div>
+
+      <div>
+        © 2026 THE TUFTER®
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================= -->
+
+  <main>
+
+
+    <!-- =======================================================
+         HERO
+    ======================================================= -->
+
+    <section class="hero">
+
+      <div class="hero-center">
+
+        <h1 class="hero-title">
+
+          <span>
+            THE
+          </span>
+
+          <span class="brand-word">
+            TUFTER<span class="registered">®</span>
+          </span>
+
+        </h1>
+
+      </div>
+
+      <div class="hero-bottom">
+
+        <span></span>
+
+        <a
+          class="hero-enter"
+          href="#brand-intro"
+          data-i18n="heroEnter"
+        >
+          ENTER →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         BRAND INTRO
+    ======================================================= -->
+
+    <section
+      class="brand-intro"
+      id="brand-intro"
+    >
+
+      <div class="brand-intro-inner">
+
+        <div
+          class="brand-intro-kicker"
+          data-i18n="brandKicker"
+        >
+          THE TUFTER®
+        </div>
+
+        <h2
+          class="brand-intro-headline"
+          data-i18n="brandHeadline"
+        >
+          WE CREATE OBJECTS WITH IDENTITY.
+        </h2>
+
+        <div class="brand-intro-copy">
+
+          <p data-i18n="brandLead">
+            Rooted in culture, shaped by craft, for those who know the vibe.
+          </p>
+
+          <p data-i18n="brandBody">
+            THE TUFTER® is a world defined by design, identity and expression.
+            From what you wear to what surrounds you, we bring design, identity
+            and expression together through distinctive pieces.
+          </p>
+
+        </div>
+
+        <div class="brand-intro-closing">
+
+          <span data-i18n="brandClosing1">
+            DIFFERENT FORMS.
+          </span>
+
+          <span data-i18n="brandClosing2">
+            ONE IDENTITY.
+          </span>
+
+          <span data-i18n="brandClosing3">
+            NO COMPROMISE ON QUALITY.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SHOP
+    ======================================================= -->
+
+    <section
+      class="shop"
+      id="shop"
+    >
+
+      <div
+        class="section-label"
+        data-i18n="shopLabel"
+      >
+        SHOP
+      </div>
+
+
+      <div class="shop-grid">
+
+
+        <a
+          href="tufts.html"
+          class="shop-item"
+        >
+
+          <span class="shop-number">
+            01
+          </span>
+
+          <span
+            class="shop-name"
+            data-i18n="tufts"
+          >
+            TUFTS
+          </span>
+
+          <span
+            class="coming"
+            data-i18n="available"
+          >
+            AVAILABLE
+          </span>
+
+        </a>
+
+
+        <a
+          href="#"
+          class="shop-item"
+        >
+
+          <span class="shop-number">
+            02
+          </span>
+
+          <span
+            class="shop-name"
+            data-i18n="tees"
+          >
+            TEES
+          </span>
+
+          <span
+            class="coming"
+            data-i18n="comingSoon"
+          >
+            COMING SOON
+          </span>
+
+        </a>
+
+
+        <a
+          href="#"
+          class="shop-item"
+        >
+
+          <span class="shop-number">
+            03
+          </span>
+
+          <span
+            class="shop-name"
+            data-i18n="stickers"
+          >
+            STICKERS
+          </span>
+
+          <span
+            class="coming"
+            data-i18n="comingSoon"
+          >
+            COMING SOON
+          </span>
+
+        </a>
+
+
+        <a
+          href="#"
+          class="shop-item"
+        >
+
+          <span class="shop-number">
+            04
+          </span>
+
+          <span
+            class="shop-name"
+            data-i18n="handmade"
+          >
+            HANDMADE
+          </span>
+
+          <span
+            class="coming"
+            data-i18n="comingSoon"
+          >
+            COMING SOON
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         ABOUT
+    ======================================================= -->
+
+    <section id="about">
+
+      <div
+        class="section-label"
+        data-i18n="aboutLabel"
+      >
+        ABOUT THE TUFTER
+      </div>
+
+
+      <h2
+        class="about-title"
+        data-i18n="aboutText"
+      >
+        CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.
+      </h2>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="footer-top">
+
+
+      <div class="footer-logo">
+
+        THE
+
+        <br>
+
+        TUFTER<span class="registered">®</span>
+
+      </div>
+
+
+      <div class="footer-links">
+
+
+        <div>
+
+          <a
+            href="#shop"
+            data-i18n="shop"
+          >
+            SHOP
+          </a>
+
+
+          <a
+            href="#about"
+            data-i18n="about"
+          >
+            ABOUT
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="#"
+            data-i18n="archive"
+          >
+            ARCHIVE
+          </a>
+
+
+          <a
+            href="#"
+            data-i18n="contact"
+          >
+            CONTACT
+          </a>
+
+
+          <a
+            href="#"
+            data-i18n="instagram"
+          >
+            INSTAGRAM
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 THE TUFTER®
+      </span>
+
+
+      <span>
+        EN / TR / EL
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================================
+       DRAWER BEHAVIOUR
+  ========================================================= -->
+
+  <script>
+
+    (function () {
+
+      const body =
+        document.body;
+
+      const trigger =
+        document.getElementById(
+          "menuTrigger"
+        );
+
+      const hitZone =
+        document.getElementById(
+          "menuHitZone"
+        );
+
+      const drawer =
+        document.getElementById(
+          "menuDrawer"
+        );
+
+      const backdrop =
+        document.getElementById(
+          "menuBackdrop"
+        );
+
+      const close =
+        document.getElementById(
+          "menuClose"
+        );
+
+
+      let closeTimer =
+        null;
+
+
+      function openMenu() {
+
+        clearTimeout(
+          closeTimer
+        );
+
+        body.classList.add(
+          "menu-open"
+        );
+
+        trigger.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        drawer.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+      }
+
+
+      function closeMenu(
+        delay = 120
+      ) {
+
+        clearTimeout(
+          closeTimer
+        );
+
+        closeTimer =
+          setTimeout(
+            () => {
+
+              body.classList.remove(
+                "menu-open"
+              );
+
+              trigger.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+              drawer.setAttribute(
+                "aria-hidden",
+                "true"
+              );
+
+            },
+            delay
+          );
+
+      }
+
+
+      trigger.addEventListener(
+        "mouseenter",
+        openMenu
+      );
+
+
+      hitZone.addEventListener(
+        "mouseenter",
+        openMenu
+      );
+
+
+      drawer.addEventListener(
+        "mouseenter",
+        openMenu
+      );
+
+
+      trigger.addEventListener(
+        "mouseleave",
+        () => {
+
+          if (
+            !drawer.matches(
+              ":hover"
+            )
+          ) {
+
+            closeMenu(
+              180
+            );
+
+          }
+
+        }
+      );
+
+
+      hitZone.addEventListener(
+        "mouseleave",
+        () => {
+
+          if (
+            !drawer.matches(
+              ":hover"
+            )
+          ) {
+
+            closeMenu(
+              180
+            );
+
+          }
+
+        }
+      );
+
+
+      drawer.addEventListener(
+        "mouseleave",
+        () => {
+
+          if (
+            !hitZone.matches(
+              ":hover"
+            )
+          ) {
+
+            closeMenu(
+              180
+            );
+
+          }
+
+        }
+      );
+
+
+      trigger.addEventListener(
+        "click",
+        openMenu
+      );
+
+
+      backdrop.addEventListener(
+        "click",
+        () =>
+          closeMenu(
+            0
+          )
+      );
+
+
+      close.addEventListener(
+        "click",
+        () =>
+          closeMenu(
+            0
+          )
+      );
+
+
+      drawer
+        .querySelectorAll(
+          "a"
+        )
+        .forEach(
+          link => {
+
+            link.addEventListener(
+              "click",
+              () =>
+                closeMenu(
+                  0
+                )
+            );
+
+          }
+        );
+
+
+      document.addEventListener(
+        "keydown",
+        event => {
+
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            closeMenu(
+              0
+            );
+
+          }
+
+        }
+      );
+
+    })();
+
+  </script>
+
+
+  <!-- =========================================================
+       LANGUAGE SYSTEM
+  ========================================================= -->
+
+  <script>
+
+    const translations = {
+
+
+      /* =======================================================
+         ENGLISH
+      ======================================================= */
+
+      en: {
+
+        drops:
+          "DROPS",
+
+        shop:
+          "SHOP",
+
+        about:
+          "ABOUT",
+
+        cart:
+          "CART",
+
+        heroSubtitle:
+          "CONTEMPORARY TUFTED OBJECTS",
+
+        scroll:
+          "SCROLL TO EXPLORE ↓",
+
+        heroEnter:
+          "ENTER →",
+
+        brandKicker:
+          "THE TUFTER®",
+
+        brandHeadline:
+          "WE CREATE OBJECTS WITH IDENTITY.",
+
+        brandLead:
+          "Rooted in culture, shaped by craft, for those who know the vibe.",
+
+        brandBody:
+          "THE TUFTER® is a world defined by design, identity and expression. From what you wear to what surrounds you, we bring design, identity and expression together through distinctive pieces.",
+
+        brandClosing1:
+          "DIFFERENT FORMS.",
+
+        brandClosing2:
+          "ONE IDENTITY.",
+
+        brandClosing3:
+          "NO COMPROMISE ON QUALITY.",
+
+        dropsLabel:
+          "COLLECTIONS",
+
+        anatoliaCount:
+          "06 OBJECTS",
+
+        anatoliaDesc:
+          "SYMBOLS OF THE LAND",
+
+        khaganatesCount:
+          "06 OBJECTS",
+
+        khaganatesDesc:
+          "BANNERS OF LEGACY",
+
+        otukenCount:
+          "05 OBJECTS",
+
+        otukenDesc:
+          "THE CALL OF THE ORIGIN",
+
+        enterDrop:
+          "ENTER DROP →",
+
+        shopLabel:
+          "SHOP",
+
+        tufts:
+          "TUFTS",
+
+        tees:
+          "TEES",
+
+        stickers:
+          "STICKERS",
+
+        handmade:
+          "HANDMADE",
+
+        available:
+          "AVAILABLE",
+
+        comingSoon:
+          "COMING SOON",
+
+        currentDrop:
+          "CURRENT DROP / 001",
+
+        currentDropIntro:
+          "FIVE SYMBOLS / ONE DROP",
+
+        exploreAnatolia:
+          "EXPLORE ANATOLIA →",
+
+        aboutLabel:
+          "ABOUT THE TUFTER",
+
+        aboutText:
+          "CONTEMPORARY TUFTED OBJECTS ROOTED IN CULTURE, DESIGN AND CRAFT.",
+
+        archive:
+          "ARCHIVE",
+
+        contact:
+          "CONTACT",
+
+        instagram:
+          "INSTAGRAM"
+
+      },
+
+
+      /* =======================================================
+         TURKISH
+      ======================================================= */
+
+      tr: {
+
+        drops:
+          "DROPLAR",
+
+        shop:
+          "MAĞAZA",
+
+        about:
+          "HAKKIMIZDA",
+
+        cart:
+          "SEPET",
+
+        heroSubtitle:
+          "ÇAĞDAŞ TUFT OBJELERİ",
+
+        scroll:
+          "KEŞFETMEK İÇİN KAYDIR ↓",
+
+        heroEnter:
+          "GİR →",
+
+        brandKicker:
+          "THE TUFTER®",
+
+        brandHeadline:
+          "KİMLİK TAŞIYAN OBJELER YARATIYORUZ.",
+
+        brandLead:
+          "Kültürden beslenen, zanaatla şekillenen, vibe’ı bilenler için.",
+
+        brandBody:
+          "THE TUFTER®, tasarım, kimlik ve ifade ile tanımlanan bir dünyadır. Giydiklerinden çevreni saran objelere kadar, tasarım, kimlik ve ifadeyi özgün parçalarla buluşturuyoruz.",
+
+        brandClosing1:
+          "FARKLI FORMLAR.",
+
+        brandClosing2:
+          "TEK BİR KİMLİK.",
+
+        brandClosing3:
+          "KALİTEDEN TAVİZ YOK.",
+
+        dropsLabel:
+          "DROPLAR / 001—003",
+
+        anatoliaCount:
+          "06 OBJE",
+
+        anatoliaDesc:
+          "TOPRAĞIN SEMBOLLERİ",
+
+        khaganatesCount:
+          "06 OBJE",
+
+        khaganatesDesc:
+          "MİRASIN SANCAKLARI",
+
+        otukenCount:
+          "05 OBJE",
+
+        otukenDesc:
+          "KÖKENİN ÇAĞRISI",
+
+        enterDrop:
+          "DROP'A GİR →",
+
+        shopLabel:
+          "MAĞAZA",
+
+        tufts:
+          "TUFTLAR",
+
+        tees:
+          "TİŞÖRTLER",
+
+        stickers:
+          "STICKERLAR",
+
+        handmade:
+          "EL YAPIMI",
+
+        available:
+          "SATIŞTA",
+
+        comingSoon:
+          "ÇOK YAKINDA",
+
+        currentDrop:
+          "GÜNCEL DROP / 001",
+
+        currentDropIntro:
+          "BEŞ SEMBOL / TEK DROP",
+
+        exploreAnatolia:
+          "ANATOLIA'YI KEŞFET →",
+
+        aboutLabel:
+          "THE TUFTER HAKKINDA",
+
+        aboutText:
+          "KÜLTÜR, TASARIM VE ZANAATTAN BESLENEN ÇAĞDAŞ TUFT OBJELERİ.",
+
+        archive:
+          "ARŞİV",
+
+        contact:
+          "İLETİŞİM",
+
+        instagram:
+          "INSTAGRAM"
+
+      },
+
+
+      /* =======================================================
+         GREEK
+      ======================================================= */
+
+      el: {
+
+        drops:
+          "DROPS",
+
+        shop:
+          "SHOP",
+
+        about:
+          "ΣΧΕΤΙΚΑ",
+
+        cart:
+          "ΚΑΛΑΘΙ",
+
+        heroSubtitle:
+          "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ",
+
+        scroll:
+          "ΚΑΝΤΕ ΚΥΛΙΣΗ ΓΙΑ ΕΞΕΡΕΥΝΗΣΗ ↓",
+
+        heroEnter:
+          "ΕΙΣΟΔΟΣ →",
+
+        brandKicker:
+          "THE TUFTER®",
+
+        brandHeadline:
+          "ΔΗΜΙΟΥΡΓΟΥΜΕ ΑΝΤΙΚΕΙΜΕΝΑ ΜΕ ΤΑΥΤΟΤΗΤΑ.",
+
+        brandLead:
+          "Με ρίζες στον πολιτισμό, διαμορφωμένα από την τέχνη, για όσους γνωρίζουν το vibe.",
+
+        brandBody:
+          "Το THE TUFTER® είναι ένας κόσμος που ορίζεται από τον σχεδιασμό, την ταυτότητα και την έκφραση. Από όσα φοράς μέχρι όσα σε περιβάλλουν, φέρνουμε τον σχεδιασμό, την ταυτότητα και την έκφραση μαζί μέσα από ξεχωριστά κομμάτια.",
+
+        brandClosing1:
+          "ΔΙΑΦΟΡΕΤΙΚΕΣ ΜΟΡΦΕΣ.",
+
+        brandClosing2:
+          "ΜΙΑ ΤΑΥΤΟΤΗΤΑ.",
+
+        brandClosing3:
+          "ΚΑΜΙΑ ΥΠΟΧΩΡΗΣΗ ΣΤΗΝ ΠΟΙΟΤΗΤΑ.",
+
+        dropsLabel:
+          "COLLECTIONS",
+
+        anatoliaCount:
+          "06 ΑΝΤΙΚΕΙΜΕΝΑ",
+
+        anatoliaDesc:
+          "ΣΥΜΒΟΛΑ ΤΗΣ ΓΗΣ",
+
+        khaganatesCount:
+          "06 ΑΝΤΙΚΕΙΜΕΝΑ",
+
+        khaganatesDesc:
+          "ΠΑΝΟ ΤΗΣ ΚΛΗΡΟΝΟΜΙΑΣ",
+
+        otukenCount:
+          "05 ΑΝΤΙΚΕΙΜΕΝΑ",
+
+        otukenDesc:
+          "Η ΚΛΗΣΗ ΤΗΣ ΚΑΤΑΓΩΓΗΣ",
+
+        enterDrop:
+          "ΕΙΣΟΔΟΣ ΣΤΟ DROP →",
+
+        shopLabel:
+          "SHOP",
+
+        tufts:
+          "TUFTS",
+
+        tees:
+          "ΜΠΛΟΥΖΕΣ",
+
+        stickers:
+          "ΑΥΤΟΚΟΛΛΗΤΑ",
+
+        handmade:
+          "ΧΕΙΡΟΠΟΙΗΤΑ",
+
+        available:
+          "ΔΙΑΘΕΣΙΜΟ",
+
+        comingSoon:
+          "ΣΥΝΤΟΜΑ",
+
+        currentDrop:
+          "ΤΡΕΧΟΝ DROP / 001",
+
+        currentDropIntro:
+          "ΠΕΝΤΕ ΣΥΜΒΟΛΑ / ΕΝΑ DROP",
+
+        exploreAnatolia:
+          "ΕΞΕΡΕΥΝΗΣΗ ANATOLIA →",
+
+        aboutLabel:
+          "ΣΧΕΤΙΚΑ ΜΕ ΤΟ THE TUFTER",
+
+        aboutText:
+          "ΣΥΓΧΡΟΝΑ TUFTED ΑΝΤΙΚΕΙΜΕΝΑ ΜΕ ΡΙΖΕΣ ΣΤΟΝ ΠΟΛΙΤΙΣΜΟ, ΤΟ DESIGN ΚΑΙ ΤΗΝ ΤΕΧΝΟΤΡΟΠΙΑ.",
+
+        archive:
+          "ΑΡΧΕΙΟ",
+
+        contact:
+          "ΕΠΙΚΟΙΝΩΝΙΑ",
+
+        instagram:
+          "INSTAGRAM"
+
+      }
+
+    };
+
+
+    /* =========================================================
+       LANGUAGE FUNCTION
+    ========================================================= */
+
+    function setLanguage(lang) {
+
+      document.documentElement.lang =
+        lang;
+
+
+      document
+        .querySelectorAll(
+          "[data-i18n]"
+        )
+        .forEach(
+          element => {
+
+            const key =
+              element.getAttribute(
+                "data-i18n"
+              );
+
+
+            if (
+              translations[lang] &&
+              translations[lang][key]
+            ) {
+
+              element.innerHTML =
+                translations[lang][key];
+
+            }
+
+          }
+        );
+
+
+      document
+        .querySelectorAll(
+          "[data-lang]"
+        )
+        .forEach(
+          element => {
+
+            element.classList.toggle(
+              "active",
+              element.getAttribute(
+                "data-lang"
+              ) === lang
+            );
+
+          }
+        );
+
+
+      localStorage.setItem(
+        "tufter-language",
+        lang
+      );
+
+    }
+
+
+    /* =========================================================
+       LANGUAGE BUTTONS
+    ========================================================= */
+
+    document
+      .querySelectorAll(
+        "[data-lang]"
+      )
+      .forEach(
+        element => {
+
+          element.addEventListener(
+            "click",
+            () => {
+
+              setLanguage(
+                element.getAttribute(
+                  "data-lang"
+                )
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================================================
+       LOAD SAVED LANGUAGE
+    ========================================================= */
+
+    const savedLanguage =
+      localStorage.getItem(
+        "tufter-language"
+      ) || "en";
+
+
+    setLanguage(
+      savedLanguage
+    );
+
+  </script>
+
+</body>
+
+</html>
