@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEES — THE TUFTER®</title>
+<link rel="icon" type="image/png" href="twinstar_favicon.png?v=4">
+<meta name="description" content="THE TUFTER® — Tees collection.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:#f3f1eb;color:#111;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+header{height:78px;position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:0 28px;background:rgba(243,241,235,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(17,17,17,.12)}
+.logo-wrap{position:absolute;left:50%;transform:translateX(-50%)}.logo,.menu-brand{font-size:14px;font-weight:700;letter-spacing:.08em;white-space:nowrap}.registered{font-size:.55em;vertical-align:top;margin-left:2px}
+header nav{position:absolute;right:28px;display:flex;align-items:center;gap:24px;font-size:10px;letter-spacing:.12em;font-weight:700}.languages{display:flex;gap:10px}.languages span{cursor:pointer;opacity:.38;transition:opacity .2s}.languages span.active,.languages span:hover{opacity:1}header nav>a{transition:opacity .2s}header nav>a:hover{opacity:.45}
+.menu-trigger{position:absolute;left:28px;top:50%;transform:translateY(-50%);width:28px;height:20px;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;padding:2px 0;z-index:120}.menu-trigger span{display:block;width:100%;height:1px;background:#111;transition:transform .25s,opacity .25s}.menu-trigger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.menu-trigger.open span:nth-child(2){opacity:0}.menu-trigger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.menu-hit-zone{position:fixed;left:0;top:78px;bottom:0;width:18px;z-index:90}.menu-backdrop{position:fixed;inset:0;background:rgba(17,17,17,.28);opacity:0;visibility:hidden;transition:opacity .3s;z-index:101}.menu-backdrop.open{opacity:1;visibility:visible}.menu-drawer{position:fixed;left:0;top:0;bottom:0;width:min(360px,88vw);background:#f3f1eb;z-index:110;transform:translateX(-101%);transition:transform .38s cubic-bezier(.77,0,.18,1);padding:28px;display:flex;flex-direction:column}.menu-drawer.open{transform:translateX(0)}.menu-close{position:absolute;right:28px;top:28px;width:22px;height:22px;border:0;background:none;cursor:pointer}.menu-close:before,.menu-close:after{content:"";position:absolute;left:10px;top:0;width:1px;height:22px;background:#111}.menu-close:before{transform:rotate(45deg)}.menu-close:after{transform:rotate(-45deg)}.menu-nav{display:flex;flex-direction:column;gap:16px;margin-top:95px}.menu-nav a{font-size:24px;line-height:1;font-weight:700;letter-spacing:-.04em;transition:opacity .2s}.menu-nav a:hover{opacity:.4}.menu-instagram{margin-top:18px}.menu-footer{margin-top:auto;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.1em;opacity:.5}
+main{padding-top:78px}.collection-head{padding:54px 28px 28px;display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid rgba(17,17,17,.16)}.collection-kicker{font-size:10px;letter-spacing:.16em;font-weight:700;margin-bottom:12px;opacity:.55}.collection-title{display:none;font-size:clamp(42px,5.5vw,78px);line-height:.8;letter-spacing:-.07em;font-weight:700}.collection-meta{font-size:10px;letter-spacing:.12em;text-align:right;line-height:1.6;opacity:.6}
+.tees-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid rgba(17,17,17,.12)}.tee-card{position:relative;min-height:31vw;border-right:1px solid rgba(17,17,17,.12);border-bottom:1px solid rgba(17,17,17,.12);padding:18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:background .35s}.tee-card:hover{background:#e9e6df}.tee-visual{position:relative;flex:1;min-height:25vw;display:flex;align-items:center;justify-content:center;background:#dedbd4;overflow:hidden}.tee-visual:after{content:"TEE";font-size:clamp(50px,7vw,110px);font-weight:700;letter-spacing:-.08em;opacity:.055;position:absolute;white-space:nowrap}.tee-placeholder{font-size:10px;letter-spacing:.15em;opacity:.38;z-index:1}.tee-info{display:flex;justify-content:space-between;align-items:flex-end;padding-top:17px}.tee-number{font-size:10px;letter-spacing:.14em;opacity:.5}.tee-name{font-size:18px;font-weight:700;letter-spacing:-.025em}.tee-action{font-size:9px;letter-spacing:.14em;font-weight:700;opacity:.55;transition:opacity .2s}.tee-card:hover .tee-action{opacity:1}
+footer{padding:70px 28px 25px;border-top:1px solid rgba(17,17,17,.16);margin-top:0}.footer-top{display:flex;justify-content:space-between;gap:40px}.footer-logo{font-size:30px;line-height:.88;font-weight:700;letter-spacing:-.05em}.footer-links{display:flex;gap:70px}.footer-links div{display:flex;flex-direction:column;gap:10px}.footer-links a{font-size:10px;font-weight:700;letter-spacing:.12em}.footer-links a:hover{opacity:.4}.footer-official-note{max-width:470px;margin-top:75px;font-size:9px;line-height:1.55;letter-spacing:.03em;opacity:.5}.footer-bottom{display:flex;justify-content:space-between;margin-top:55px;padding-top:14px;border-top:1px solid rgba(17,17,17,.16);font-size:9px;letter-spacing:.1em;opacity:.5}
+@media(max-width:900px){.tees-grid{grid-template-columns:repeat(2,1fr)}.tee-card{min-height:45vw}.tee-visual{min-height:37vw}}
+@media(max-width:700px){header{height:66px;padding:0 18px}.menu-trigger{left:18px}.logo{font-size:12px}header nav{right:18px;gap:13px;font-size:9px}.menu-drawer{padding:22px}.menu-close{right:22px;top:22px}main{padding-top:66px}.collection-head{padding:58px 18px 30px;display:block}.collection-title{display:none;font-size:17vw}.collection-meta{text-align:left;margin-top:24px}.tees-grid{grid-template-columns:1fr}.tee-card{min-height:125vw;padding:12px}.tee-visual{min-height:105vw}.tee-info{padding-top:13px}.tee-name{font-size:16px}.footer-top{display:block}.footer-links{margin-top:45px;gap:55px}.footer-official-note{margin-top:55px}.footer-bottom{margin-top:40px}}
+</style>
+</head>
+<body>
+<header>
+<button class="menu-trigger" id="menuTrigger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<div class="logo-wrap"><div class="logo">THE TUFTER<span class="registered">®</span></div></div>
+<nav><div class="languages"><span data-lang="en" class="active">EN</span><span data-lang="tr">TR</span><span data-lang="el">EL</span></div><a href="#" data-i18n="cart">CART</a></nav>
+</header>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<aside class="menu-drawer" id="menuDrawer" aria-hidden="true">
+<button class="menu-close" id="menuClose" aria-label="Close menu"></button>
+<div class="menu-brand">THE TUFTER<span class="registered">®</span></div>
+<nav class="menu-nav">
+<a href="index.html#shop" data-i18n="shop">SHOP</a>
+<a href="index.html#about" data-i18n="about">ABOUT</a>
+<a href="index.html#" data-i18n="archive">ARCHIVE</a>
+<a href="index.html#contact" data-i18n="contact">CONTACT</a>
+<a href="https://www.instagram.com/whoisthetufter/" target="_blank" rel="noopener noreferrer" data-i18n="instagram">INSTAGRAM</a>
+</nav>
+<div class="menu-footer"><div>EN / TR / EL</div><div>© 2026 THE TUFTER®</div></div>
+</aside>
+<main>
+<section class="collection-head"><div><div class="collection-kicker" data-i18n="collectionKicker">THE TUFTER® / WEAR / TEE'LER</div></div></section>
+<section class="tees-grid">
+<a class="tee-card" href="tee-01.html"><div class="tee-visual"><span class="tee-placeholder" data-i18n="placeholder">PRODUCT VISUAL</span></div><div class="tee-info"><div><div class="tee-number">01 / 06</div><div class="tee-name">TEE 01</div></div><div class="tee-action" data-i18n="view">VIEW TEE →</div></div></a>
+<a class="tee-card" href="tee-02.html"><div class="tee-visual"><span class="tee-placeholder" data-i18n="placeholder">PRODUCT VISUAL</span></div><div class="tee-info"><div><div class="tee-number">02 / 06</div><div class="tee-name">TEE 02</div></div><div class="tee-action" data-i18n="view">VIEW TEE →</div></div></a>
+<a class="tee-card" href="tee-03.html"><div class="tee-visual"><span class="tee-placeholder" data-i18n="placeholder">PRODUCT VISUAL</span></div><div class="tee-info"><div><div class="tee-number">03 / 06</div><div class="tee-name">TEE 03</div></div><div class="tee-action" data-i18n="view">VIEW TEE →</div></div></a>
+<a class="tee-card" href="tee-04.html"><div class="tee-visual"><span class="tee-placeholder" data-i18n="placeholder">PRODUCT VISUAL</span></div><div class="tee-info"><div><div class="tee-number">04 / 06</div><div class="tee-name">TEE 04</div></div><div class="tee-action" data-i18n="view">VIEW TEE →</div></div></a>
+<a class="tee-card" href="tee-05.html"><div class="tee-visual"><span class="tee-placeholder" data-i18n="placeholder">PRODUCT VISUAL</span></div><div class="tee-info"><div><div class="tee-number">05 / 06</div><div class="tee-name">TEE 05</div></div><div class="tee-action" data-i18n="view">VIEW TEE →</div></div></a>
+<a class="tee-card" href="tee-06.html"><div class="tee-visual"><span class="tee-placeholder" data-i18n="placeholder">PRODUCT VISUAL</span></div><div class="tee-info"><div><div class="tee-number">06 / 06</div><div class="tee-name">TEE 06</div></div><div class="tee-action" data-i18n="view">VIEW TEE →</div></div></a>
+</section>
+</main>
+<footer>
+<div class="footer-top"><div class="footer-logo">THE<br>TUFTER<span class="registered">®</span></div><div class="footer-links"><div><a href="index.html#shop" data-i18n="shop">SHOP</a><a href="index.html#about" data-i18n="about">ABOUT</a></div><div><a href="index.html#" data-i18n="archive">ARCHIVE</a><a href="index.html#contact" data-i18n="contact">CONTACT</a><a href="https://www.instagram.com/whoisthetufter/" target="_blank" data-i18n="instagram">INSTAGRAM</a></div></div></div>
+<div class="footer-official-note" data-i18n="footerOfficial">You are viewing the only official website of THE TUFTER®. Original collections, designs, and brand assets are released exclusively through this platform.</div>
+<div class="footer-bottom"><span>© 2026 THE TUFTER®</span><span>EN / TR / EL</span></div>
+</footer>
+<script>
+const drawer=document.getElementById('menuDrawer'),trigger=document.getElementById('menuTrigger'),close=document.getElementById('menuClose'),backdrop=document.getElementById('menuBackdrop');
+function openMenu(){drawer.classList.add('open');backdrop.classList.add('open');trigger.classList.add('open');trigger.setAttribute('aria-expanded','true');drawer.setAttribute('aria-hidden','false')}
+function closeMenu(){drawer.classList.remove('open');backdrop.classList.remove('open');trigger.classList.remove('open');trigger.setAttribute('aria-expanded','false');drawer.setAttribute('aria-hidden','true')}
+trigger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());close.addEventListener('click',closeMenu);backdrop.addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+const translations={
+en:{cart:'CART',shop:'SHOP',about:'ABOUT',archive:'ARCHIVE',contact:'CONTACT',instagram:'INSTAGRAM',collectionKicker:"THE TUFTER® / WEAR / TEES",title:'TEES',meta:'SIX PIECES<br>COLLECTION 01',placeholder:'PRODUCT VISUAL',view:'VIEW TEE →',footerOfficial:'You are viewing the only official website of THE TUFTER®. Original collections, designs, and brand assets are released exclusively through this platform.'},
+tr:{cart:'SEPET',shop:'MAĞAZA',about:'HAKKIMIZDA',archive:'ARŞİV',contact:'İLETİŞİM',instagram:'INSTAGRAM',collectionKicker:"THE TUFTER® / WEAR / TEE'LER",title:"TEE'LER",meta:'ALTI PARÇA<br>KOLEKSİYON 01',placeholder:'ÜRÜN GÖRSELİ',view:'TİŞÖRTÜ GÖR →',footerOfficial:'THE TUFTER® resmi web sitesindesiniz. Orijinal koleksiyonlar, tasarımlar ve marka varlıkları yalnızca bu platform üzerinden yayınlanır.'},
+el:{cart:'ΚΑΛΑΘΙ',shop:'ΚΑΤΑΣΤΗΜΑ',about:'ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ',archive:'ΑΡΧΕΙΟ',contact:'ΕΠΙΚΟΙΝΩΝΙΑ',instagram:'INSTAGRAM',collectionKicker:"THE TUFTER® / WEAR / TEE'ΛΕΣ",title:"TEE'ΛΕΣ",meta:'ΕΞΙ ΚΟΜΜΑΤΙΑ<br>ΣΥΛΛΟΓΗ 01',placeholder:'ΕΙΚΟΝΑ ΠΡΟΪΟΝΤΟΣ',view:'ΔΕΙΤΕ ΤΟ →',footerOfficial:'Βρίσκεστε στον επίσημο ιστότοπο του THE TUFTER®. Οι αυθεντικές συλλογές, τα σχέδια και τα στοιχεία του brand κυκλοφορούν αποκλειστικά μέσω αυτής της πλατφόρμας.'}
+};
+function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(translations[lang][key]!==undefined)el.innerHTML=translations[lang][key]});document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('active',el.dataset.lang===lang));localStorage.setItem('tufter-language',lang)}
+document.querySelectorAll('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));setLanguage(localStorage.getItem('tufter-language')||'en');
+</script>
+</body>
+</html>
